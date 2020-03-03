@@ -38,7 +38,6 @@ awsSecret=7a6d81dbae019085585513757b1e5332289bdbffa849126bcb7c20f2d9852092
 
 3. And identify the ozone path
 
-
 ```
 > ozone s3 path bucket1
 Volume name for S3Bucket is : s3c89e813c80ffcea9543004d57b2a1239
@@ -49,15 +48,16 @@ Ozone FileSystem Uri is : o3fs://bucket1.s3c89e813c80ffcea9543004d57b2a1239
 
  1. This mapping is very confusing. Based on external feedback it's hard to understand what is the exact Ozone URL which should be used
  2. It's almost impossible to remember to the volume name
- 3. We don't support the revokatin of access keys
- 5. There is no way to access the same bucket with multiple users (s3 buckets are always separated to separated volumes)
+ 3. We don't support the revocatin of access keys
+ 
+## Possible solutions
 
-## Proposed solution
+### 1. Predefined volume mapping
 
  1. Let's support multiple `ACCESS_KEY_ID` for the same user.
- 2. For each `ACCESS_KEY_ID` a volume name MUST be defined during the generation of the key. (Or we can use a default volume name `S3`)
- 3. Default mapping will `s3BucketName` -> `definedVolume/s3BucketName` (without the `s3` prefix and md5hex obfuscation).
-
+ 2. For each `ACCESS_KEY_ID` a volume name MUST be defined.
+ 3. Instead of using a specific mapping table, the `ACCESS_KEY_ID` would provide a **view** of the buckets in the specified volume.
+ 
 With this approach the used volume will be more visible and -- hopefully -- understandable.
 
 Instead of using `ozone s3 getsecret`, following commands would be used:
@@ -68,11 +68,41 @@ Instead of using `ozone s3 getsecret`, following commands would be used:
 
 The `AWS_ACCESS_KEY_ID` should be a random identifier instead of using a kerberos principal.
 
-Implementation-wise it's a small change, we already have the table for the mapping in-place. We need to extend the current OM admin RPC protocol and the CLI. 
+ * __pro__: Easier to understand
+ * __con__: We should either have global unique bucket names or it will be possible to see two different buckets with
 
-## Alternative solutions
+### 2. Using one volume
 
- 1. The problem can be solved with removing the support of volumes from the Ozone. This would be a very huge step, and there are very strong opinions to keep it to make it easier the administration of buckets.
- 2. We can also weaken the volumes and use them as a special *bucket groups*. In this case each of the buckets would be assigned to a bucket group (aka. volume), but the volume wouldn't be part of the hierarchy. (ozonefs would contain just the same bucket as the s3). With the approach the volume wouldn't be a hierarchical element any more. But this is a bigger chance and conflicted witht the current effort to make the ozonefs url `o3fs://om/volume/bucket/....` format. 
+Let's always use `s3` volume for all the s3 buckets (or any other predefined version.)
 
-These alternative solutions either don't have the consensus or require significant more changes than this proposals. Therefore I suggest to improve only the mapping between the ACCESS_KEY_ID -> volume, which can improve the usability without any bigger changes.
+ * __pro__: Dead simple
+ * __con__: Volume is removed from the s3 bucket part (and in this case, why do you need volume at all?).
+
+### 3. String magic
+
+We can try to make volume name visible for the S3 world to use some structured bucket names. Unforunatelly the available separated charates are very limited:
+
+For example we can't use `/`
+
+```
+aws s3api create-bucket --bucket=vol1/bucket1
+
+Parameter validation failed:
+Invalid bucket name "vol1/bucket1": Bucket name must match the regex "^[a-zA-Z0-9.\-_]{1,255}$" or be an ARN matching the regex "^arn:(aws).*:s3:[a-z\-0-9]+:[0-9]{12}:accesspoint[/:][a-zA-Z0-9\-]{1,63}$"
+```
+
+But it's possible to use `volume-bucket` notion:
+
+```
+aws s3api create-bucket --bucket=vol1-bucket1
+```
+ * __pro__: Volume mapping is visible all the time.
+ * __con__: Harder to use any external tool with defaults (all the buckets should have at least one `-`)
+
+### 4. Remove volume **from the ozone path**
+
+We can also make `volume`-s as a lightweight *bucket group* object with removing it from the ozonefs path. With this approach we can use all the benefits of the volumes as an administration object but it would be removed from the `o3fs` path.
+
+ * __pro__: can be the most simple solution. Easy to understand as there are no more volumes in the path.
+ * __con__: Bigger change (all the API can't be modified to make volumes optional)
+ * __pro__: Harder to dis-join namespaces based on volumes. (With the current scheme, it's easier to delegate the responsibilties for one volumes to a different OM)
