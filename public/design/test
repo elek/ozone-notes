@@ -1,0 +1,16 @@
+
+ * Jitendra: Multiraft-problem has been found
+    --> In case of multi-raft, multiple leader on the some Datanode can cause performance issues
+    --> Is randomization enough after some problem, during re-election?
+    --> Is it possible to write via a follower?
+    --> Multiple SSD can be used for Raft logs (can be useful for for Multi-raft)
+    --> Shashi: we see performance problems when tests run with only a few clients (under investigation)
+    --> flush is one problem (we have stronger guarantees)
+    --> We need to check if sync is required for Raft log.
+    --> Can we do it with increase the leader election timeout on all datanodes which already have a timeout?
+
+ * Uma: First patch is committed, on the trunk
+    --> 
+
+ * Move to TLP?
+    --> 

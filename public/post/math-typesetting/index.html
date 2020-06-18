@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Math Typesetting - Hugo Whisper Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="www.example.com/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/www.example.com/css/style.min.aad43d4ecb69a264f2539b89d7f779d5f3cdff22e7585fe5fc3c77272f1c2696.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="www.example.com/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="www.example.com/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="www.example.com"><img alt="Logo" src="/www.example.com/images/logo.svg" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="www.example.com"><img alt="Logo" src="/www.example.com/images/logo-mobile.svg" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="www.example.com/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="www.example.com/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+
+    
+    
+<h1 class="title">Math Typesetting</h1>
+<div class="content ">
+  <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
+
+<p>In this example we will be using <a href="https://katex.org/">KaTeX</a></p>
+
+<ul>
+<li>Create a partial under <code>/layouts/partials/math.html</code></li>
+<li>Within this partial reference the <a href="https://katex.org/docs/autorender.html">Auto-render Extension</a> or host these scripts locally.</li>
+<li>Include the partial in your templates like so:<br></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{{ if or .Params.math .Site.Params.math }}
+{{ partial &#34;math.html&#34; . }}
+{{ end }}</code></pre></div>
+<ul>
+<li>To enable KaTex globally set the parameter <code>math</code> to <code>true</code> in a project's configuration</li>
+<li>To enable KaTex on a per page basis include the parameter <code>math: true</code> in content files.</li>
+</ul>
+
+<p><strong>Note:</strong> Use the online reference of <a href="https://katex.org/docs/supported.html">Supported TeX Functions</a>
+</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>Inline math: <span  class="math">\( \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… \)</span></p>
+
+<p>Block math:</p>
+
+<p><span  class="math">\[
+ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
+\]</span></p>
+</div>
+</div>
+
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/www.example.com/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

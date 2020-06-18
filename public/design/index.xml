@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Designs on Hugo Whisper Theme</title>
+    <link>www.example.com/design/</link>
+    <description>Recent content in Designs on Hugo Whisper Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="www.example.com/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Storage class support in Ozone</title>
+      <link>www.example.com/design/storage-class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/design/storage-class/</guid>
+      <description>Abstract One of the fundamental abstraction of Ozone is the Container which used as the unit of the replication.
+Containers have to favors: Open and Closed containers: Open containers are replicated by Ratis and writable, Closed containers are replicated with data copy and read only.</description>
+    </item>
+    
+  </channel>
+</rss>

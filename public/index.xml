@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo Whisper Docs on Hugo Whisper Theme</title>
+    <link>www.example.com/</link>
+    <description>Recent content in Hugo Whisper Docs on Hugo Whisper Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Nov 2018 15:14:39 +1000</lastBuildDate>
+    
+	<atom:link href="www.example.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install Hugo</title>
+      <link>www.example.com/docs/install-hugo/</link>
+      <pubDate>Mon, 11 Feb 2019 19:27:37 +1000</pubDate>
+      
+      <guid>www.example.com/docs/install-hugo/</guid>
+      <description>To use this theme you will need to have Hugo installed. If you don&amp;rsquo;t already have Hugo installed please follow the official installation guide
+Check Hugo Version This theme uses Hugo Pipes to compile SCSS and minify assets.</description>
+    </item>
+    
+    <item>
+      <title>Install Theme</title>
+      <link>www.example.com/docs/install-theme/</link>
+      <pubDate>Mon, 11 Feb 2019 19:27:37 +1000</pubDate>
+      
+      <guid>www.example.com/docs/install-theme/</guid>
+      <description>Create a new Hugo site hugo new site mynewsite This will create a fresh Hugo site in the folder mynewsite.
+Install theme Copy or git clone this theme into the sites themes folder mynewsite/themes</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>www.example.com/docs/configure/</link>
+      <pubDate>Mon, 11 Feb 2019 19:30:08 +1000</pubDate>
+      
+      <guid>www.example.com/docs/configure/</guid>
+      <description>Syntax highlighting and menus can be configured via &lt;code&gt;config.toml&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Specimen</title>
+      <link>www.example.com/docs/specimen/</link>
+      <pubDate>Mon, 11 Feb 2019 19:27:37 +1000</pubDate>
+      
+      <guid>www.example.com/docs/specimen/</guid>
+      <description>Markdown Test Page  Headings Paragraphs Blockquotes Lists Horizontal rule Table Code Inline elements   Headings Heading one Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum anim qui mollit tempor pariatur nisi minim dolor.</description>
+    </item>
+    
+    <item>
+      <title>Hugo Whisper</title>
+      <link>www.example.com/docs/example/</link>
+      <pubDate>Mon, 11 Feb 2019 19:27:37 +1000</pubDate>
+      
+      <guid>www.example.com/docs/example/</guid>
+      <description>&lt;p&gt;Whisper is a minimal documentation theme built for Hugo. The design &amp;amp; functionality is intentionally minimal.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Privacy</title>
+      <link>www.example.com/index.html</link>
+      <pubDate>Thu, 19 Mar 2020 12:37:51 +0100</pubDate>
+      
+      <guid>www.example.com/index.html</guid>
+      <description>asd asd aasd</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>www.example.com/post/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/post/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rich Content</title>
+      <link>www.example.com/post/rich-content/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/post/rich-content/</guid>
+      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Placeholder Text</title>
+      <link>www.example.com/post/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/post/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
+pectora summo.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Math Typesetting</title>
+      <link>www.example.com/post/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/post/math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>www.example.com/post/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/post/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Checking syscalls with different batch sizes</title>
+      <link>www.example.com/docs/07_strace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/docs/07_strace/</guid>
+      <description>Ozone Performance #7: Checking syscalls with different batch sizes  Date: 2020-02-11 Ozone master: 3ddcdbbef Ratis master: 0.5.0-90cd474-SNAPSHOT Docker image: elek/ozonedev:20200211-1  How to test?  Deploy a single Datanode which is forced to be in FOLLOWER mode.</description>
+    </item>
+    
+    <item>
+      <title>Storage class support in Ozone</title>
+      <link>www.example.com/design/storage-class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/design/storage-class/</guid>
+      <description>Abstract One of the fundamental abstraction of Ozone is the Container which used as the unit of the replication.
+Containers have to favors: Open and Closed containers: Open containers are replicated by Ratis and writable, Closed containers are replicated with data copy and read only.</description>
+    </item>
+    
+  </channel>
+</rss>

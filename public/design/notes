@@ -1,0 +1,42 @@
+
+(This time I removed some of the name prefixes as I would like to copy one part to the )
+
+## First discussion (about https://github.com/apache/hadoop-ozone/pull/864)
+
+ * There are two related questions
+   * The separation of Admin and Client / Server calls on network / protocol level 
+   * To create an RocksDB `ldb` like tool and cover a lot of the use cases with that
+
+The separated topics in more details
+
+ * Admin / Client separation
+   * Overall we agreed to do it
+   * There are two main advantages: security (certain ports can be disabled) and compatibility (easier to monitor changes)
+   * We can get the better visibility just to create multiple .proto files
+   * It requires new ports on SCM / OM. (On SCM it can be enough to re-organize the existing services)
+   * We already have HDDS-3519
+   * TODO(Marton): Create an Excel sheet with all the existing RPC methods and review the usages 
+
+* Ozone LDB
+  * LDB is a RocksDB tool which can get / scan information from RocksDB files
+  * It works on file structure level doesn't have lock
+  * It would be useful to create an `ozone admin ldb` tool which do the same BUT parse the protofile
+  * Can help to debug problems and corruptions
+  * Fixing SQL export also can help (do partial + full export + sql commands)
+  * It's questions of the usability. The code seems to be close, we can support both
+  * Do we need access to the persisted data or enough to have the runtime state (RPC calls)? 
+     * We have some cases where we need it (eg. corruptions or debug use cases)
+  * TODO(Marton): Create an issue for this
+
+
+## Second topic: Read attributes of a file after open but before commit key
+
+(Coping it from the PR)
+
+ * We have more serious problems, as this is just a workaround for NFS
+ * Even this workaround doesn't solve all the problems. (It creates a 0 size file first, and add content later. This behavior may or may not be accepted by any other tools).
+ * One example: when some configuration is copied to this file system, other service can found it as a zero size file and start with wrong parameters as real content is added later
+ * HBase/Impala/... and other projects have the same problems with Ozone (Should be fixed it in our side) AND with other Object Stores (s3a)
+ * Related Impala bug for exmaple: https://issues.apache.org/jira/browse/IMPALA-9437
+ * But fixing is not easy as there could be multiple parallel file creation (no lease).
+ * TODO: create a Jira. We need to think about this problem and hava a plan.

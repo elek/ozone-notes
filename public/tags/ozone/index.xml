@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ozone on Hugo Whisper Theme</title>
+    <link>www.example.com/tags/ozone/</link>
+    <description>Recent content in ozone on Hugo Whisper Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="www.example.com/tags/ozone/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Checking syscalls with different batch sizes</title>
+      <link>www.example.com/docs/07_strace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/docs/07_strace/</guid>
+      <description>Ozone Performance #7: Checking syscalls with different batch sizes  Date: 2020-02-11 Ozone master: 3ddcdbbef Ratis master: 0.5.0-90cd474-SNAPSHOT Docker image: elek/ozonedev:20200211-1  How to test?  Deploy a single Datanode which is forced to be in FOLLOWER mode.</description>
+    </item>
+    
+  </channel>
+</rss>

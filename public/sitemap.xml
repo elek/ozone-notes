@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>www.example.com/docs/</loc>
+    <lastmod>2018-11-28T15:14:39+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/docs/install-hugo/</loc>
+    <lastmod>2019-02-11T19:27:37+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/docs/install-theme/</loc>
+    <lastmod>2019-02-11T19:27:37+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/docs/configure/</loc>
+    <lastmod>2019-02-11T19:30:08+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/docs/specimen/</loc>
+    <lastmod>2019-02-11T19:27:37+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/docs/example/</loc>
+    <lastmod>2019-02-11T19:27:37+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/asd/</loc>
+    <lastmod>2020-03-19T12:37:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/index.html</loc>
+    <lastmod>2020-03-19T12:37:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/qwe/</loc>
+    <lastmod>2020-03-19T12:37:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/</loc>
+    <lastmod>2020-03-19T12:37:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/categories/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/css/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/html/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/markdown/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/post/markdown-syntax/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/post/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/categories/syntax/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/themes/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/categories/themes/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/privacy/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/post/rich-content/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/shortcodes/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/post/placeholder-text/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/text/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/post/math-typesetting/</loc>
+    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/emoji/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/post/emoji-support/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/</loc>
+    <lastmod>2018-11-28T15:14:39+10:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>www.example.com/docs/07_strace/</loc>
+  </url>
+  
+  <url>
+    <loc>www.example.com/design/</loc>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/index/</loc>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/ozone/</loc>
+  </url>
+  
+  <url>
+    <loc>www.example.com/tags/perftest/</loc>
+  </url>
+  
+  <url>
+    <loc>www.example.com/design/storage-class/</loc>
+  </url>
+  
+</urlset>

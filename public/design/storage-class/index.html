@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Storage class support in Ozone - Hugo Whisper Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="www.example.com/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/www.example.com/css/style.min.aad43d4ecb69a264f2539b89d7f779d5f3cdff22e7585fe5fc3c77272f1c2696.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="www.example.com/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="www.example.com/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="www.example.com"><img alt="Logo" src="/www.example.com/images/logo.svg" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="www.example.com"><img alt="Logo" src="/www.example.com/images/logo-mobile.svg" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="www.example.com/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="www.example.com/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+
+    
+    
+<h1 class="title">Storage class support in Ozone</h1>
+<div class="content ">
+  <h2 id="abstract">Abstract</h2>
+<p>One of the fundamental abstraction of Ozone is the <em>Container</em> which used as the unit of the replication.</p>
+<p>Containers have to favors: <em>Open</em> and <em>Closed</em> containers: Open containers are replicated by Ratis and writable, Closed containers are replicated with data copy and read only.</p>
+<p>In this document a new level of abstraction is proposed: the <em>storage class</em> which defines which type of containers should be used and what type of transitions are supported.</p>
+<h2 id="containers-in-more-details">Containers in more details</h2>
+<p>Container is the unit of replication of Ozone. One Container can store multiple blocks (default container size is 5GB) and they are replicated together. Datanodes report only the replication state of the Containers back to the Storage Container Manager (SCM) which makes it possible to scale up to billions of objects.</p>
+<p>The identifier of a block (BlockId) containers ContainerId and LocalId (ID inside the container). ContainerId can be used to find the right Datanode which stores the data. LocalId can be used to find the data inside one container.</p>
+<p>Container type defines the following:</p>
+<ul>
+<li>How to write to the containers?</li>
+<li>How to read from the containers?</li>
+<li>How to recover / replicate data in case of error</li>
+<li>How to store the data on the Datanode (related to the <em>how to write</em> question?)</li>
+</ul>
+<p>The definition of <em>Ratis/THREE</em>:</p>
+<ul>
+<li><strong>How to write</strong>: Call standard Datanode RPC API on <em>Leader</em>. Leader will replicate the data to the followers</li>
+<li><strong>How to read</strong>: Read the data from the Leader (stale read can be possible long-term)</li>
+<li><strong>How to replicate / recover</strong>
+<ul>
+<li>Transient failures can be handled by new leader election</li>
+<li>Permanent degradation couldn&rsquo;t be handled. (Transition to Closed containers is required)</li>
+</ul>
+</li>
+</ul>
+<p>The definitions of <em>Closed/THREE</em>:</p>
+<ul>
+<li><strong>How to write</strong>: Closed containers are not writeable</li>
+<li><strong>How to read</strong>: Read the data from any nodes (Simple RPC call to the DN)</li>
+<li><strong>How to replicate / recover</strong>
+<ul>
+<li>Datanodes provides a GRPC endpoint to publish containers as compressed package</li>
+<li>Replication Manager (SCM) can send commands to DN to replicate data FROM other Datanode</li>
+<li>Datanode downloads the compressed package and import it</li>
+</ul>
+</li>
+</ul>
+<p>The definitions of <em>Closed/ONE</em>:</p>
+<ul>
+<li><strong>How to write</strong>: Closed containers are not writeable</li>
+<li><strong>How to read</strong>: Read the data from any nodes (Simple RPC call to the DN)</li>
+<li><strong>How to replicate / recover</strong>: No recovery, sorry.</li>
+</ul>
+<h2 id="storage-class">Storage-class</h2>
+<p>Let&rsquo;s define the <em>storage-class</em> as set of used container <strong>types and transitions</strong> between them during the life cycle of the containers.</p>
+<p>The type of the Container can be defined with the implementation type (eg. Ratis, EC, Closed) and with additional parameters related to type (eg. replication type of Ratis, or EC algorithm for EC containers).</p>
+<p>Today Ozone supports two storage classes.</p>
+<p>The definition STANDARD Storage class:</p>
+<ul>
+<li><em>First container type/parameters</em>: Ratis/THREE replicated containers</li>
+<li><em>Transitions</em>: In case of any error or if the container is full, convert to closed containers</li>
+<li><em>Second container type/parameters</em>: Closed/THREE container</li>
+</ul>
+<p>The definition REDUCED Storage class:</p>
+<ul>
+<li><em>First container type/parameters</em>: Ratis/ONE replicated containers</li>
+<li><em>Transitions</em>: In case the container is full, convert to closed containers</li>
+<li><em>Second container type/parameters</em>: Closed/ONE container</li>
+</ul>
+<p>But we can define other storage classes as well. For example we can define (Ratis/THREE &ndash;&gt; Closed/FIVE) storage class, or more specific containers can be used for Erasure Coding or Random Read/Write.</p>
+<p>With this approach the storage-class can be an adjustable abstraction to define the rules of replications. Some key properties of this approach:</p>
+<ul>
+<li><strong>Storage-class can be defined by configuration</strong>: Storage class is nothing more just the definition of rules to store / replicate containers. They can be configured in config files and changed any time.</li>
+<li><strong>Object creation requires storage class</strong>: Right now we should defined <em>replication factor</em> and <em>replication type</em> during the key creation. They can be replaced with setting only the Storage class.</li>
+<li><strong>Storage-class is property of the containers</strong>: As the unit of replication in Ozone is container, one specific storage-class should be adjusted for each containers.</li>
+<li><strong>Changing storage class of a key</strong> means copying it to an other container</li>
+<li><strong>Changing definition of storage class</strong> will modify the behavior of the Replication Manager, and &ndash; eventually &ndash; the containers will be replaced in a different way.</li>
+</ul>
+<p><em>Note</em>: we already support storage class for S3 objects the only difference is that it would become an Ozone level abstraction and it would defined <em>all</em> the container types and transitions.</p>
+<h2 id="possible-use-cases">Possible use-cases</h2>
+<p>First of all, we can configure different replication levels easily with this approach (eg. Ratis/THREE &ndash;&gt; Closed/TWO). Ratis need quorum but we can have different replication number after closing containers.</p>
+<p>We can also define topology related transitions (eg. after closing, one replica should be copied to different rack) or storage specific constrains (Right now we have only one implementation of the storage: <code>KeyValueContainer</code> but we can implement more and storage class provides an easy abstraction to configure the required storage).</p>
+<p>Datanode also can provide different disk type for containers in a certain storage class (eg. SSD for fast access).</p>
+<h1 id="additional-use-cases">Additional use cases</h1>
+<p>In addition to the possible, replication related additional options there are two very specific use cases where we can use storage classes. Both requires more design discussion but here I quickly summarize some possible directions with the help of the storage class abstraction.</p>
+<h2 id="erasure-coding">Erasure coding</h2>
+<p>To store cold data on less bits (less than the data * 3 replicas) we can encode the data and store some additional bits to survive replica loss. In a streaming situation (streaming write) it can be tricky as we need enough chunks to do the Reed-Solomon magic. With containers we are in a better position. After the first transition of the Open containers we can do EC encoding and that time we have enough data to encode.</p>
+<p>There are multiple options to do EC, one most simplest way is to encode Containers after the first transition:</p>
+<p>Storage class COLD:</p>
+<ul>
+<li><em>First container type/parameters</em>: Ratis/THREE replicated containers</li>
+<li><em>Transitions</em>: In case of any error or if the container is full, convert to closed containers</li>
+<li><em>Second container type/parameters</em>: EC RS(6,2)</li>
+</ul>
+<p>With this storage class the containers can be converted to a specific EC container together with other containers (For example instead of 3 x C1, 3 x C2 and 3 x C3 containers can be converted to C1, C2, C3 + Parity 1 + Parity2).</p>
+<h2 id="random-read-write">Random-read write</h2>
+<p>NFS / Fuse file system might require to support Random read/write which can be tricky as the closed containers are immutable. In case of changing any one byte in a block, the whole block should be re-created with the new data. It can have a lot of overhead especially in case of many small writes.</p>
+<p>But write is cheap with Ratis/THREE containers. Similar to any <code>ChunkWrite</code> and <code>PutBlock</code> we can implementa <code>UpdateChunk</code> call which modifies the current content of the chunk AND replicates the change with the help of Ratis.</p>
+<p>Let&rsquo;s imagine that we solved the resiliency of Ratis pipelines: In case of any Ratis error we can ask other Datanode to join to the Ratis ring <em>instead of</em> closing it. I know that it can be hard to implement, but if it is solved, we have an easy solution for random read/write.</p>
+<p>If it works, we can define the following storage-class:</p>
+<ul>
+<li><strong>Initial container</strong> type/parameters: Ratis/THREE</li>
+<li><strong>Transitions</strong>: NO. They will remain &ldquo;Open&rdquo; forever</li>
+<li><strong>Second container type</strong>: NONE</li>
+</ul>
+<p>This would help the random read/write problem, with some limitations: only a few containers should be managed in this storage-class. It&rsquo;s not suitable for really Big data, but can be a very powerful addition to provide NFS/Fuse backend for containers / git db / SQL db.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Storage class in S3: <a href="https://aws.amazon.com/s3/storage-classes/">https://aws.amazon.com/s3/storage-classes/</a></li>
+</ul>
+
+</div>
+</div>
+
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/www.example.com/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>
