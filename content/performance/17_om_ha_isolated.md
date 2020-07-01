@@ -135,4 +135,4 @@ OZONE-SITE.XML_ozone.om.handler.count.key: "250"
 OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
 
 ```
-**~ 390 tps/sec (alloc + commit)**
+**~ 690 tps/sec (alloc + commit)**
