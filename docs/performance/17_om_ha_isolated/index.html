@@ -121,16 +121,14 @@ DISKS
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ozone freom omkg --om-service-id=omservice -n 100000
 </code></pre></div><h2 id="tests">Tests</h2>
-<h3 id="first-run">First run</h3>
+<h3 id="default--1">DEFAULT + 1</h3>
 <ul>
-<li>Default setup</li>
 <li>real HDD</li>
 <li>1 freon instance (10 threads)</li>
 </ul>
 <p><strong>~ 252 tps/sec (alloc + commit)</strong></p>
-<h3 id="second-run">Second run</h3>
+<h3 id="log--1">LOG + 1</h3>
 <ul>
-<li>Default setup</li>
 <li>real HDD</li>
 <li>1 freon instance (10 threads)</li>
 <li><strong>adjusted log segment size</strong></li>
@@ -139,9 +137,8 @@ DISKS
 OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
 </code></pre></div><p>1 freon instance (10 threads)</p>
 <p><strong>~ 390 tps/sec (alloc + commit)</strong></p>
-<h3 id="third-run">Third run</h3>
+<h3 id="log--handler--1">LOG + HANDLER + 1</h3>
 <ul>
-<li>Default setup</li>
 <li>real HDD</li>
 <li>1 freon instance (10 threads)</li>
 <li><strong>adjusted log segment size</strong></li>
@@ -153,11 +150,10 @@ OZONE-SITE.XML_ozone.om.handler.count.key: &#34;250&#34;
 OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
 
 </code></pre></div><p><strong>~ 390 tps/sec (alloc + commit)</strong></p>
-<h3 id="forth-run">Forth run</h3>
+<h3 id="log--handler--30">LOG + HANDLER + 30</h3>
 <ul>
-<li>Default setup</li>
 <li>real HDD</li>
-<li>1 freon instance (10 threads)</li>
+<li>30 freon instance (30 x 10 threads)</li>
 <li><strong>adjusted log segment size</strong></li>
 <li><strong>adjusted handler number</strong></li>
 <li><strong>30 freon containers / JVM</strong> (running on the same 3 physical machines)</li>
@@ -166,13 +162,11 @@ OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
 OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
 OZONE-SITE.XML_ozone.om.handler.count.key: &#34;250&#34;
 OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
-
 </code></pre></div><p><strong>~ 2500 tps/sec (alloc + commit)</strong></p>
-<h3 id="fifth-run">Fifth run</h3>
+<h3 id="hdd--handler--30">HDD + HANDLER + 30</h3>
 <ul>
-<li>Default setup</li>
 <li>real HDD</li>
-<li>1 freon instance (10 threads)</li>
+<li>30 freon instance (30 x 10 threads)</li>
 <li><strong>with adjusted log segment size</strong></li>
 <li><strong>adjusted handler number</strong></li>
 <li><strong>30 freon containers / JVM</strong> (running on the same 3 physical machines)</li>
@@ -181,7 +175,45 @@ OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
 OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
 
 </code></pre></div><p><strong>~ 690 tps/sec (alloc + commit)</strong></p>
+<h3 id="memdisk--handler--30">MEMDISK + HANDLER + 30</h3>
+<ul>
+<li>Memdisk</li>
+<li>30 freon instance (30 x 10 threads)</li>
+<li><strong>with adjusted log segment size</strong></li>
+<li><strong>adjusted handler number</strong></li>
+<li><strong>30 freon containers / JVM</strong> (running on the same 3 physical machines)</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">OZONE-SITE.XML_ozone.om.handler.count.key: &#34;250&#34;
+OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
 
+</code></pre></div><p><strong>~ 1250 tps/sec (alloc + commit)</strong></p>
+<h3 id="memdisk--log--handler--30">MEMDISK + LOG + HANDLER + 30</h3>
+<ul>
+<li>Default setup</li>
+<li>real HDD</li>
+<li>30 freon instance (30 x 10 threads)</li>
+<li><strong>with adjusted log segment size</strong></li>
+<li><strong>adjusted handler number</strong></li>
+<li><strong>30 freon containers / JVM</strong> (running on the same 3 physical machines)</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">OZONE-SITE.XML_ozone.om.ratis.segment.preallocated.size: 16MB
+OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
+OZONE-SITE.XML_ozone.om.handler.count.key: &#34;250&#34;
+OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
+</code></pre></div><p><strong>~ XXX tps/sec (alloc + commit)</strong></p>
+<p><strong>Unreliable RATIS is failing</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1&lt;-om3#435650:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+2020-07-01 16:26:37 INFO  RaftServerImpl:1088 - om3@group-D66704EFC61C: Failed appendEntries: the first entry (index 901398) is already committed (commit index: 906517)
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1&lt;-om3#435651:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+2020-07-01 16:26:37 INFO  RaftServerImpl:1088 - om3@group-D66704EFC61C: Failed appendEntries: the first entry (index 901398) is already committed (commit index: 906517)
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1&lt;-om3#435652:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+2020-07-01 16:26:37 INFO  RaftServerImpl:1088 - om3@group-D66704EFC61C: Failed appendEntries: the first entry (index 902422) is already committed (commit index: 906517)
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1&lt;-om3#435653:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+</code></pre></div>
 </div>
 </div>
 

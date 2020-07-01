@@ -65,17 +65,15 @@ ozone freom omkg --om-service-id=omservice -n 100000
 
 ## Tests
 
-### First run
+### DEFAULT + 1
 
-* Default setup
 * real HDD
 * 1 freon instance (10 threads)
 
 **~ 252 tps/sec (alloc + commit)**
 
-### Second run
+### LOG + 1
 
-* Default setup
 * real HDD
 * 1 freon instance (10 threads)
 * **adjusted log segment size**
@@ -89,9 +87,8 @@ OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
 
 **~ 390 tps/sec (alloc + commit)**
 
-### Third run
+### LOG + HANDLER + 1
 
-* Default setup
 * real HDD
 * 1 freon instance (10 threads)
 * **adjusted log segment size**
@@ -106,11 +103,10 @@ OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
 ```
 **~ 390 tps/sec (alloc + commit)**
 
-### Forth run
+### LOG + HANDLER + 30
 
-* Default setup
 * real HDD
-* 1 freon instance (10 threads)
+* 30 freon instance (30 x 10 threads)
 * **adjusted log segment size**
 * **adjusted handler number**
 * **30 freon containers / JVM** (running on the same 3 physical machines)
@@ -120,15 +116,14 @@ OZONE-SITE.XML_ozone.om.ratis.segment.preallocated.size: 16MB
 OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
 OZONE-SITE.XML_ozone.om.handler.count.key: "250"
 OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
-
 ```
+
 **~ 2500 tps/sec (alloc + commit)**
 
-### Fifth run
+### HDD + HANDLER + 30
 
-* Default setup
 * real HDD
-* 1 freon instance (10 threads)
+* 30 freon instance (30 x 10 threads)
 * **with adjusted log segment size**
 * **adjusted handler number**
 * **30 freon containers / JVM** (running on the same 3 physical machines)
@@ -139,3 +134,55 @@ OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
 
 ```
 **~ 690 tps/sec (alloc + commit)**
+
+
+### MEMDISK + HANDLER + 30
+
+* Memdisk
+* 30 freon instance (30 x 10 threads)
+* **with adjusted log segment size**
+* **adjusted handler number**
+* **30 freon containers / JVM** (running on the same 3 physical machines)
+    
+```
+OZONE-SITE.XML_ozone.om.handler.count.key: "250"
+OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
+
+```
+**~ 1250 tps/sec (alloc + commit)**
+
+
+### MEMDISK + LOG + HANDLER + 30
+
+* Default setup
+* real HDD
+* 30 freon instance (30 x 10 threads)
+* **with adjusted log segment size**
+* **adjusted handler number**
+* **30 freon containers / JVM** (running on the same 3 physical machines)
+    
+```
+OZONE-SITE.XML_ozone.om.ratis.segment.preallocated.size: 16MB
+OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
+OZONE-SITE.XML_ozone.om.handler.count.key: "250"
+OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
+```
+
+
+**~ XXX tps/sec (alloc + commit)**
+
+**Unreliable RATIS is failing**
+
+```
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1<-om3#435650:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+2020-07-01 16:26:37 INFO  RaftServerImpl:1088 - om3@group-D66704EFC61C: Failed appendEntries: the first entry (index 901398) is already committed (commit index: 906517)
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1<-om3#435651:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+2020-07-01 16:26:37 INFO  RaftServerImpl:1088 - om3@group-D66704EFC61C: Failed appendEntries: the first entry (index 901398) is already committed (commit index: 906517)
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1<-om3#435652:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+2020-07-01 16:26:37 INFO  RaftServerImpl:1088 - om3@group-D66704EFC61C: Failed appendEntries: the first entry (index 902422) is already committed (commit index: 906517)
+2020-07-01 16:26:37 INFO  RaftServerImpl:1063 - om3@group-D66704EFC61C: inconsistency entries. Reply:om1<-om3#435653:FAIL,INCONSISTENCY,nextIndex:906518,term:9,followerCommit:906517
+2020-07-01 16:26:37 INFO  OzoneManagerStateMachine:147 - Latest Snapshot Info 9#801547
+```
