@@ -5,6 +5,8 @@ date: 2020-02-28
 title: S3 Access key management for improved usability
 ---
 
+NOTE: latest version can be found in the [Apache repository](https://github.com/apache/hadoop-ozone/blob/master/hadoop-hdds/docs/content/design/ozone-volume-management.md)
+
 ## Problem statement
 
 Ozone has the semantics of volume *and* buckets while S3 has only buckets. To make it possible to use the same bucket both from Hadoop world and via S3 we need a mapping between then.
