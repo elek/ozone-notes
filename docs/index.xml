@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>OM HA isolated tests (log segment size)</title>
+      <link>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</guid>
+      <description>Hardware (y124) Three phisical machine, spinning disks
+VENDOR Manufacturer: Cisco Systems Inc Product Name: UCSC-C220-M4L MEMORY Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB CPUs Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.</description>
+    </item>
+    
+    <item>
       <title>OM isolated tests</title>
       <link>https://elek.github.io/ozone-notes/performance/16_om_isolated/</link>
       <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
@@ -102,16 +112,6 @@ Hadoop 3.2.1 Source code repository https://gitbox.apache.org/repos/asf/hadoop.g
       
       <guid>https://elek.github.io/ozone-notes/design/ozonefsclasspath/</guid>
       <description>Ozone Client with and Ozone FileSystem support with older Hadop versions (2.x / 3.1) Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</guid>
-      <description>Hardware (y124) Three phisical machine, spinning disks
-VENDOR Manufacturer: Cisco Systems Inc Product Name: UCSC-C220-M4L MEMORY Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB CPUs Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.</description>
     </item>
     
     <item>

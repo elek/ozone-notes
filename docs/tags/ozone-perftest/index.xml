@@ -6,10 +6,29 @@
     <description>Recent content in ozone, perftest on Hugo Whisper Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elek.github.io/ozone-notes/tags/ozone-perftest/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OM HA isolated tests (log segment size)</title>
+      <link>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</guid>
+      <description>Hardware (y124) Three phisical machine, spinning disks
+VENDOR Manufacturer: Cisco Systems Inc Product Name: UCSC-C220-M4L MEMORY Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB CPUs Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.</description>
+    </item>
+    
+    <item>
+      <title>OM isolated tests</title>
+      <link>https://elek.github.io/ozone-notes/performance/16_om_isolated/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/16_om_isolated/</guid>
+      <description>docker image: elek/ozone-dev:be8a2fcc8  Tests Master / real hard disk 2020-05-13 09:25:22 INFO metrics:107 - type=TIMER, name=key-create, count=100000, min=99.738493, max=191.694249, mean=114.07656516845911, stddev=6.4852681842374595, median=116.563162, p75=116.767639, p95=117.051115, p98=117.197165, p99=133.151007, p999=191.694249, mean_rate=93.26821496222848, m1=87.</description>
+    </item>
     
     <item>
       <title>Teragen crosscheck of master / HDDS-2717 (new / old layout)</title>

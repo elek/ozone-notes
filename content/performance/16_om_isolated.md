@@ -1,5 +1,6 @@
 ---
 title: OM isolated tests
+tags: ozone, perftest
 date: 2020-05-13
 ---
 
