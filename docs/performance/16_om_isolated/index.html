@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>OM isolated tests - Hugo Whisper Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="www.example.com/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/www.example.com/css/style.min.db3912ad8707aa240233773715ee8b9db78ef7c625b4ec40841d61533ab76acc.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="www.example.com/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="www.example.com"><img alt="Logo" src="/www.example.com" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="www.example.com"><img alt="Logo" src="/www.example.com" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="www.example.com/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        
+        <div class="col-12 col-md-9">
+          
+<h1 class="title">OM isolated tests</h1>
+<div class="content ">
+  <ul>
+<li>docker image: elek/ozone-dev:be8a2fcc8</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<h3 id="master--real-hard-disk">Master / real hard disk</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">2020-05-13 09:25:22 INFO  metrics:107 - <span class="nv">type</span><span class="o">=</span>TIMER, <span class="nv">name</span><span class="o">=</span>key-create, <span class="nv">count</span><span class="o">=</span>100000, <span class="nv">min</span><span class="o">=</span>99.738493, <span class="nv">max</span><span class="o">=</span>191.694249, <span class="nv">mean</span><span class="o">=</span>114.07656516845911, <span class="nv">stddev</span><span class="o">=</span>6.4852681842374595, <span class="nv">median</span><span class="o">=</span>116.563162, <span class="nv">p75</span><span class="o">=</span>116.767639, <span class="nv">p95</span><span class="o">=</span>117.051115, <span class="nv">p98</span><span class="o">=</span>117.197165, <span class="nv">p99</span><span class="o">=</span>133.151007, <span class="nv">p999</span><span class="o">=</span>191.694249, <span class="nv">mean_rate</span><span class="o">=</span>93.26821496222848, <span class="nv">m1</span><span class="o">=</span>87.78774649502344, <span class="nv">m5</span><span class="o">=</span>90.84493425379769, <span class="nv">m15</span><span class="o">=</span>90.96491171281808, <span class="nv">rate_unit</span><span class="o">=</span>events/second, <span class="nv">duration_unit</span><span class="o">=</span>milliseconds
+2020-05-13 09:25:22 INFO  BaseFreonGenerator:75 - Total execution <span class="nb">time</span> <span class="o">(</span>sec<span class="o">)</span>: <span class="m">1073</span>
+2020-05-13 09:25:22 INFO  BaseFreonGenerator:75 - Failures: <span class="m">0</span>
+2020-05-13 09:25:22 INFO  BaseFreonGenerator:75 - Successful executions: <span class="m">100000</span>
+</code></pre></div><ul>
+<li>
+<p>Metrics*:</p>
+</li>
+<li>
+<p><code>ozone_manager_double_buffer_metrics_total_num_of_flush_operations</code>: 1681424581</p>
+</li>
+<li>
+<p><code>ozone_manager_double_buffer_metrics_max_number_of_transactions_flushed_in_one_iteration</code>: 10</p>
+</li>
+<li>
+<p><code>ozone_manager_double_buffer_metrics_avg_flush_transactions_in_one_iteration</code>: 3</p>
+</li>
+</ul>
+<h3 id="master--memdisk">Master / memdisk</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">2020-05-13 10:59:45 INFO  ProgressBar:163 - Progress: 100.00 % <span class="o">(</span><span class="m">100000</span> out of 100000<span class="o">)</span>
+2020-05-13 10:59:45 INFO  metrics:107 - <span class="nv">type</span><span class="o">=</span>TIMER, <span class="nv">name</span><span class="o">=</span>key-create, <span class="nv">count</span><span class="o">=</span>100000, <span class="nv">min</span><span class="o">=</span>0.409601, <span class="nv">max</span><span class="o">=</span>8.059166, <span class="nv">mean</span><span class="o">=</span>1.1537104826333886, <span class="nv">stddev</span><span class="o">=</span>0.5373965194906646, <span class="nv">median</span><span class="o">=</span>1.079674, <span class="nv">p75</span><span class="o">=</span>1.259194, <span class="nv">p95</span><span class="o">=</span>1.765195, <span class="nv">p98</span><span class="o">=</span>2.042014, <span class="nv">p99</span><span class="o">=</span>2.839105, <span class="nv">p999</span><span class="o">=</span>7.886175, <span class="nv">mean_rate</span><span class="o">=</span>7625.529778924966, <span class="nv">m1</span><span class="o">=</span>6199.342936453909, <span class="nv">m5</span><span class="o">=</span>6003.607093506489, <span class="nv">m15</span><span class="o">=</span>5969.696909056889, <span class="nv">rate_unit</span><span class="o">=</span>events/second, <span class="nv">duration_unit</span><span class="o">=</span>milliseconds
+2020-05-13 10:59:45 INFO  BaseFreonGenerator:75 - Total execution <span class="nb">time</span> <span class="o">(</span>sec<span class="o">)</span>: <span class="m">14</span>
+2020-05-13 10:59:45 INFO  BaseFreonGenerator:75 - Failures: <span class="m">0</span>
+2020-05-13 10:59:45 INFO  BaseFreonGenerator:75 - Successful executions: <span class="m">100000</span>
+</code></pre></div><h3 id="master--memdisk--ha-enabled">Master / memdisk / HA enabled</h3>
+<p>Using configuration:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">OZONE-SITE.XML_ozone.om.ratis.enabled: &#34;true&#34;
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">2020-05-13 11:07:56 INFO  metrics:107 - <span class="nv">type</span><span class="o">=</span>TIMER, <span class="nv">name</span><span class="o">=</span>key-create, <span class="nv">count</span><span class="o">=</span>100000, <span class="nv">min</span><span class="o">=</span>0.401899, <span class="nv">max</span><span class="o">=</span>20.96909, <span class="nv">mean</span><span class="o">=</span>1.1709102282937172, <span class="nv">stddev</span><span class="o">=</span>0.8278094993323316, <span class="nv">median</span><span class="o">=</span>1.051309, <span class="nv">p75</span><span class="o">=</span>1.305925, <span class="nv">p95</span><span class="o">=</span>1.708282, <span class="nv">p98</span><span class="o">=</span>2.378382, <span class="nv">p99</span><span class="o">=</span>3.634954, <span class="nv">p999</span><span class="o">=</span>9.109112, <span class="nv">mean_rate</span><span class="o">=</span>7645.554541694369, <span class="nv">m1</span><span class="o">=</span>6233.499960673744, <span class="nv">m5</span><span class="o">=</span>6033.5145061004405, <span class="nv">m15</span><span class="o">=</span>5998.868099240561, <span class="nv">rate_unit</span><span class="o">=</span>events/second, <span class="nv">duration_unit</span><span class="o">=</span>milliseconds
+2020-05-13 11:07:56 INFO  BaseFreonGenerator:75 - Total execution <span class="nb">time</span> <span class="o">(</span>sec<span class="o">)</span>: <span class="m">14</span>
+2020-05-13 11:07:56 INFO  BaseFreonGenerator:75 - Failures: <span class="m">0</span>
+2020-05-13 11:07:56 INFO  BaseFreonGenerator:75 - Successful executions: <span class="m">100000</span>
+</code></pre></div><p><strong>Note</strong>: Couldn&rsquo;t see ANY</p>
+
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            Based on hugo-whisper theme.
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/www.example.com/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

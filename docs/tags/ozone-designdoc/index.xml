@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ozone, designdoc on Hugo Whisper Theme</title>
+    <link>www.example.com/tags/ozone-designdoc/</link>
+    <description>Recent content in ozone, designdoc on Hugo Whisper Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="www.example.com/tags/ozone-designdoc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>S3 Access key management for improved usability</title>
+      <link>www.example.com/design/s3-volume/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>www.example.com/design/s3-volume/</guid>
+      <description>NOTE: latest version can be found in the Apache repository
+Problem statement Ozone has the semantics of volume and buckets while S3 has only buckets. To make it possible to use the same bucket both from Hadoop world and via S3 we need a mapping between then.</description>
+    </item>
+    
+  </channel>
+</rss>
