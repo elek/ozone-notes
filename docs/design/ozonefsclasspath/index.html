@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title> - Hugo Whisper Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.db3912ad8707aa240233773715ee8b9db78ef7c625b4ec40841d61533ab76acc.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        
+        <div class="col-12 col-md-9">
+          
+<h1 class="title"></h1>
+<div class="content ">
+  <h1 id="ozone-client-with-and-ozone-filesystem-support-with-older-hadop-versions-2x--31">Ozone Client with and Ozone FileSystem support with older Hadop versions (2.x / 3.1)</h1>
+<p>Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.2 is very rare in production, older versions should be supported to make it possible to work together with Spark, Hive, HBase and older clusters.</p>
+<h2 id="the-problem">The problem</h2>
+<p>We have two separated worlds: the client and the server side. The server can have any kind of dependencies as the classloaders of the server are usually separated from the client (different JVM, service, etc.). But the Ozone Client might be used from an environment where a specific Hadoop instance is already available:</p>
+<p><img src="https://i.imgur.com/Uize9qu.png" alt=""></p>
+<p>This is the happy scenario where we have the same Hadoop version both on server and client side.</p>
+<p>The problem starts when the Ozone File system is used from an environment where the Hadoop version is different.</p>
+<p>Let&rsquo;s look at the used classes and dependencies between classes <strong>on the client</strong> side:</p>
+<p><img src="https://i.imgur.com/5v1QNvL.png" alt=""></p>
+<p>Hadoop classes are marked with Orange, Ozone classes are white.</p>
+<p>The problem here clearly visible: to the <code>Configuration</code> we have multiple dependency path. With using the Same Hadoop everywhere, it&rsquo;s not a problem, but using different Hadoop version makes it difficult:</p>
+<p><img src="https://i.imgur.com/tUDsCYZ.png" alt=""></p>
+<p>Here the red and orange classes represent different Hadoop versions. Which version should be used from <code>Configuration</code> (or any other shared Hadoop classes)? If we use it from the older version, the Ozone part can&rsquo;t work (as it depends on newer features). If we use a newer version it generates conflicts (as the classes are not always backward compatible).</p>
+<h3 id="shading">Shading?</h3>
+<p>Shading is the packaging of multiple jar files to one jar with moving all the classes files to one jar file. During the move it&rsquo;s also possible to modify the bytecode and rename some of the packages (relocation). Usually this relocation is called <em>shading</em>.</p>
+<p>Unfortunately it&rsquo;s not working in our case.</p>
+<p><img src="https://i.imgur.com/s11XprK.png" alt=""></p>
+<p>If we don&rsquo;t shade <code>Configuration</code>, the <code>OzoneConfiguration</code> class can&rsquo;t use new 3.2 features from it.</p>
+<p>If we shade (package relocate) the <code>Configuration</code>, the <code>OzoneFileSystem</code> will not implement the <code>FileSystem</code> interface any more as the <code>FileSystem</code> class requires a method <code>public void initialize(URI name, Configuration conf)</code> but our specific <code>OzoneFileSystem</code> will provide a <code>initialize(URI name, org.apache.hadoop.ozone.shaded.Configuration conf)</code> which is clearly not the same. <code>OzoneFileSystem</code> won&rsquo;t be a <code>FileSystem</code> any more.</p>
+<h2 id="classloader-isolation">Classloader isolation</h2>
+<p>To solve this problem Ozone started to use a specific classloader. With using multiple classloaders, you might have different versions from the same classes (It means different class definitions not different instances). The only question is the definition of the boundaries between the two classloaders:</p>
+<p><img src="https://i.imgur.com/6g0mOtI.png" alt=""></p>
+<p>With two different classloaders we can have two <code>Configuration</code> classes without any problem. The only dangerous area here is the usage of the two type of <code>Configuration</code> classes at the same place.</p>
+<p>For example if the <code>OzoneClient</code> returns a <code>Configuration (loaded by isoloated)</code> or <code>Path (loaded by isolated)</code> it generates very strange errors as the <code>Configuration (loaded by isolated)</code> won&rsquo;t be instance of <code>Configuration (loaded by app classloader)</code>.</p>
+<p>Therefore we should follow the following rules:</p>
+<ol>
+<li>Use only a very limited set of classes in the method signatures of <code>OzoneClient</code>.</li>
+<li>If some classes are added to the method signatures of the adapter (as parameter or return value) we should have one and only one type from that one.</li>
+</ol>
+<h3 id="ozoneclientadapter">OzoneClientAdapter</h3>
+<p>To achieve the first rule, instead of refactoring the <code>OzoneClient</code> we introduced a new <em>interface</em> only the minimal set of the required functions:
+(called <code>OzoneClientAdapter</code>):</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">public interface OzoneClientAdapter {
+
+  InputStream readFile(String key) throws IOException;
+
+  OzoneFSOutputStream createFile(String key, boolean overWrite,
+      boolean recursive) throws IOException;
+
+  void renameKey(String key, String newKeyName) throws IOException;
+
+  boolean createDirectory(String keyName) throws IOException;
+
+  boolean deleteObject(String keyName);
+
+  Iterator&lt;BasicKeyInfo&gt; listKeys(String pathKey);
+
+  ....
+  
+</code></pre></div><p>Usage of this adapter helps us to minimize the used classes which cross the boundaries.</p>
+<p><img src="https://i.imgur.com/U9fbD2k.png" alt=""></p>
+<p>Here the <code>OzoneFileSystem(#app cl)</code> uses a reference to an interface (<code>OzoneClientAdapter(#app cl)</code>) implementation. We don&rsquo;t need to know anything about the implementation as we use only it via the interface, but under the hood the implementation is created by the specific (&ldquo;isolated&rdquo;) classloader.</p>
+<p>Obviously, if something is used in the <code>OzoneClientAdapter</code> we should load it by the <em>app</em> classloader (and we need to have just one instance from all the used classes).</p>
+<hr>
+<p><strong>NOTE</strong>
+Classloader isolation works by ensuring that all dependent classes of the <code>ClientAdapter</code> are transitively loaded using the isolated classloader. This is because the ClientAdapter was loaded using the custom classloader.</p>
+<hr>
+<h3 id="classloaders-in-java">Classloaders in Java</h3>
+<p>As we saw earlier we need a separated classloader:</p>
+<ol>
+<li>Which can load specific classes (like <code>Configuration</code>) independent from the <em>app</em> classloader.</li>
+<li>And should use some classes (like <code>Path</code> or <code>BasicKeyInfo</code> which are used in the methods of <code>OzoneClientAdapter</code> interface) from the <em>app</em> classloader.</li>
+</ol>
+<p>In Java it&rsquo;s fairly easy to use a specific classloader as the <code>java.net.URLClassloader</code> very generic and usable. But in Java if a class is loaded by the parent classloader, it won&rsquo;t be loaded by the child classloader.</p>
+<p>For example, if you create a new <code>ClassLoader isolated = new URLClassLoader(appCl)</code>, it will <strong>always</strong> use a class loaded by the parent (<code>appCl</code>) classloader, <strong>if</strong> the specific class is available from there. If you creates a classloader with a parent and the parent already loaded a class (like <code>Configuration</code>) it will use the shared, alread-loaded instance from the class definition.</p>
+<p>But as we described earlier we need something different: some of the classes can be shared, some of the classes should be isolated:</p>
+<p><img src="https://i.imgur.com/lI8LYeM.png" alt=""></p>
+<p>Here the Hadoop 3.2 classes are isolated but some of the key classes (<code>OzoneClientAdater</code> or the <code>org.apache.hadoop.fs.Path</code> ) should be loaded only once, therefore can be used from both world.</p>
+<p>To achieve this (some classes are shared, but not all of them) we started to use a specific classloader <code>FilteredClassLoader</code> which loads everything from the specific location <strong>first</strong> and only after from the parent. Except  some of the well-defined classes, which are used directly from the parent (<em>app</em> classloader).</p>
+<p>With this approach we can support all the old Hadoop versions <strong>except</strong> when security is required.</p>
+<h3 id="security">Security</h3>
+<p>Hadoop security is based on the famous <code>UserGroupInformation</code> class (aka. <code>UGI</code>) which contains a field with <code>javax.security.auth.Subject</code> type.</p>
+<p>From high level <code>Subject</code> works as a thread-local <code>Map</code>. You can put everything to there in your current thread specific <code>AccessControlContext</code> and later you can get it.</p>
+<p>Hadoop adds one <code>org.apache.hadoop.security.Credentials</code> instance to this thread-local map, which can contain tokens or other credentials.</p>
+<p><code>Subject</code> is a java class, it&rsquo;s easy to share between different classloaders (by default core Java classes are shared), but <code>Credentials</code> is not shared and has a lot of other dependencies (It depends on <code>Token</code>, which depends on the whole world&hellip;)</p>
+<p><strong>With Hadoop security we need to extract the current UGI information before calling the methods of <code>OzoneClientAdapter</code>, propagate the identification information in a safe way, and inject it back to the UGI of the <em>isloated</em> classloader to use it during the RPC calls.</strong></p>
+<hr>
+<p><strong>NOTE</strong></p>
+<p>There will be two different versions of the <code>Credentials</code> and <code>Token</code> classes, and also their dependencies. One loaded by the default classloader and one by the isolated classloader. They are not seen as the same class by the Java runtime. When the Ozone client attempts to pass the Token generated using the default classloader to the RPC client, it causes strange runtime errors (<em><strong>Marton</strong></em>: can you add the exception message here?)</p>
+<hr>
+<p>For example</p>
+<ol>
+<li>we can serialize the current <code>Token</code> (==<code>TokenIdentifier</code>) to a byte array</li>
+<li>we can add this <code>[]byte</code> as a required parameter to all the method of <code>OzoneClientAdapter</code></li>
+<li>And we can create a new (different type of) <code>Token</code> and <code>TokenIdentifier</code> inside the <code>OzoneClientAdapterImpl</code> (implementation, loaded by the <em>isolated</em> classloader) and inject it back to <em>that</em> UGI.</li>
+</ol>
+<p>There are three main type of authentication information which needs to be propagated in this way.</p>
+<ol>
+<li><strong>Tokens</strong> they can be handled by the previous method (serialize, deserialize)</li>
+<li>Current Kerberos identification based on <strong><code>kinit</code></strong>. That should be easy as it&rsquo;s based on the reading of some session files from <code>/tmp/...</code> which is accessible by both the UGIs (<em>app</em> and <em>isolated</em>)</li>
+<li>Kerberos identification based on <strong>keytab</strong> (for example when the Yarn server is downloading requried resources from the defaultFs o3fs). In theory it can be handled as the <code>Token</code>s, but it&rsquo;s not yet proven and can be tricky (especialy with all the expiry and reissue logic.)</li>
+</ol>
+<h3 id="summary">Summary</h3>
+<p>With isolated classloader we can support older Hadoop versions but we introduced <strong>signification</strong> complexity. This complexitiy will be increased when we implement the UGI information propagation (if it&rsquo;s possible at all).</p>
+<h2 id="dependency-separation">Dependency separation</h2>
+<p>Let&rsquo;s try to go one step back and try to achieve the same goals (support old Hadoop versions) in a different way (And thanks to Anu Engineer who forced to check this option again and again).</p>
+<p>Let&rsquo;s talk about the current project hierarchy (for the sake of the simplicity only the HDDS projects will be shown, but the same hierarchy is true for Ozone projects):</p>
+<p><img src="https://i.imgur.com/tF77sJY.png" alt=""></p>
+<p>Here the boxes represent <em>maven projects</em> and the arrows represent project <em>dependencies</em>. Dependencies are transitive therefore all the project depends on Hadoop 3.2.</p>
+<p>(<strong>Note</strong>: in fact we also depend on <code>hdfs-server</code> and <code>hdfs-client</code> but those dependencies can be removed and doesn&rsquo;t modify the big picture. Orange box is <em>the</em> Hadoop dependency.)</p>
+<p>What we need is something similar to the Spark where we have multiple clients with different Hadoop versions:</p>
+<p><img src="https://i.imgur.com/BdyNEOm.png" alt=""></p>
+<p><strong>But</strong> as we have transitive dependencies, it means that the <code>hdds-common</code> projects should be 100% hadoop-free:</p>
+<p><img src="https://i.imgur.com/iZF5JZZ.png" alt=""></p>
+<p>But it means that all of the Hadoop dependent classes should be replicated somehow (which is reasonable, as according to our original problem, they are not always backward compatible). And the clear interface between server and client will be based on <code>proto</code> files. It&rsquo;s the client responsibility to create the binary message on the client side (with Hadoop 2.7 or Hadoop 3.2). The Hadoop RPC is backward compatible on binary level.</p>
+<p>This is only possible if the majority of the common classes are Hadoop independent and won&rsquo;t be duplicated: only a reasonable amount of code will be cloned and maintained at multiple places.</p>
+<p>Based on the early investigation it&rsquo;s the case, as the majority of the hdds-common is Hadoop free and it&rsquo;s not impossible to fix the remaining problems:</p>
+<ol>
+<li>Either move the Hadoop specific classes to the <code>framework</code> project (if it&rsquo;s required only from the server side, like the Certifcate handling)</li>
+<li>Or we can make it Hadoop free (for example use our own <code>string2bytes</code> instead of using one from the <code>DfsUtils</code>)</li>
+</ol>
+<h3 id="notes-and-todos">Notes and TODOs</h3>
+<ul>
+<li>As protobuf versions are changed between Hadoop versions (Hadoop 3.3 will use protobuf 3.x) we shouldn&rsquo;t generate the Java protobuf files in <code>hdds-common</code>. We should share only the <code>proto</code> files and generate the Java files in different ways. Which means that some of the serialization/deserialization logic might be duplicated as they should be removed from common.</li>
+<li>Seems to be better to use a Hadoop independent metric framework (to make it possible to add to metrics in <code>hdds-common</code>). As of now <a href="http://micrometer.io/">micrometer</a> seems to be the best choice as it supports tags on specific metrics. (Note: Hadoop metrics also can be forked but it has a huge number of dependencies).</li>
+<li>Instead of using <code>OzoneConfiguration</code> everywhere we will use a <code>Configurable</code> interface which can be implemented by <code>OzoneConfiguration</code> or any other adapter which is compatible with older Hadoop versions.</li>
+</ul>
+<h2 id="summary-1">Summary</h2>
+<ol>
+<li>The isolated classloader couldn&rsquo;t work in secure environments without significant additional high-level magic.</li>
+<li>It seems to be possible to support older Hadoop versions with limiting the Hadoop dependencies (but still use Hadoop RPC and UGI on the client side)</li>
+</ol>
+<p>The final solution might require bigger refactor: In the current phase I suggest to cleanup the current project: remove dumb dependencies, try to organize the code better. There are many small tasks which can be done (eg. remove dependency on <code>hdfs-client</code> or move server specific shared code out from the client side: move it from <code>common</code> to <code>framework</code>).</p>
+<p>If the cleanup tasks are done, we will clearly see how this second approach is possible. Worst case we will have a more clean project.</p>
+
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            Based on hugo-whisper theme.
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/ozone-notes/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>
