@@ -22,34 +22,22 @@
       <div class="col-12">
         <h1 class="title">{{ .Title | default .Site.Title }}</h1>
         <div class="content">
-          {{ if .Content }}
           {{ .Content }}
-          {{ else }}
-          <p>{{ .Site.Params.homepage_intro }}</p>
-          {{ end }}
         </div>
-        <a class="button button-primary mb-2" href="{{ .Site.Params.homepage_button_link | relURL }}">
-          {{ .Site.Params.homepage_button_text }}
-        </a>
+        <h2>Design docs</h2>
+
+        {{ range where (where .Site.Pages "Section" "design") "Kind" "page"}}
+           <h2 class="title-summary">{{.Date.Format "2006-01-02"}} <a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ end }}
+
+        <h2>Performance results</h2>
+        {{ range where (where .Site.Pages "Section" "performance") "Kind" "page"}}
+           <h2 class="title-summary">{{.Date.Format "2006-01-02"}} <a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ end }}
       </div>
     </div>
   </div>
 </div>
-
-{{ if .Site.Params.homepage_image }}
-<div class="strip">
-  <div class="container pt-4 pb-4">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10">
-        <div class="terminal">
-          <img src="{{ .Site.Params.homepage_image | relURL}}" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{{ end }}
-
 {{ end }}
 
 {{ define "footer_js" }}
