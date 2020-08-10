@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Performances on Hugo Whisper Theme</title>
+    <title>Performances on Apache Hadoop Ozone Development notes</title>
     <link>https://elek.github.io/ozone-notes/performance/</link>
-    <description>Recent content in Performances on Hugo Whisper Theme</description>
+    <description>Recent content in Performances on Apache Hadoop Ozone Development notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elek.github.io/ozone-notes/performance/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HCFS test with instrumented FS</title>
+      <link>https://elek.github.io/ozone-notes/performance/19_hcfs/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/19_hcfs/</guid>
+      <description>Test method  Deployed Ozone and HDFS with the help of K8s Executed key generator using Hadoop Compatble File System ozone freon dfsg Tested with  default write buffer (using out.</description>
+    </item>
+    
+    <item>
+      <title>Teragen test (HDFS vs. Ozone)</title>
+      <link>https://elek.github.io/ozone-notes/performance/20_teragen/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/20_teragen/</guid>
+      <description>Test method  Deployed Ozone+Yarn and HDFS+Yarn (3.2.1) with k8s scripts Executed teragen MR with 10G data Using spinning disk HCFS usage is measured with instrumented bytecode  Real time spent in write and close methods   same storage is used for defaultFs (yarn data) and teragen data FileSystem usage from the yarn userlog directory is checked (see note below) One pipeline (3 datanodes) is used from both the HDFS and both Ozone  References:</description>
+    </item>
+    
+    <item>
+      <title>S3 performance test (Ozone, Minio)</title>
+      <link>https://elek.github.io/ozone-notes/performance/18_warp/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/18_warp/</guid>
+      <description>Tests  Deployed Ozone and Minio Using empty dir for Ozone (disk) Executing S3 put test with using minio/warp  Summary Ozone seems to be smaller with the default settings (1.</description>
+    </item>
     
     <item>
       <title>OM HA isolated tests (log segment size)</title>
@@ -17,7 +44,7 @@
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</guid>
-      <description>Hardware (y124) Three phisical machine, spinning disks
+      <description>Hardware (y124) Three physical machine, spinning disks
 VENDOR Manufacturer: Cisco Systems Inc Product Name: UCSC-C220-M4L MEMORY Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB CPUs Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.</description>
     </item>
     

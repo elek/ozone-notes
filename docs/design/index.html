@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Designs - Hugo Whisper Theme</title>
+  <title>Designs - Apache Hadoop Ozone Development notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/ozone-notes/css/style.min.db3912ad8707aa240233773715ee8b9db78ef7c625b4ec40841d61533ab76acc.css">
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.22519856e60921f42cfae62f3aca24255098741556c2ccb420c817a0adcde3f9.css">
   
 
   
@@ -61,12 +61,13 @@
 </div>
 
 
+    
+    
+    
+    
 
-    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
-      <div class="row">
-        
-        <div class="col-12 col-md-9">
-          
+    
+    
 
 <span class="overview">Overview</span>
 <h1 class="title">Designs</h1>
@@ -76,25 +77,31 @@
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/design/storage-class/">Storage class support in Ozone</a></h2>
+  <p>Storage class support in Ozone Abstract One of the fundamental abstraction of Ozone is the Container which used as the unit of the replication.
+Containers have to favors: Open and Closed containers: Open containers are replicated by Ratis and writable, Closed containers are replicated with data copy and read only.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/design/s3-volume/">S3 Access key management for improved usability</a></h2>
+  <p>NOTE: latest version can be found in the Apache repository
+Problem statement Ozone has the semantics of volume and buckets while S3 has only buckets. To make it possible to use the same bucket both from Hadoop world and via S3 we need a mapping between then.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/design/ozonefsclasspath/"></a></h2>
+  <p>Ozone Client with and Ozone FileSystem support with older Hadop versions (2.x / 3.1) Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.</p>
 </div>
 
 
 
 
-        </div>
-      </div>
-    </div>
+    
   </div>
 
   <div class="sub-footer">
@@ -103,7 +110,7 @@
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            Based on hugo-whisper theme.
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
           </ul>
         </div>
       </div>

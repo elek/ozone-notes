@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>OM HA isolated tests (log segment size) - Hugo Whisper Theme</title>
+  <title>OM HA isolated tests (log segment size) - Apache Hadoop Ozone Development notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/ozone-notes/css/style.min.db3912ad8707aa240233773715ee8b9db78ef7c625b4ec40841d61533ab76acc.css">
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.22519856e60921f42cfae62f3aca24255098741556c2ccb420c817a0adcde3f9.css">
   
 
   
@@ -61,37 +61,62 @@
 </div>
 
 
+    
+    
+    
+    
+    
+    
 
+    
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
-        
+        <div class="col-12 col-md-3 mb-3">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hardware-y124">Hardware (y124)</a></li>
+    <li><a href="#test-method">Test method</a></li>
+    <li><a href="#tests">Tests</a>
+      <ul>
+        <li><a href="#default--1">DEFAULT + 1</a></li>
+        <li><a href="#log--1">LOG + 1</a></li>
+        <li><a href="#log--handler--1">LOG + HANDLER + 1</a></li>
+        <li><a href="#log--handler--30">LOG + HANDLER + 30</a></li>
+        <li><a href="#hdd--handler--30">HDD + HANDLER + 30</a></li>
+        <li><a href="#memdisk--handler--30">MEMDISK + HANDLER + 30</a></li>
+        <li><a href="#memdisk--log--handler--30">MEMDISK + LOG + HANDLER + 30</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
         <div class="col-12 col-md-9">
           
 <h1 class="title">OM HA isolated tests (log segment size)</h1>
 <div class="content ">
   <h2 id="hardware-y124">Hardware (y124)</h2>
-<p>Three phisical machine, spinning disks</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">VENDOR
+<p>Three physical machine, spinning disks</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">VENDOR
 	Manufacturer: Cisco Systems Inc
 	Product Name: UCSC-C220-M4L
 MEMORY
-	Size: 32 GB
-	Size: 32 GB
-	Size: 32 GB
-	Size: 32 GB
-	Size: 32 GB
-	Size: 32 GB
-	Size: 32 GB
-	Size: 32 GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
 CPUs
-	Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
-	Max Speed: 4000 MHz
-	Core Enabled: 8
-	Thread Count: 16
-	Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
-	Max Speed: 4000 MHz
-	Core Enabled: 8
-	Thread Count: 16
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v3 @ 2.40GHz
+	Max Speed: <span class="m">4000</span> MHz
+	Core Enabled: <span class="m">8</span>
+	Thread Count: <span class="m">16</span>
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v3 @ 2.40GHz
+	Max Speed: <span class="m">4000</span> MHz
+	Core Enabled: <span class="m">8</span>
+	Thread Count: <span class="m">16</span>
 DISKS
      NAME                 SIZE TYPE FSTYPE      MOUNTPOINT       VENDOR   MODEL
      sda                  5.5T disk                              HGST     HUS726060AL4210
@@ -220,6 +245,7 @@ OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
         </div>
       </div>
     </div>
+    
   </div>
 
   <div class="sub-footer">
@@ -228,7 +254,7 @@ OZONE-SITE.XML_ozone.scm.handler.count.key: &#34;250&#34;
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            Based on hugo-whisper theme.
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
           </ul>
         </div>
       </div>

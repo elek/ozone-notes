@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>HCFS test with instrumented FS - Hugo Whisper Theme</title>
+  <title>HCFS test with instrumented FS - Apache Hadoop Ozone Development notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/ozone-notes/css/style.min.aad43d4ecb69a264f2539b89d7f779d5f3cdff22e7585fe5fc3c77272f1c2696.css">
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.22519856e60921f42cfae62f3aca24255098741556c2ccb420c817a0adcde3f9.css">
   
 
   
@@ -72,60 +72,22 @@
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
         <div class="col-12 col-md-3 mb-3">
-          <div class="sidebar">
-            
-<div class="docs-menu">
-  <h4>Performance</h4>
+          <nav id="TableOfContents">
   <ul>
-    
-    <li class="active ">
-      <a href="https://elek.github.io/ozone-notes/performance/19_hcfs/">HCFS test with instrumented FS</a>
+    <li><a href="#test-method">Test method</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#detailed-results">Detailed results</a>
+      <ul>
+        <li><a href="#hdfs-write-with-buffer">HDFS, write with buffer</a></li>
+        <li><a href="#hdfs-write-per-one-bytes">HDFS, write per one-bytes</a></li>
+        <li><a href="#ozone-write-with-buffer">Ozone, write with buffer</a></li>
+        <li><a href="#ozone-write-per-one-bytes">Ozone, write per one-bytes</a></li>
+      </ul>
     </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/20_teragen/">Teragen test (HDFS vs. Ozone)</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/18_warp/">S3 performance test (Ozone, Minio)</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/">OM HA isolated tests (log segment size)</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/16_om_isolated/">OM isolated tests</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/15_teragen_new_old/">Teragen crosscheck of master / HDDS-2717 (new / old layout)</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/14_teragen/">Teragen crosscheck of master / HDDS-3053 / HDDS-2717</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/13_ratis_log/">Ratis log and chunk storage separation</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/11_teragen/">Teragen HDFS vs Ozone</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/10_onefile/">Writing one file per chunks vs. one file per blocks</a>
-    </li>
-    
-    <li class="">
-      <a href="https://elek.github.io/ozone-notes/performance/07_strace/">Checking syscalls with different batch sizes</a>
-    </li>
-    
+    <li><a href="#references">References</a></li>
+    <li><a href="#hardware-physical-machines-gru8">Hardware (physical machines, gru8)</a></li>
   </ul>
-</div>
-
-          </div>
+</nav>
         </div>
         <div class="col-12 col-md-9">
           

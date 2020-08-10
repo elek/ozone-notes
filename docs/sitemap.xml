@@ -8,27 +8,37 @@
   </url>
   
   <url>
-    <loc>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elek.github.io/ozone-notes/tags/ozone/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+    <loc>https://elek.github.io/ozone-notes/performance/19_hcfs/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elek.github.io/ozone-notes/tags/ozone-perftest/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elek.github.io/ozone-notes/performance/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elek.github.io/ozone-notes/tags/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elek.github.io/ozone-notes/performance/20_teragen/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elek.github.io/ozone-notes/performance/18_warp/</loc>
+    <lastmod>2020-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -114,6 +124,10 @@
   
   <url>
     <loc>https://elek.github.io/ozone-notes/post/07_strace/</loc>
+  </url>
+  
+  <url>
+    <loc>https://elek.github.io/ozone-notes/tags/ozone/</loc>
   </url>
   
   <url>

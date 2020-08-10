@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Hugo Whisper Theme</title>
+    <title>Tags on Apache Hadoop Ozone Development notes</title>
     <link>https://elek.github.io/ozone-notes/tags/</link>
-    <description>Recent content in Tags on Hugo Whisper Theme</description>
+    <description>Recent content in Tags on Apache Hadoop Ozone Development notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elek.github.io/ozone-notes/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ozone</title>
-      <link>https://elek.github.io/ozone-notes/tags/ozone/</link>
-      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://elek.github.io/ozone-notes/tags/ozone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ozone, perftest</title>
       <link>https://elek.github.io/ozone-notes/tags/ozone-perftest/</link>
-      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/tags/ozone-perftest/</guid>
       <description></description>
@@ -35,6 +26,15 @@
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/tags/ozone-designdoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ozone</title>
+      <link>https://elek.github.io/ozone-notes/tags/ozone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/tags/ozone/</guid>
       <description></description>
     </item>
     

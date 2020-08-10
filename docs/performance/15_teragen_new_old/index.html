@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Teragen crosscheck of master / HDDS-2717 (new / old layout) - Hugo Whisper Theme</title>
+  <title>Teragen crosscheck of master / HDDS-2717 (new / old layout) - Apache Hadoop Ozone Development notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/ozone-notes/css/style.min.db3912ad8707aa240233773715ee8b9db78ef7c625b4ec40841d61533ab76acc.css">
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.22519856e60921f42cfae62f3aca24255098741556c2ccb420c817a0adcde3f9.css">
   
 
   
@@ -61,10 +61,33 @@
 </div>
 
 
+    
+    
+    
+    
+    
+    
 
+    
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
-        
+        <div class="col-12 col-md-3 mb-3">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#test-method">Test method</a></li>
+    <li><a href="#environment">Environment</a></li>
+    <li><a href="#results">Results</a>
+      <ul>
+        <li><a href="#running-teragen-with-hdfs">Running teragen with HDFS</a></li>
+        <li><a href="#running-teragen-with-ozone-master">Running teragen with Ozone master</a></li>
+        <li><a href="#running-teragen-with-ozone-master-file_per_block">Running teragen with Ozone master (FILE_PER_BLOCK)</a></li>
+        <li><a href="#running-teragen-with-ozone-master-file_per_chunk">Running teragen with Ozone master (FILE_PER_CHUNK)</a></li>
+        <li><a href="#running-terage-with-ozone-master-second-run-to-double-check-previous-results">Running terage with Ozone master (second run to double check previous results)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
         <div class="col-12 col-md-9">
           
 <h1 class="title">Teragen crosscheck of master / HDDS-2717 (new / old layout)</h1>
@@ -192,6 +215,7 @@ This command was run using /opt/hadoop/share/hadoop/common/hadoop-common-3.2.1.j
         </div>
       </div>
     </div>
+    
   </div>
 
   <div class="sub-footer">
@@ -200,7 +224,7 @@ This command was run using /opt/hadoop/share/hadoop/common/hadoop-common-3.2.1.j
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            Based on hugo-whisper theme.
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
           </ul>
         </div>
       </div>

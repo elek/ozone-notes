@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Performances - Hugo Whisper Theme</title>
+  <title>Performances - Apache Hadoop Ozone Development notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/ozone-notes/css/style.min.db3912ad8707aa240233773715ee8b9db78ef7c625b4ec40841d61533ab76acc.css">
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.22519856e60921f42cfae62f3aca24255098741556c2ccb420c817a0adcde3f9.css">
   
 
   
@@ -61,10 +61,19 @@
 </div>
 
 
+    
+    
+    
+    
+    
+    
 
+    
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
-        
+        <div class="col-12 col-md-3 mb-3">
+          
+        </div>
         <div class="col-12 col-md-9">
           
 
@@ -76,42 +85,81 @@
 
 
 <div class="summary mb-2">
+  
+  <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/19_hcfs/">HCFS test with instrumented FS</a></h2>
+  <p>Test method  Deployed Ozone and HDFS with the help of K8s Executed key generator using Hadoop Compatble File System ozone freon dfsg Tested with  default write buffer (using out.</p>
+</div>
+
+
+<div class="summary mb-2">
+  
+  <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/20_teragen/">Teragen test (HDFS vs. Ozone)</a></h2>
+  <p>Test method  Deployed Ozone+Yarn and HDFS+Yarn (3.2.1) with k8s scripts Executed teragen MR with 10G data Using spinning disk HCFS usage is measured with instrumented bytecode  Real time spent in write and close methods   same storage is used for defaultFs (yarn data) and teragen data FileSystem usage from the yarn userlog directory is checked (see note below) One pipeline (3 datanodes) is used from both the HDFS and both Ozone  References:</p>
+</div>
+
+
+<div class="summary mb-2">
+  
+  <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/18_warp/">S3 performance test (Ozone, Minio)</a></h2>
+  <p>Tests  Deployed Ozone and Minio Using empty dir for Ozone (disk) Executing S3 put test with using minio/warp  Summary Ozone seems to be smaller with the default settings (1.</p>
+</div>
+
+
+<div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/">OM HA isolated tests (log segment size)</a></h2>
+  <p>Hardware (y124) Three physical machine, spinning disks
+VENDOR Manufacturer: Cisco Systems Inc Product Name: UCSC-C220-M4L MEMORY Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB Size: 32 GB CPUs Version: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/16_om_isolated/">OM isolated tests</a></h2>
+  <p>docker image: elek/ozone-dev:be8a2fcc8  Tests Master / real hard disk 2020-05-13 09:25:22 INFO metrics:107 - type=TIMER, name=key-create, count=100000, min=99.738493, max=191.694249, mean=114.07656516845911, stddev=6.4852681842374595, median=116.563162, p75=116.767639, p95=117.051115, p98=117.197165, p99=133.151007, p999=191.694249, mean_rate=93.26821496222848, m1=87.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/15_teragen_new_old/">Teragen crosscheck of master / HDDS-2717 (new / old layout)</a></h2>
+  <p>Ozone Performance #15: Teragen crosscheck of master / HDDS-2717 (new / old layout) Test method  100G Teragen has been executed on Yarn with using o3fs as input / output dir 3 nodes are used for HDFS/Ozone 3 nodes for YARN Storage  Ratis log is saved to memdisk OM, SCM metadata is saved to disk (emptyDir) Chunks are saved to real disk (hostPath) Local disks are deleted after each sequence of tests   Default settings used except:  GC  HADOOP_OPTS: -server -XX:ParallelGCThreads=8 -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly   Handlers:  OZONE-SITE.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/14_teragen/">Teragen crosscheck of master / HDDS-3053 / HDDS-2717</a></h2>
+  <p>Test method  100G Teragen has been executed on Yarn with using o3fs as input / output dir 3 nodes are used for HDFS/Ozone 3 nodes for YARN Storage  Ratis log is saved to memdisk OM, SCM metadata is saved to disk (emptyDir) Chunks are saved to real disk (hostPath)   Default settings used except:  GC  HADOOP_OPTS: -server -XX:ParallelGCThreads=8 -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly   Handlers:  OZONE-SITE.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/13_ratis_log/">Ratis log and chunk storage separation</a></h2>
+  <p>Ozone Performance #13: Ratis log and chunk storage separation Test method  The same chunk writer freon test is executed: ozone freon dcg -n100000000 with the default 1k chunk size All the tests are executed on one pipeline.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/11_teragen/">Teragen HDFS vs Ozone</a></h2>
+  <p>Docker image: elek/ozone-dev:HDDS-2717-cmdw  Hadoop version:
+Hadoop 3.2.1 Source code repository https://gitbox.apache.org/repos/asf/hadoop.git -r b3cbbb467e22ea829b3808f4b7b01d07e0bf3842 Compiled by rohithsharmaks on 2019-09-10T15:56Z Compiled with protoc 2.5.0 From source with checksum 776eaf9eee9c0ffc370bcbc1888737 This command was run using /opt/hadoop/share/hadoop/common/hadoop-common-3.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/10_onefile/">Writing one file per chunks vs. one file per blocks</a></h2>
+  <p>Docker image: elek/ozone-dev:HDDS-2717-cmdw  How to test?  Freon test executed Chunk Writes calling the ChunkManagerImpl.writeChunk method directly. Size of chunks has been modified between the tests All the results are All the tests are executed parallel on 6 machines (one test requires only one machine &ndash;&gt; 6 test results) After the freon test a sync call has been executed.</p>
 </div>
 
 
 <div class="summary mb-2">
+  
   <h2 class="title-summary"><a href="https://elek.github.io/ozone-notes/performance/07_strace/">Checking syscalls with different batch sizes</a></h2>
+  <p>Ozone master: 3ddcdbbef Ratis master: 0.5.0-90cd474-SNAPSHOT Docker image: elek/ozonedev:20200211-1  How to test?  Deploy a single Datanode which is forced to be in FOLLOWER mode. Starting it with strace -f -c Stress test with freon (which behaves like a Ratis Leader) from the same container (one node) Killing datanode to have the strace summary  Environment Running k8s based containers on physical cluster, using memdisk.</p>
 </div>
 
 
@@ -120,6 +168,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 
   <div class="sub-footer">
@@ -128,7 +177,7 @@
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            Based on hugo-whisper theme.
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
           </ul>
         </div>
       </div>
