@@ -7,9 +7,9 @@ date: 2020-07-01
 
 ## Hardware (y124)
 
-Three phisical machine, spinning disks
+Three physical machine, spinning disks
 
-```
+```bash
 VENDOR
 	Manufacturer: Cisco Systems Inc
 	Product Name: UCSC-C220-M4L
