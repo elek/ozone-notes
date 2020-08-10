@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>HCFS test with instrumented FS - Hugo Whisper Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.aad43d4ecb69a264f2539b89d7f779d5f3cdff22e7585fe5fc3c77272f1c2696.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="sidebar">
+            
+<div class="docs-menu">
+  <h4>Performance</h4>
+  <ul>
+    
+    <li class="active ">
+      <a href="https://elek.github.io/ozone-notes/performance/19_hcfs/">HCFS test with instrumented FS</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/20_teragen/">Teragen test (HDFS vs. Ozone)</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/18_warp/">S3 performance test (Ozone, Minio)</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/17_om_ha_isolated/">OM HA isolated tests (log segment size)</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/16_om_isolated/">OM isolated tests</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/15_teragen_new_old/">Teragen crosscheck of master / HDDS-2717 (new / old layout)</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/14_teragen/">Teragen crosscheck of master / HDDS-3053 / HDDS-2717</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/13_ratis_log/">Ratis log and chunk storage separation</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/11_teragen/">Teragen HDFS vs Ozone</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/10_onefile/">Writing one file per chunks vs. one file per blocks</a>
+    </li>
+    
+    <li class="">
+      <a href="https://elek.github.io/ozone-notes/performance/07_strace/">Checking syscalls with different batch sizes</a>
+    </li>
+    
+  </ul>
+</div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          
+<h1 class="title">HCFS test with instrumented FS</h1>
+<div class="content ">
+  <h2 id="test-method">Test method</h2>
+<ul>
+<li>Deployed Ozone and HDFS with the help of K8s</li>
+<li>Executed key generator using Hadoop Compatble File System</li>
+<li><code>ozone freon dfsg</code></li>
+<li>Tested with
+<ul>
+<li>default write buffer (using <code>out.write([]byte, int, int)</code>)</li>
+<li>minimal write buffer (using <code>out.write(byte)</code> (teragen seems to use this approach)</li>
+<li>One client / 10 threads</li>
+</ul>
+</li>
+<li>Using spinning disk, no HDD (K8s emptydir)</li>
+<li>Hadoop <code>FileSystem</code> interface was instrumented with byteman to get additional metrics</li>
+</ul>
+<p>References:</p>
+<ul>
+<li>Test setup source: <a href="https://github.com/elek/ozone-perf-env/tree/4b2414072f862027624e5f4807a1f8c8414f56c1/hdfs-vs-ozone">hdfs-vs-ozone</a></li>
+<li>Ozone version: 5ce6f0eab (Fri Aug 7 18:35:36 2020 +0200) + few test related fixes</li>
+</ul>
+<p>Test runs:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">
+export HADOOP_USER_NAME=root
+run_test_job &#34;ozone-single-byte&#34; &#34;ozone freon dfsg -n 10000 --copy-buffer=1&#34;
+run_test_job &#34;ozone-buffered&#34; &#34;ozone freon dfsg -n 10000&#34;
+
+
+export HADOOP_USER_NAME=hadoop
+run_test_job &#34;hdfs-single-byte&#34; &#34;ozone freon dfsg -n 10000 --copy-buffer=1 --path=hdfs://hdfs-namenode-0.hdfs-namenode:9820/&#34;
+run_test_job &#34;hdfs-buffered&#34; &#34;ozone freon dfsg -n 10000 --path=hdfs://hdfs-namenode-0.hdfs-namenode:9820&#34;
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>Overall time spent in <code>write</code> and <code>close</code> methods (all thread, all clients)</p>
+<table>
+<thead>
+<tr>
+<th>storage</th>
+<th>buffered</th>
+<th>single-byte write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ozone - write</td>
+<td>5.7 s</td>
+<td>365.5 s</td>
+</tr>
+<tr>
+<td>Ozone - close</td>
+<td>583.8 s</td>
+<td>487.9 s</td>
+</tr>
+<tr>
+<td>HDFS - write</td>
+<td>6.92 s</td>
+<td>355.8 s</td>
+</tr>
+<tr>
+<td>HDFS - close</td>
+<td>411.2 s</td>
+<td>427.4 s</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ozone is 9% slower with single-byte write operation</li>
+<li>Ozone is 30% slower with buffered write operation</li>
+</ul>
+<p>Second run:</p>
+<table>
+<thead>
+<tr>
+<th>storage</th>
+<th>buffered</th>
+<th>single-byte write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ozone - write</td>
+<td>4.7 s</td>
+<td>401.8 s</td>
+</tr>
+<tr>
+<td>Ozone - close</td>
+<td>555.6 s</td>
+<td>565.0 s</td>
+</tr>
+<tr>
+<td>HDFS - write</td>
+<td>0.7 s</td>
+<td>348.1 s</td>
+</tr>
+<tr>
+<td>HDFS - close</td>
+<td>403.6 s</td>
+<td>397.3 s</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ozone is 23% slower with single-byte operation</li>
+<li>Ozone is 18% slower with buffered write operation</li>
+</ul>
+<h2 id="detailed-results">Detailed results</h2>
+<h3 id="hdfs-write-with-buffer">HDFS, write with buffer</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ozone freon dfsg -n 10000 --path=hdfs://hdfs-namenode-0.hdfs-namenode:9820
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:38:54 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+Closing file system instance: 1398604678
+   write.call: 30000
+   write.allTime: 692
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 411171
+
+2020-08-10 11:38:55 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=41.385081, max=816.43621, mean=58.5215951875575, stddev=37.177717801211635, median=49.595019, p75=50.028302, p95=91.063631, p98=157.57557, p99=208.293648, p999=359.736041, mean_rate=166.56481956393807, m1=161.70502631779362, m5=156.60309390214252, m15=155.18871589812272, rate_unit=events/second, duration_unit=milliseconds
+2020-08-10 11:38:55 INFO  BaseFreonGenerator:75 - Total execution time (sec): 61
+2020-08-10 11:38:55 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-08-10 11:38:55 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+Process exited with exit code 0
+</code></pre></div><h3 id="hdfs-write-per-one-bytes">HDFS, write per one-bytes</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ozone freon dfsg -n 10000 --copy-buffer=1 --path=hdfs://hdfs-namenode-0.hdfs-namenode:9820/
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:36 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-10 11:37:37 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+Closing file system instance: 1382688883
+   write.call: 102400000
+   write.allTime: 355779
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 427402
+2020-08-10 11:37:37 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=57.527606, max=306.218368, mean=129.5180830258841, stddev=33.56189161092684, median=124.692845, p75=141.193199, p95=183.019699, p98=223.918406, p99=249.248969, p999=291.149726, mean_rate=74.97087805984943, m1=74.13839740597696, m5=64.33445025272118, m15=60.528153245488504, rate_unit=events/second, duration_unit=milliseconds
+2020-08-10 11:37:37 INFO  BaseFreonGenerator:75 - Total execution time (sec): 134
+2020-08-10 11:37:37 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-08-10 11:37:37 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+Process exited with exit code 0
+</code></pre></div><h3 id="ozone-write-with-buffer">Ozone, write with buffer</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ozone freon dfsg -n 10000
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2020-08-10 11:34:51 INFO  ProgressBar:163 - Progress: 76.57 % (7657 out of 10000)
+2020-08-10 11:34:52 INFO  ProgressBar:163 - Progress: 78.79 % (7879 out of 10000)
+2020-08-10 11:34:53 INFO  ProgressBar:163 - Progress: 80.40 % (8040 out of 10000)
+2020-08-10 11:34:54 INFO  ProgressBar:163 - Progress: 82.80 % (8280 out of 10000)
+2020-08-10 11:34:55 INFO  ProgressBar:163 - Progress: 85.23 % (8523 out of 10000)
+2020-08-10 11:34:56 INFO  ProgressBar:163 - Progress: 87.70 % (8770 out of 10000)
+2020-08-10 11:34:57 INFO  ProgressBar:163 - Progress: 90.10 % (9010 out of 10000)
+2020-08-10 11:34:58 INFO  ProgressBar:163 - Progress: 92.09 % (9209 out of 10000)
+2020-08-10 11:34:59 INFO  ProgressBar:163 - Progress: 94.03 % (9403 out of 10000)
+2020-08-10 11:35:00 INFO  ProgressBar:163 - Progress: 94.35 % (9435 out of 10000)
+2020-08-10 11:35:01 INFO  ProgressBar:163 - Progress: 94.35 % (9435 out of 10000)
+2020-08-10 11:35:02 INFO  ProgressBar:163 - Progress: 95.21 % (9521 out of 10000)
+2020-08-10 11:35:03 INFO  ProgressBar:163 - Progress: 97.37 % (9737 out of 10000)
+2020-08-10 11:35:04 INFO  ProgressBar:163 - Progress: 99.19 % (9919 out of 10000)
+2020-08-10 11:35:05 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+2020-08-10 11:35:05 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=23.626278, max=3673.990331, mean=60.80244998164423, stddev=210.416573228068, median=33.588919, p75=55.982552, p95=74.940883, p98=139.664499, p99=183.612941, p999=2659.218763, mean_rate=146.99157827396593, m1=104.12563482159561, m5=29.10260270468229, m15=10.2991460850534, rate_unit=events/second, duration_unit=milliseconds
+2020-08-10 11:35:05 INFO  BaseFreonGenerator:75 - Total execution time (sec): 69
+2020-08-10 11:35:05 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-08-10 11:35:05 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+2020-08-10 11:35:08 WARN  GrpcUtil:217 - Timed out gracefully shutting down connection: ManagedChannelOrphanWrapper{delegate=ManagedChannelImpl{logId=1, target=10.42.1.36:9858}}.
+Closing file system instance: 618312717
+   write.call: 30000
+   write.allTime: 5654
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 583760
+Process exited with exit code 0
+</code></pre></div><h3 id="ozone-write-per-one-bytes">Ozone, write per one-bytes</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ozone freon dfsg -n 10000 --copy-buffer=1
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">2020-08-10 11:33:24 INFO  ProgressBar:163 - Progress: 90.32 % (9032 out of 10000)
+2020-08-10 11:33:25 INFO  ProgressBar:163 - Progress: 91.26 % (9126 out of 10000)
+2020-08-10 11:33:26 INFO  ProgressBar:163 - Progress: 92.26 % (9226 out of 10000)
+2020-08-10 11:33:27 INFO  ProgressBar:163 - Progress: 93.05 % (9305 out of 10000)
+2020-08-10 11:33:28 INFO  ProgressBar:163 - Progress: 93.98 % (9398 out of 10000)
+2020-08-10 11:33:29 INFO  ProgressBar:163 - Progress: 94.71 % (9471 out of 10000)
+2020-08-10 11:33:30 INFO  ProgressBar:163 - Progress: 95.70 % (9570 out of 10000)
+2020-08-10 11:33:31 INFO  ProgressBar:163 - Progress: 96.16 % (9616 out of 10000)
+2020-08-10 11:33:32 INFO  ProgressBar:163 - Progress: 96.16 % (9616 out of 10000)
+2020-08-10 11:33:33 INFO  ProgressBar:163 - Progress: 96.16 % (9616 out of 10000)
+2020-08-10 11:33:34 INFO  ProgressBar:163 - Progress: 97.01 % (9701 out of 10000)
+2020-08-10 11:33:35 INFO  ProgressBar:163 - Progress: 98.07 % (9807 out of 10000)
+2020-08-10 11:33:36 INFO  ProgressBar:163 - Progress: 98.98 % (9898 out of 10000)
+2020-08-10 11:33:37 INFO  ProgressBar:163 - Progress: 99.78 % (9978 out of 10000)
+2020-08-10 11:33:38 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+2020-08-10 11:33:38 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=32.743198, max=2654.16336, mean=121.86809838711956, stddev=152.80149973670098, median=108.182047, p75=126.767492, p95=189.999038, p98=207.635745, p99=259.264809, p999=2654.16336, mean_rate=78.77864693142469, m1=71.14478797862922, m5=27.241829405996942, m15=10.305643234434587, rate_unit=events/second, duration_unit=milliseconds
+2020-08-10 11:33:38 INFO  BaseFreonGenerator:75 - Total execution time (sec): 128
+2020-08-10 11:33:38 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-08-10 11:33:38 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+2020-08-10 11:33:41 WARN  GrpcUtil:217 - Timed out gracefully shutting down connection: ManagedChannelOrphanWrapper{delegate=ManagedChannelImpl{logId=1, target=10.42.1.36:9858}}.
+Closing file system instance: 667279054
+   write.call: 102400000
+   write.allTime: 360485
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 487878
+Process exited with exit code 0
+</code></pre></div><h2 id="references">References</h2>
+<h2 id="hardware-physical-machines-gru8">Hardware (physical machines, gru8)</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">VENDOR
+	Manufacturer: Dell Inc.
+	Product Name: Precision <span class="m">5530</span>
+MEMORY
+	Size: <span class="m">16384</span> MB
+CPUs
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i7-8850H CPU @ 2.60GHz
+	Max Speed: <span class="m">4300</span> MHz
+	Core Enabled: <span class="m">6</span>
+	Thread Count: <span class="m">12</span>
+DISKS
+     NAME          SIZE TYPE  FSTYPE      MOUNTPOINT VENDOR MODEL
+     nvme0n1     476.9G disk                                Micron 2200S NVMe 512GB
+     ├─nvme0n1p1   512M part  vfat        /boot
+     ├─nvme0n1p2    16G part  swap        <span class="o">[</span>SWAP<span class="o">]</span>
+     └─nvme0n1p3 460.4G part  crypto_LUKS
+       └─root    460.4G crypt ext4        /
+</code></pre></div>
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/ozone-notes/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

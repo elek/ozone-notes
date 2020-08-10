@@ -7812,7 +7812,12 @@ p {
   font-size: 1.2rem;
   font-weight: lighter;
   margin-bottom: 40px; }
-
+  @media (min-width: 768px) {
+    .page-home p {
+      width: 80%; } }
+  @media (min-width: 992px) {
+    .page-home p {
+      width: 60%; } }
 .page-home .terminal {
   border-radius: 3px;
   margin: 0 auto;

@@ -1,14 +1,12 @@
 #baseURL = "https://elek.github.io/ozone-notes/"
 languageCode = "en-us"
-title = "Hugo Whisper Theme"
+title = "Apache Hadoop Ozone Development notes"
 theme = "hugo-whisper-theme"
 
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClasses = true
 
-# Controls how many words are printed in the content summary on the docs homepage.
-# See https://gohugo.io/content-management/summaries/
 summaryLength = 30
 
 [[menu.main]]
