@@ -53,6 +53,12 @@ To solve the performance problems of the directory listing / rename, [HDDS-2939]
 
 ## Proposed solution
 
+In short: 
+
+ * I propose to always create intermediate directories but hide them from S3G output.
+ * Similar: always create all the keys from S3, both show only the fs-compatible path from `ofs/o3fs`
+ * Second behavior can be adjusted by the config to do an automatic normalization.
+
 ### S3/HCFS Interoperability
 
 When somebody creates a new key like `/a/b/c/d`, the same key should be visible from HCFS (`o3fs//` or `o3://`). `/a`, `/a/b` and `/a/b/c` should be visible as directories from HCFS.
@@ -63,6 +69,8 @@ This can be done with persisting an extra flag with the implicit directory entri
 
 (This flag should be added only for the keys which are created by S3. `ofs://` and `of3fs://` can create explicit directories all the time)
 
+Practicaly it means that the intermediate directories are *always* created (like always turning on `ozone.om.enable.filesystem.paths`). But it's still S3 compatible as S3G gateway can hide the directories which are created only for technical reasons.
+
 ### Handling of the incompatible paths
 
 Creating intermediate directories might not be possible if path contains illegal characters or can't be parsed as a file system path. **These keys will be invisible from HCFS** by default. They will be ignored during the normal file list.
@@ -72,7 +80,7 @@ This behavior can be adjusted by a new configuration variable (eg. `ozone.keyspa
  * `permissive` (default): any key name can be used from S3 interface but from HCFS only the valid key names (keys which can be transformed to a file system path) will be visible. The option provides the highest AWS s3 compatibility.
 * `normalize`: It's similar to the `strict` but -- instead of throwing an exception -- normalizes the key names to file-system compatible names. It breaks the AWS compatibility (some keys which are written will be readable from other path), but a safe choice when HCFS is heavliy used. 
 
-This flag is not a boolean, so we can introduce later additional behavors. For example a `strict` option may be implemented to throw exception in case of any invalid path instead of normalization. 
+This flag is not a boolean, so we can introduce later additional behaviors. For example a `strict` option may be implemented to throw exception in case of any invalid path instead of normalization. 
 
 ### Using Ozone in object-store only mode
 
