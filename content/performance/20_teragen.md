@@ -1,11 +1,8 @@
- ---
+---
 title: Teragen test (HDFS vs. Ozone)
 tags: ozone, perftest
 date: 2020-08-09
 ---
-
-
-
 
 ## Test method
 
@@ -63,7 +60,9 @@ Write time (time spent in the `write` method of the DataOutputStream per contain
 | Ozone 10g   | 206103 | 215951
 | Ozone 10g | 213687 | 212151
 | HDFS 10g | 58280 | 61442
-
+| HDFS 100g | 629369 | 608952
+| Ozone 100g | 2147281 | 2265617 
+ 
 ## Detailed test results
 
 
@@ -484,6 +483,200 @@ Closing file system instance: 1308614318
    hflush.allTime: 0
    close.call: 4
    close.allTime: 24
+```
+
+### HDFS teragen 100g
+
+```
+2020-08-10 13:45:33 INFO  Job:1665 - Counters: 34
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=453744
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=170
+                HDFS: Number of bytes written=100000000000
+                HDFS: Number of read operations=12
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=4
+                HDFS: Number of bytes read erasure-coded=0
+        Job Counters
+                Launched map tasks=2
+                Other local map tasks=2
+                Total time spent by all maps in occupied slots (ms)=3239818
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=3239818
+                Total vcore-milliseconds taken by all map tasks=3239818
+                Total megabyte-milliseconds taken by all map tasks=3317573632
+        Map-Reduce Framework
+                Map input records=1000000000
+                Map output records=1000000000
+                Input split bytes=170
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=26175
+                CPU time spent (ms)=3589840
+                Physical memory (bytes) snapshot=820944896
+                Virtual memory (bytes) snapshot=5226774528
+                Total committed heap usage (bytes)=1662386176
+                Peak Map Physical memory (bytes)=414384128
+                Peak Map Virtual memory (bytes)=2615463936
+        org.apache.hadoop.examples.terasort.TeraGen$Counters
+                CHECKSUM=2147523228284173905
+        File Input Format Counters
+                Bytes Read=0
+        File Output Format Counters
+                Bytes Written=100000000000
+Closing file system instance: 1419064127
+   write.call: 136
+   write.allTime: 15
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 1595
+Closing file system instance: 1353362805
+   write.call: 136
+   write.allTime: 15
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 1595
+Closing file system instance: 107196537
+   write.call: 136
+   write.allTime: 15
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 1595
+real    27m42.886s
+user    0m11.830s
+sys     0m1.657s
++ echo 'Test is Done'
+```
+
+```
+Closing file system instance: 2001066279
+   write.call: 1000000913
+   write.allTime: 629369
+   hsync.call: 1
+   hsync.allTime: 1084
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 16
+Closing file system instance: 1118880563
+   write.call: 1000000913
+   write.allTime: 608952
+   hsync.call: 1
+   hsync.allTime: 3956
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 25
+```
+### Ozone teragen 100g
+
+```
+2020-08-10 15:48:00 INFO  Job:1665 - Counters: 33
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=529618
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                O3FS: Number of bytes read=170
+                O3FS: Number of bytes written=100000000000
+                O3FS: Number of read operations=22
+                O3FS: Number of large read operations=0
+                O3FS: Number of write operations=4
+        Job Counters
+                Launched map tasks=2
+                Other local map tasks=2
+                Total time spent by all maps in occupied slots (ms)=6608801
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=6608801
+                Total vcore-milliseconds taken by all map tasks=6608801
+                Total megabyte-milliseconds taken by all map tasks=6767412224
+        Map-Reduce Framework
+                Map input records=1000000000
+                Map output records=1000000000
+                Input split bytes=170
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=52496
+                CPU time spent (ms)=4623900
+                Physical memory (bytes) snapshot=1104211968
+                Virtual memory (bytes) snapshot=5326680064
+                Total committed heap usage (bytes)=1662386176
+                Peak Map Physical memory (bytes)=553197568
+                Peak Map Virtual memory (bytes)=2667528192
+        org.apache.hadoop.examples.terasort.TeraGen$Counters
+                CHECKSUM=2147523228284173905
+        File Input Format Counters
+                Bytes Read=0
+        File Output Format Counters
+                Bytes Written=100000000000
+Closing file system instance: 1630037457
+   write.call: 140
+   write.allTime: 427
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 2256
+Closing file system instance: 1696070956
+   write.call: 140
+   write.allTime: 427
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 2256
+Closing file system instance: 1452133155
+   write.call: 140
+   write.allTime: 427
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 2256
+
+real    57m19.698s
+user    0m19.862s
+sys     0m3.223s
+```
+
+```
+Closing file system instance: 2028187228
+   write.call: 1000001066
+   write.allTime: 2265617
+   hsync.call: 1
+   hsync.allTime: 2
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 144
+Closing file system instance: 155390713
+   write.call: 1000001066
+   write.allTime: 2147281
+   hsync.call: 1
+   hsync.allTime: 1
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 4
+   close.allTime: 142
 ```
 
 ## Hardware (physical machines, gru8)
