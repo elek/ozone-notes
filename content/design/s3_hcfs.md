@@ -70,8 +70,9 @@ Creating intermediate directories might not be possible if path contains illegal
 This behavior can be adjusted by a new configuration variable (eg. `ozone.keyspace.scheme`) based on the values:
 
  * `permissive` (default): any key name can be used from S3 interface but from HCFS only the valid key names (keys which can be transformed to a file system path) will be visible. The option provides the highest AWS s3 compatibility.
- * `strict`: This is the opposite: any non file-system compatible key name will be rejected by an exception. This is a safe choice to make everything visible from HCFS, but couldn't guarantee 100% AWS S3 compatibility as some key names couldn't be used. 
- * `normalize`: It's similar to the `strict` but -- instead of throwing an exception -- normalizes the key names to file-system compatible names. It breaks the AWS compatibility (some keys which are written will be readable from other path), but a safe choice when HCFS is heavliy used. 
+* `normalize`: It's similar to the `strict` but -- instead of throwing an exception -- normalizes the key names to file-system compatible names. It breaks the AWS compatibility (some keys which are written will be readable from other path), but a safe choice when HCFS is heavliy used. 
+
+This flag is not a boolean, so we can introduce later additional behavors. For example a `strict` option may be implemented to throw exception in case of any invalid path instead of normalization. 
 
 ### Using Ozone in object-store only mode
 
@@ -98,8 +99,7 @@ Behavior:
  
 Proposed behavior:
 
- * `permissive`: `/c` is not accessible, `/a/b` directory doesn't contain this entry
- * `strict`: throwing exception
+ * `permissive`: `/y` is not accessible, `/a/b` directory doesn't contain this entry
  * `normalize`: key stored as `/a/b/c`  
  
 ### Path with invalid characters (`..`,`.`) 
@@ -119,7 +119,6 @@ Behavior:
 Proposed behavior:
 
  * `permissive`: `e` and `f` are not visible
- * `strict`: throwing exception
  * `normalize`: key stored as `/a/e` and `a/b/f`  
 
 ### Key and directory with the same name
@@ -139,7 +138,6 @@ Behavior:
 Proposed behavior:
 
  * `permissive`: show both the file and the directory with the same name (similar to S3A)
- * `strict`: throwing exception when the second is created
  * `normalize`: throwing exception when the second one is created  
 
 ### Directory entry created with file content
@@ -158,8 +156,7 @@ Behavior:
 Proposed behavior:
 
  * `permissive`: possible but `i/` is hidden from o3fs/ofs
- * `strict`: throwing exception when created
- * `normalize`: throwing exception when created  
+ * `normalize`: key name is normalized to real key name
 
 ### Create key and explicit create parent dir
 
@@ -175,14 +172,25 @@ Behavior:
  
 Proposed behavior:
 
-After the first command `/e/f` and `/e` entries created in the key space (as they are required by `ofs`/`o3fs`) but **with a specific flag** (explicit=false). 
+After the first command `/e/f/` and `/e/` entries created in the key space (as they are required by `ofs`/`o3fs`) but **with a specific flag** (explicit=false). 
 
 AWS S3 list-objects API should exclude those entries from the result (!).
 
-Second command execution should modify the flag of `/e/f` key to (explicit=true).
+Second command execution should modify the flag of `/e/f/` key to (explicit=true).
 
-Note: using `o3fs://` or `ofs://` all the intermediate directories can be (explicit=true)
+## Create parent dir AND key with S3a
 
-### Create key and delete parent key
+This is the problem which is reporeted by [HDDS-4209](https://issues.apache.org/jira/browse/HDDS-4209)
 
-This is very similar to the previous one but the direction is opposite. If directory key entry is still required it should be modified to (explicit=false) and excluded from any listing from the object store interface.
+```
+hdfs dfs -mkdir -p s3a://b12345/d11/d12 # -> Success
+
+hdfs dfs -put /tmp/file1 s3a://b12345/d11/d12/file1 # -> fails with below error
+```
+
+Proposed behavior:
+
+ * `permissive`: shold work without error
+ * `normalize`: should work without error.
+
+This is an `ofs`/`o3fs` question not an S3. The directory created in the first step shouldn't block the creation of the file. This can be a **mandatory** normalization for `mkdir` directory creation. As it's an HCFS operation, s3 is not affected. Entries created from S3 can be visible from s3 without any problem.
