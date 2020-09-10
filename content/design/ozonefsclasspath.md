@@ -1,4 +1,11 @@
-# Ozone Client with and Ozone FileSystem support with older Hadop versions (2.x / 3.1)
+---
+tags: ozone, designdoc
+author: Marton Elek
+date: 2020-01-01
+title: Supporting Hadoop 2
+---
+
+# Ozone Client with and Ozone FileSystem support with older Hadoop versions (2.x / 3.1)
 
 Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.2 is very rare in production, older versions should be supported to make it possible to work together with Spark, Hive, HBase and older clusters.
 
