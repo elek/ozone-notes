@@ -6,10 +6,28 @@
     <description>Recent content in ozone, perftest on Apache Hadoop Ozone Development notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elek.github.io/ozone-notes/tags/ozone-perftest/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ozone &#43; Spark &#43; Parquet</title>
+      <link>https://elek.github.io/ozone-notes/performance/22_parquet_write/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/22_parquet_write/</guid>
+      <description>Test method  Start both HDFS and Ozone Execute Spark job with local executor to generate/copy/count parquet files  generate creates multiple parquet files in hdfs/o3fs count calculates the number of records copy reads the records and writes to an other directory    Tests are executed with:</description>
+    </item>
+    
+    <item>
+      <title>Ozone teragen fixes</title>
+      <link>https://elek.github.io/ozone-notes/performance/21_teragen_ozone/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/21_teragen_ozone/</guid>
+      <description>Test definition Executing terage with Ozone vs HDFS and default settings. The measurement proves that HDDS-4119 (and RATIS-1042) fixes almost all the performance problems related to limited number of mappers.</description>
+    </item>
     
     <item>
       <title>HCFS test with instrumented FS</title>

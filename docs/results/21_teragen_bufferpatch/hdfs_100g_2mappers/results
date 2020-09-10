@@ -1,0 +1,55 @@
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+capacity-scheduler.xml
+File capacity-scheduler.xml has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+hdfs-site.xml
+File hdfs-site.xml has been written out successfullly.
+log4j.properties
+File log4j.properties has been written out successfullly.
+yarn-site.xml
+File yarn-site.xml has been written out successfullly.
+======================================
+*** Launching "/opt/tests/teragen.sh"
+++ numfmt --from=auto --to-unit=100 100G
++ ROWS=1000000000
++ MR_EXAMPLES_JAR=/opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar
+++ seq 0 0
++ for i in `seq 0 0`
+++ shuf -i 1000-2000 -n 1
++ OUTPUT_DIR=teragen-1346
++ OUTPUT_DIR=hdfs://hdfs-namenode-0.hdfs-namenode:9820/teragen-1346
++ yarn jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar teragen -Dmapred.map.tasks=2 -Dmapreduce.map.log.level=INFO -Dmapreduce.reduce.log.level=INFO -Dyarn.app.mapreduce.am.log.level=INFO 1000000000 hdfs://hdfs-namenode-0.hdfs-namenode:9820/teragen-1346
+2020-08-13 13:13:56 INFO  RMProxy:133 - Connecting to ResourceManager at yarn-resourcemanager-0.yarn-resourcemanager/10.42.2.114:8032
+2020-08-13 13:13:57 INFO  JobResourceUploader:906 - Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1597324403616_0002
+2020-08-13 13:13:57 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-13 13:13:57 INFO  TeraGen:176 - Generating 1000000000 using 2
+2020-08-13 13:13:57 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-13 13:13:57 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-13 13:13:57 INFO  JobSubmitter:202 - number of splits:2
+2020-08-13 13:13:57 INFO  deprecation:1395 - mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2020-08-13 13:13:57 INFO  SaslDataTransferClient:239 - SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2020-08-13 13:13:57 INFO  JobSubmitter:298 - Submitting tokens for job: job_1597324403616_0002
+2020-08-13 13:13:57 INFO  JobSubmitter:299 - Executing with tokens: []
+2020-08-13 13:13:58 INFO  Configuration:2795 - resource-types.xml not found
+2020-08-13 13:13:58 INFO  ResourceUtils:440 - Unable to find 'resource-types.xml'.
+2020-08-13 13:13:58 INFO  YarnClientImpl:329 - Submitted application application_1597324403616_0002
+2020-08-13 13:13:58 INFO  Job:1574 - The url to track the job: http://yarn-resourcemanager-0.yarn-resourcemanager.default.svc.cluster.local:8088/proxy/application_1597324403616_0002/
+2020-08-13 13:13:58 INFO  Job:1619 - Running job: job_1597324403616_0002
+2020-08-13 13:24:46 INFO  Job:1640 - Job job_1597324403616_0002 running in uber mode : false
+2020-08-13 13:24:46 INFO  Job:1647 -  map 0% reduce 0%
+2020-08-13 13:25:03 INFO  Job:1647 -  map 2% reduce 0%
+2020-08-13 13:25:09 INFO  Job:1647 -  map 4% reduce 0%
+2020-08-13 13:25:15 INFO  Job:1647 -  map 5% reduce 0%
+2020-08-13 13:25:21 INFO  Job:1647 -  map 6% reduce 0%
+2020-08-13 13:25:27 INFO  Job:1647 -  map 7% reduce 0%
+2020-08-13 13:25:33 INFO  Job:1647 -  map 8% reduce 0%
+2020-08-13 13:25:39 INFO  Job:1647 -  map 9% reduce 0%
+2020-08-13 13:25:45 INFO  Job:1647 -  map 10% reduce 0%
+2020-08-13 13:25:50 INFO  Job:1647 -  map 11% reduce 0%
+2020-08-13 13:25:56 INFO  Job:1647 -  map 12% reduce 0%
+2020-08-13 13:25:57 INFO  Job:1647 -  map 13% reduce 0%

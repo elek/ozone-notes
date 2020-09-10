@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Apache Hadoop Ozone Development notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elek.github.io/ozone-notes/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ozone, perftest</title>
       <link>https://elek.github.io/ozone-notes/tags/ozone-perftest/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/tags/ozone-perftest/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>ozone, designdoc</title>
       <link>https://elek.github.io/ozone-notes/tags/ozone-designdoc/</link>
-      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/tags/ozone-designdoc/</guid>
       <description></description>

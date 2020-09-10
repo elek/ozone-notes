@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title> - Apache Hadoop Ozone Development notes</title>
+  <title>Supporting Hadoop 2 - Apache Hadoop Ozone Development notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/ozone-notes/css/style.min.22519856e60921f42cfae62f3aca24255098741556c2ccb420c817a0adcde3f9.css">
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.e4a998fd3312b7b4b27be6b707077f6d2989860cbfb9eb31322a49baf63d68b3.css">
   
 
   
@@ -68,9 +68,9 @@
 
     
     
-<h1 class="title"></h1>
+<h1 class="title">Supporting Hadoop 2</h1>
 <div class="content ">
-  <h1 id="ozone-client-with-and-ozone-filesystem-support-with-older-hadop-versions-2x--31">Ozone Client with and Ozone FileSystem support with older Hadop versions (2.x / 3.1)</h1>
+  <h1 id="ozone-client-with-and-ozone-filesystem-support-with-older-hadoop-versions-2x--31">Ozone Client with and Ozone FileSystem support with older Hadoop versions (2.x / 3.1)</h1>
 <p>Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.2 is very rare in production, older versions should be supported to make it possible to work together with Spark, Hive, HBase and older clusters.</p>
 <h2 id="the-problem">The problem</h2>
 <p>We have two separated worlds: the client and the server side. The server can have any kind of dependencies as the classloaders of the server are usually separated from the client (different JVM, service, etc.). But the Ozone Client might be used from an environment where a specific Hadoop instance is already available:</p>

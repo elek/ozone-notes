@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Ozone &#43; Spark &#43; Parquet - Apache Hadoop Ozone Development notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.e4a998fd3312b7b4b27be6b707077f6d2989860cbfb9eb31322a49baf63d68b3.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#test-method">Test method</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#hardware">Hardware</a></li>
+  </ul>
+</nav>
+        </div>
+        <div class="col-12 col-md-9">
+          
+<h1 class="title">Ozone &#43; Spark &#43; Parquet</h1>
+<div class="content ">
+  <h2 id="test-method">Test method</h2>
+<ol>
+<li>Start both HDFS and Ozone</li>
+<li>Execute Spark job with <code>local</code> executor to generate/copy/count parquet files
+<ol>
+<li><code>generate</code> creates multiple parquet files in <code>hdfs</code>/<code>o3fs</code></li>
+<li><code>count</code> calculates the number of records</li>
+<li><code>copy</code> reads the records and writes to an other directory</li>
+</ol>
+</li>
+</ol>
+<p>Tests are executed with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">time</span> <span class="nv">$SPARK_HOME</span>/bin/spark-submit <span class="se">\
+</span><span class="se"></span>    --conf spark.executor.memory<span class="o">=</span>4g <span class="se">\
+</span><span class="se"></span>    --jars /opt/ozonefs/hadoop-ozone-filesystem.jar <span class="se">\
+</span><span class="se"></span>    <span class="nv">$SAMPLES_DIR</span>/spark-samples-1.0-SNAPSHOT.jar <span class="se">\
+</span><span class="se"></span>    <span class="nv">$@</span>
+</code></pre></div><p>And this script is called multiple times:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">./run_parquet.sh generate --records <span class="m">50</span> --iteration <span class="m">200</span> o3fs://bucket1.vol1/testdata1
+./run_parquet.sh count o3fs://bucket1.vol1/testdata1
+./run_parquet.sh copy o3fs://bucket1.vol1/testdata1 o3fs://bucket1.vol1/test1
+</code></pre></div><p>Same commands are executed with <code>hdfs</code> file system.</p>
+<p>Spark samples can be found here: <a href="https://github.com/elek/spark-samples">https://github.com/elek/spark-samples</a></p>
+<h2 id="results">Results</h2>
+<p><em>Real</em> time of the test execution (reported by linux <code>time</code> command)</p>
+<table>
+<thead>
+<tr>
+<th>test</th>
+<th>HDFS</th>
+<th>Ozone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>copy</td>
+<td>3m12s</td>
+<td>7m22s</td>
+</tr>
+<tr>
+<td>count</td>
+<td>0m13s</td>
+<td>0m16s</td>
+</tr>
+</tbody>
+</table>
+<p>Detailed results (including flamegraph) are committed to here:</p>
+<p><a href="https://github.com/elek/ozone-notes/tree/master/static/results/22_parquet_write">https://github.com/elek/ozone-notes/tree/master/static/results/22_parquet_write</a></p>
+<h2 id="analysis">Analysis</h2>
+<p>After checking the overall time of executions (with byteman), it turned out that the client spends a lot of time in watch for commit call (132 second in this case)</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Closing file system instance: 753980739
+   write.call: 18200
+   write.allTime: 8389
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 101
+   close.allTime: 14221
+   watchForCommit.call: 600
+   watchForCommit.allTime: 132813
+</code></pre></div><p>Adding server side byteman instrumentation also showed that even with RATIS-1042, we can see long pause with certain watch for commit requests. (Usually it tasks 5-20 ms, but sometimes leader waits 2-3 sec before the HB.)</p>
+<p>Note: Ozone default min timeout heartbeat for Raft is 5 seconds.</p>
+<h2 id="references">References</h2>
+<p>Ozone version: <a href="https://github.com/elek/hadoop-ozone/commit/d65fb279bcfda1ce2c5777d0ea7e30673b60ff72">https://github.com/elek/hadoop-ozone/commit/d65fb279bcfda1ce2c5777d0ea7e30673b60ff72</a></p>
+<p>(upstream + HDDS-4119, HDDS-4185)</p>
+<p>Ratis version: <a href="https://github.com/elek/incubator-ratis/commit/ddc48d3c0bb77f8a29fb9133ed8c2f7f27fce2d8">https://github.com/elek/incubator-ratis/commit/ddc48d3c0bb77f8a29fb9133ed8c2f7f27fce2d8</a></p>
+<p>(upstream + RATIS-1042, RATIS-1050)</p>
+<p>Spark samples: <a href="https://github.com/elek/spark-samples/commit/fad74c095d47398a4732b700dd55121daa9f999b">https://github.com/elek/spark-samples/commit/fad74c095d47398a4732b700dd55121daa9f999b</a></p>
+<p>Deployment definition:</p>
+<p><a href="https://github.com/elek/ozone-perf-env/tree/master/spark-ozone">https://github.com/elek/ozone-perf-env/tree/master/spark-ozone</a></p>
+<h2 id="hardware">Hardware</h2>
+<p>(physical machines, gru8)</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">VENDOR
+	Manufacturer: Dell Inc.
+	Product Name: PowerEdge R430
+MEMORY
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+CPUs
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v4 @ 2.20GHz
+	Max Speed: <span class="m">4000</span> MHz
+	Core Enabled: <span class="m">10</span>
+	Thread Count: <span class="m">20</span>
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v4 @ 2.20GHz
+	Max Speed: <span class="m">4000</span> MHz
+	Core Enabled: <span class="m">10</span>
+	Thread Count: <span class="m">20</span>
+DISKS
+     NAME     SIZE TYPE FSTYPE MOUNTPOINT VENDOR   MODEL
+     sda      1.8T disk                   ATA      ST2000NM0018-2F3
+     ├─sda1 745.2G part xfs    /
+     ├─sda2    10G part swap   <span class="o">[</span>SWAP<span class="o">]</span>
+     └─sda3   1.1T part xfs    /var
+     sdb      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdb1   1.8T part xfs    /data/1
+     sdc      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdc1   1.8T part xfs    /data/2
+     sdd      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdd1   1.8T part xfs    /data/3
+</code></pre></div>
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/ozone-notes/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

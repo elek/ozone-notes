@@ -12,6 +12,34 @@
     
     
     <item>
+      <title>Ozone &#43; Spark &#43; Parquet</title>
+      <link>https://elek.github.io/ozone-notes/performance/22_parquet_write/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/22_parquet_write/</guid>
+      <description>Test method  Start both HDFS and Ozone Execute Spark job with local executor to generate/copy/count parquet files  generate creates multiple parquet files in hdfs/o3fs count calculates the number of records copy reads the records and writes to an other directory    Tests are executed with:</description>
+    </item>
+    
+    <item>
+      <title>S3 / O3fs/ofs interoperability</title>
+      <link>https://elek.github.io/ozone-notes/design/s3_hcfs/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/design/s3_hcfs/</guid>
+      <description>See latest version here:
+https://github.com/apache/hadoop-ozone/pull/1411</description>
+    </item>
+    
+    <item>
+      <title>Ozone teragen fixes</title>
+      <link>https://elek.github.io/ozone-notes/performance/21_teragen_ozone/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/21_teragen_ozone/</guid>
+      <description>Test definition Executing terage with Ozone vs HDFS and default settings. The measurement proves that HDDS-4119 (and RATIS-1042) fixes almost all the performance problems related to limited number of mappers.</description>
+    </item>
+    
+    <item>
       <title>HCFS test with instrumented FS</title>
       <link>https://elek.github.io/ozone-notes/performance/19_hcfs/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
@@ -133,12 +161,12 @@ Hadoop 3.2.1 Source code repository https://gitbox.apache.org/repos/asf/hadoop.g
     </item>
     
     <item>
-      <title></title>
+      <title>Supporting Hadoop 2</title>
       <link>https://elek.github.io/ozone-notes/design/ozonefsclasspath/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/design/ozonefsclasspath/</guid>
-      <description>Ozone Client with and Ozone FileSystem support with older Hadop versions (2.x / 3.1) Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.</description>
+      <description>Ozone Client with and Ozone FileSystem support with older Hadoop versions (2.x / 3.1) Apache Hadoop Ozone is a Hadoop subproject. It depends on the released Hadoop 3.2. But as Hadoop 3.</description>
     </item>
     
     <item>

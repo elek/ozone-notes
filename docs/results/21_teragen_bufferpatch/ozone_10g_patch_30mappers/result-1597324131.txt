@@ -1,0 +1,121 @@
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+capacity-scheduler.xml
+File capacity-scheduler.xml has been written out successfullly.
+hdfs-site.xml
+File hdfs-site.xml has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+yarn-site.xml
+File yarn-site.xml has been written out successfullly.
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+======================================
+*** Launching "/opt/tests/teragen.sh"
+++ numfmt --from=auto --to-unit=100 10G
++ ROWS=100000000
++ MR_EXAMPLES_JAR=/opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar
+++ shuf -i 1000-2000 -n 1
++ OUTPUT_DIR=teragen-1275
++ OUTPUT_DIR=o3fs://bucket1.vol1.ozone-om-0.ozone-om/teragen-1275
++ yarn jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar teragen -Dmapred.map.tasks=30 -Dmapreduce.map.log.level=INFO -Dmapreduce.reduce.log.level=INFO -Dyarn.app.mapreduce.am.log.level=INFO 100000000 o3fs://bucket1.vol1.ozone-om-0.ozone-om/teragen-1275
+2020-08-13 13:06:57 INFO  RMProxy:133 - Connecting to ResourceManager at yarn-resourcemanager-0.yarn-resourcemanager/10.42.7.117:8032
+2020-08-13 13:06:58 INFO  MetricsConfig:118 - Loaded properties from hadoop-metrics2.properties
+2020-08-13 13:06:58 INFO  MetricsSystemImpl:374 - Scheduled Metric snapshot period at 10 second(s).
+2020-08-13 13:06:58 INFO  MetricsSystemImpl:191 - XceiverClientMetrics metrics system started
+2020-08-13 13:07:00 INFO  TeraGen:176 - Generating 100000000 using 30
+2020-08-13 13:07:01 INFO  JobSubmitter:202 - number of splits:30
+2020-08-13 13:07:01 INFO  deprecation:1395 - mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2020-08-13 13:07:01 INFO  JobSubmitter:298 - Submitting tokens for job: job_1597323982052_0001
+2020-08-13 13:07:01 INFO  JobSubmitter:299 - Executing with tokens: []
+2020-08-13 13:07:01 INFO  Configuration:2795 - resource-types.xml not found
+2020-08-13 13:07:01 INFO  ResourceUtils:440 - Unable to find 'resource-types.xml'.
+2020-08-13 13:07:02 INFO  YarnClientImpl:329 - Submitted application application_1597323982052_0001
+2020-08-13 13:07:02 INFO  Job:1574 - The url to track the job: http://yarn-resourcemanager-0.yarn-resourcemanager.default.svc.cluster.local:8088/proxy/application_1597323982052_0001/
+2020-08-13 13:07:02 INFO  Job:1619 - Running job: job_1597323982052_0001
+2020-08-13 13:07:12 INFO  Job:1640 - Job job_1597323982052_0001 running in uber mode : false
+2020-08-13 13:07:12 INFO  Job:1647 -  map 0% reduce 0%
+2020-08-13 13:07:28 INFO  Job:1647 -  map 4% reduce 0%
+2020-08-13 13:07:30 INFO  Job:1647 -  map 13% reduce 0%
+2020-08-13 13:07:31 INFO  Job:1647 -  map 17% reduce 0%
+2020-08-13 13:07:32 INFO  Job:1647 -  map 20% reduce 0%
+2020-08-13 13:07:33 INFO  Job:1647 -  map 23% reduce 0%
+2020-08-13 13:07:34 INFO  Job:1647 -  map 25% reduce 0%
+2020-08-13 13:07:35 INFO  Job:1647 -  map 26% reduce 0%
+2020-08-13 13:07:36 INFO  Job:1647 -  map 32% reduce 0%
+2020-08-13 13:07:37 INFO  Job:1647 -  map 34% reduce 0%
+2020-08-13 13:07:38 INFO  Job:1647 -  map 36% reduce 0%
+2020-08-13 13:07:39 INFO  Job:1647 -  map 38% reduce 0%
+2020-08-13 13:07:40 INFO  Job:1647 -  map 41% reduce 0%
+2020-08-13 13:07:42 INFO  Job:1647 -  map 43% reduce 0%
+2020-08-13 13:07:43 INFO  Job:1647 -  map 44% reduce 0%
+2020-08-13 13:07:44 INFO  Job:1647 -  map 45% reduce 0%
+2020-08-13 13:07:45 INFO  Job:1647 -  map 46% reduce 0%
+2020-08-13 13:07:53 INFO  Job:1647 -  map 47% reduce 0%
+2020-08-13 13:08:00 INFO  Job:1647 -  map 48% reduce 0%
+2020-08-13 13:08:02 INFO  Job:1647 -  map 49% reduce 0%
+2020-08-13 13:08:08 INFO  Job:1647 -  map 50% reduce 0%
+2020-08-13 13:08:15 INFO  Job:1647 -  map 51% reduce 0%
+2020-08-13 13:08:18 INFO  Job:1647 -  map 53% reduce 0%
+2020-08-13 13:08:21 INFO  Job:1647 -  map 54% reduce 0%
+2020-08-13 13:08:26 INFO  Job:1647 -  map 56% reduce 0%
+2020-08-13 13:08:27 INFO  Job:1647 -  map 57% reduce 0%
+2020-08-13 13:08:28 INFO  Job:1647 -  map 69% reduce 0%
+2020-08-13 13:08:29 INFO  Job:1647 -  map 73% reduce 0%
+2020-08-13 13:08:33 INFO  Job:1647 -  map 80% reduce 0%
+2020-08-13 13:08:34 INFO  Job:1647 -  map 83% reduce 0%
+2020-08-13 13:08:38 INFO  Job:1647 -  map 90% reduce 0%
+2020-08-13 13:08:40 INFO  Job:1647 -  map 93% reduce 0%
+2020-08-13 13:08:41 INFO  Job:1647 -  map 100% reduce 0%
+2020-08-13 13:08:50 INFO  Job:1658 - Job job_1597323982052_0001 completed successfully
+2020-08-13 13:08:50 INFO  Job:1665 - Counters: 34
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=7927730
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		O3FS: Number of bytes read=2571
+		O3FS: Number of bytes written=10000000000
+		O3FS: Number of read operations=330
+		O3FS: Number of large read operations=0
+		O3FS: Number of write operations=60
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=30
+		Other local map tasks=30
+		Total time spent by all maps in occupied slots (ms)=1638433
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=1638433
+		Total vcore-milliseconds taken by all map tasks=1638433
+		Total megabyte-milliseconds taken by all map tasks=1677755392
+	Map-Reduce Framework
+		Map input records=100000000
+		Map output records=100000000
+		Input split bytes=2571
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=6204
+		CPU time spent (ms)=326370
+		Physical memory (bytes) snapshot=14886535168
+		Virtual memory (bytes) snapshot=79526674432
+		Total committed heap usage (bytes)=24935792640
+		Peak Map Physical memory (bytes)=524914688
+		Peak Map Virtual memory (bytes)=2713464832
+	org.apache.hadoop.examples.terasort.TeraGen$Counters
+		CHECKSUM=214760662691937609
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=10000000000
+
+real	1m54.573s
+user	0m8.210s
+sys	0m0.626s
++ echo 'Test is Done'
+Test is Done
+Process exited with exit code 0
