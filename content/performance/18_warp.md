@@ -82,22 +82,3 @@ warp: <ERROR> unrecognized option:Markerwarp: <ERROR> unrecognized option:Marker
 
 ## Hardware AWS/SSD
 
-```shell
-VENDOR
-	Manufacturer: Dell Inc.
-	Product Name: Precision 5530
-MEMORY
-	Size: 16384 MB
-CPUs
-	Version: Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz
-	Max Speed: 4300 MHz
-	Core Enabled: 6
-	Thread Count: 12
-DISKS
-     NAME          SIZE TYPE  FSTYPE      MOUNTPOINT VENDOR MODEL
-     nvme0n1     476.9G disk                                Micron 2200S NVMe 512GB
-     ├─nvme0n1p1   512M part  vfat        /boot
-     ├─nvme0n1p2    16G part  swap        [SWAP]
-     └─nvme0n1p3 460.4G part  crypto_LUKS
-       └─root    460.4G crypt ext4        /
-```

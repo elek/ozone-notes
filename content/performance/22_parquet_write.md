@@ -83,7 +83,9 @@ Deployment definition:
 
 https://github.com/elek/ozone-perf-env/tree/master/spark-ozone 
 
-## Hardware (physical machines, gru8)
+## Hardware
+
+(physical machines, gru8)
 
 ```shell
 VENDOR

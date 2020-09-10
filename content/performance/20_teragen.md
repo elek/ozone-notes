@@ -681,22 +681,32 @@ Closing file system instance: 155390713
 
 ## Hardware (physical machines, gru8)
 
-```shell
 VENDOR
 	Manufacturer: Dell Inc.
-	Product Name: Precision 5530
+	Product Name: PowerEdge R430
 MEMORY
-	Size: 16384 MB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
 CPUs
-	Version: Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz
-	Max Speed: 4300 MHz
-	Core Enabled: 6
-	Thread Count: 12
+	Version: Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz
+	Max Speed: 4000 MHz
+	Core Enabled: 10
+	Thread Count: 20
+	Version: Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz
+	Max Speed: 4000 MHz
+	Core Enabled: 10
+	Thread Count: 20
 DISKS
-     NAME          SIZE TYPE  FSTYPE      MOUNTPOINT VENDOR MODEL
-     nvme0n1     476.9G disk                                Micron 2200S NVMe 512GB
-     ├─nvme0n1p1   512M part  vfat        /boot
-     ├─nvme0n1p2    16G part  swap        [SWAP]
-     └─nvme0n1p3 460.4G part  crypto_LUKS
-       └─root    460.4G crypt ext4        /
-```
+     NAME     SIZE TYPE FSTYPE MOUNTPOINT VENDOR   MODEL
+     sda      1.8T disk                   ATA      ST2000NM0018-2F3
+     ├─sda1 745.2G part xfs    /
+     ├─sda2    10G part swap   [SWAP]
+     └─sda3   1.1T part xfs    /var
+     sdb      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdb1   1.8T part xfs    /data/1
+     sdc      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdc1   1.8T part xfs    /data/2
+     sdd      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdd1   1.8T part xfs    /data/3
