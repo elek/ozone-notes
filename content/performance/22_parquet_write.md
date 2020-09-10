@@ -45,6 +45,8 @@ Spark samples can be found here: https://github.com/elek/spark-samples
 
 Detailed results (including flamegraph) are committed to here: 
 
+https://github.com/elek/ozone-notes/tree/master/static/results/22_parquet_write
+
 ## Analysis
 
 After checking the overall time of executions (with byteman), it turned out that the client spends a lot of time in watch for commit call (132 second in this case)
