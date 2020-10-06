@@ -1,0 +1,81 @@
+ozone freon dfsg -s1024000 -n10000 -t 10
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+log4j.properties
+File log4j.properties has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+hdfs-site.xml
+File hdfs-site.xml has been written out successfullly.
+======================================
+*** Launching "ozone freon dfsg -s1024000 -n10000 -t 10"
+2020-10-06 12:02:40 INFO  MetricsConfig:118 - Loaded properties from hadoop-metrics2.properties
+2020-10-06 12:02:40 INFO  MetricsSystemImpl:374 - Scheduled Metric snapshot period at 10 second(s).
+2020-10-06 12:02:40 INFO  MetricsSystemImpl:191 - ozone-freon metrics system started
+2020-10-06 12:02:40 INFO  BaseFreonGenerator:247 - Executing test with prefix objzhqkrpl
+2020-10-06 12:02:40 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 12:02:40 WARN  NativeCodeLoader:60 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2020-10-06 12:02:41 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 12:02:42 WARN  MetricsSystemImpl:151 - ozone-freon metrics system already initialized!
+2020-10-06 12:02:42 INFO  MetricRegistries:64 - Loaded MetricRegistries class org.apache.ratis.metrics.impl.MetricRegistriesImpl
+2020-10-06 12:02:42 INFO  RatisMetrics:36 - Creating Metrics Registry : ratis.client_message_metrics.client-C34B9FBD7771->a487c41d-aaf7-466b-8d13-e1ce808eb5c4
+2020-10-06 12:02:42 WARN  MetricRegistriesImpl:65 - First MetricRegistry has been created without registering reporters. You may need to call MetricRegistries.global().addReportRegistration(...) before.
+2020-10-06 12:02:42 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 12:02:43 INFO  ProgressBar:163 - Progress: 0.33 % (33 out of 10000)
+2020-10-06 12:02:44 INFO  ProgressBar:163 - Progress: 2.47 % (247 out of 10000)
+2020-10-06 12:02:45 INFO  ProgressBar:163 - Progress: 5.28 % (528 out of 10000)
+2020-10-06 12:02:46 INFO  ProgressBar:163 - Progress: 8.20 % (820 out of 10000)
+2020-10-06 12:02:47 INFO  ProgressBar:163 - Progress: 11.15 % (1115 out of 10000)
+2020-10-06 12:02:48 INFO  ProgressBar:163 - Progress: 14.10 % (1410 out of 10000)
+2020-10-06 12:02:49 INFO  ProgressBar:163 - Progress: 16.98 % (1698 out of 10000)
+2020-10-06 12:02:50 INFO  ProgressBar:163 - Progress: 19.96 % (1996 out of 10000)
+2020-10-06 12:02:51 INFO  ProgressBar:163 - Progress: 22.79 % (2279 out of 10000)
+2020-10-06 12:02:52 INFO  ProgressBar:163 - Progress: 25.80 % (2580 out of 10000)
+2020-10-06 12:02:53 INFO  ProgressBar:163 - Progress: 28.77 % (2877 out of 10000)
+2020-10-06 12:02:54 INFO  ProgressBar:163 - Progress: 31.76 % (3176 out of 10000)
+2020-10-06 12:02:55 INFO  ProgressBar:163 - Progress: 34.75 % (3475 out of 10000)
+2020-10-06 12:02:56 INFO  ProgressBar:163 - Progress: 37.02 % (3702 out of 10000)
+2020-10-06 12:02:57 INFO  ProgressBar:163 - Progress: 39.95 % (3995 out of 10000)
+2020-10-06 12:02:58 INFO  ProgressBar:163 - Progress: 42.92 % (4292 out of 10000)
+2020-10-06 12:02:59 INFO  ProgressBar:163 - Progress: 45.95 % (4595 out of 10000)
+2020-10-06 12:03:00 INFO  ProgressBar:163 - Progress: 48.93 % (4893 out of 10000)
+2020-10-06 12:03:01 INFO  ProgressBar:163 - Progress: 51.84 % (5184 out of 10000)
+2020-10-06 12:03:02 INFO  ProgressBar:163 - Progress: 54.64 % (5464 out of 10000)
+2020-10-06 12:03:03 INFO  ProgressBar:163 - Progress: 57.78 % (5778 out of 10000)
+2020-10-06 12:03:04 INFO  ProgressBar:163 - Progress: 60.73 % (6073 out of 10000)
+2020-10-06 12:03:05 INFO  ProgressBar:163 - Progress: 63.86 % (6386 out of 10000)
+2020-10-06 12:03:06 INFO  ProgressBar:163 - Progress: 66.89 % (6689 out of 10000)
+2020-10-06 12:03:07 INFO  ProgressBar:163 - Progress: 69.94 % (6994 out of 10000)
+2020-10-06 12:03:08 INFO  ProgressBar:163 - Progress: 72.95 % (7295 out of 10000)
+2020-10-06 12:03:09 INFO  ProgressBar:163 - Progress: 76.04 % (7604 out of 10000)
+2020-10-06 12:03:10 INFO  ProgressBar:163 - Progress: 78.91 % (7891 out of 10000)
+2020-10-06 12:03:11 INFO  ProgressBar:163 - Progress: 81.80 % (8180 out of 10000)
+2020-10-06 12:03:12 INFO  ProgressBar:163 - Progress: 84.81 % (8481 out of 10000)
+2020-10-06 12:03:13 INFO  ProgressBar:163 - Progress: 87.72 % (8772 out of 10000)
+2020-10-06 12:03:14 INFO  ProgressBar:163 - Progress: 90.81 % (9081 out of 10000)
+2020-10-06 12:03:15 INFO  ProgressBar:163 - Progress: 93.78 % (9378 out of 10000)
+2020-10-06 12:03:16 INFO  ProgressBar:163 - Progress: 96.71 % (9671 out of 10000)
+2020-10-06 12:03:17 INFO  ProgressBar:163 - Progress: 99.67 % (9967 out of 10000)
+2020-10-06 12:03:18 INFO  ProgressBar:163 - Progress: 99.99 % (9999 out of 10000)
+2020-10-06 12:03:19 INFO  ProgressBar:163 - Progress: 99.99 % (9999 out of 10000)
+2020-10-06 12:03:20 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+2020-10-06 12:03:20 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=13.133718, max=1207.421588, mean=34.56415636981755, stddev=33.07769461113064, median=32.463368, p75=37.517296, p95=47.495217, p98=51.571121, p99=56.090229, p999=220.278798, mean_rate=256.2253632355129, m1=226.3292358796512, m5=192.38424039143948, m15=185.3132277265121, rate_unit=events/second, duration_unit=milliseconds
+2020-10-06 12:03:20 INFO  BaseFreonGenerator:75 - Total execution time (sec): 40
+2020-10-06 12:03:20 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-10-06 12:03:20 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+2020-10-06 12:03:23 WARN  GrpcUtil:217 - Timed out gracefully shutting down connection: ManagedChannelOrphanWrapper{delegate=ManagedChannelImpl{logId=1, target=10.42.3.89:9858}}. 
+Closing file system instance: 473782549
+   write.call: 3000000
+   write.allTime: 8810
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 316248
+Process exited with exit code 0

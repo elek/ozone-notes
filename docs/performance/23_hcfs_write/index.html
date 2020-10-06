@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>HDFS vs Ozone with Freon HCFS write test - Apache Hadoop Ozone Development notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://elek.github.io/ozone-notes/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/ozone-notes/css/style.min.e4a998fd3312b7b4b27be6b707077f6d2989860cbfb9eb31322a49baf63d68b3.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://elek.github.io/ozone-notes/"><img alt="Logo" src="/ozone-notes/" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/ozone-notes/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#test-method">Test method</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#hardware">Hardware</a></li>
+  </ul>
+</nav>
+        </div>
+        <div class="col-12 col-md-9">
+          
+<h1 class="title">HDFS vs Ozone with Freon HCFS write test</h1>
+<div class="content ">
+  <h2 id="test-method">Test method</h2>
+<ol>
+<li>Start <code>ozone freon dfsg -s1024000 -n10000</code> with <code>-t 1</code> and <code>-t 10</code> with both HDFS and Ozone path</li>
+<li>CRC calculation is disabled on both side</li>
+<li>Memdisk is used for persistent on both side</li>
+</ol>
+<h2 id="results">Results</h2>
+<p>Time of execution (reported by the metrics of freon)</p>
+<table>
+<thead>
+<tr>
+<th>test</th>
+<th>HDFS</th>
+<th>Ozone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 thread</td>
+<td>186s, 181s</td>
+<td>144s, 145s</td>
+</tr>
+<tr>
+<td>10 threads</td>
+<td>18s,19s</td>
+<td>35s, 40s</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/elek/ozone-notes/tree/master/static/results/23_hcfs_write">https://github.com/elek/ozone-notes/tree/master/static/results/23_hcfs_write</a></p>
+<h2 id="analysis">Analysis</h2>
+<p>Ozone <code>10 thread</code> test is measured with async-profile (with event=cpu and event=lock).</p>
+<p>See:</p>
+<ul>
+<li><a href="https://github.com/elek/ozone-notes/blob/master/static/results/23_hcfs_write/profile.svg">lock profile</a></li>
+<li><a href="https://github.com/elek/ozone-notes/blob/master/static/results/23_hcfs_write/profile.svg">cpu profile</a></li>
+</ul>
+<p><code>lock</code> profile shows time spent in Ratis <code>SlidingWindow</code> which contains a lot of <code>syncrhonize</code>-d method.</p>
+<h2 id="references">References</h2>
+<p>Ozone version: <a href="https://github.com/elek/hadoop-ozone/commit/bbf5d5e08a1c434cbe03ed05d4da912196196d0e">https://github.com/elek/hadoop-ozone/commit/bbf5d5e08a1c434cbe03ed05d4da912196196d0e</a></p>
+<p>(upstream + HDDS-4285)</p>
+<p>Deployment definition:</p>
+<p><a href="https://github.com/elek/ozone-perf-env/tree/master/hdfs-vs-ozone">https://github.com/elek/ozone-perf-env/tree/master/hdfs-vs-ozone</a></p>
+<p>Last commit:</p>
+<p><a href="https://github.com/elek/ozone-perf-env/commit/de841ca4cd3c6d1ceb56d0deee72844a0290a98f">https://github.com/elek/ozone-perf-env/commit/de841ca4cd3c6d1ceb56d0deee72844a0290a98f</a></p>
+<h2 id="hardware">Hardware</h2>
+<p>(physical machines, gru8)</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">VENDOR
+	Manufacturer: Dell Inc.
+	Product Name: PowerEdge R430
+MEMORY
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+	Size: <span class="m">32</span> GB
+CPUs
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v4 @ 2.20GHz
+	Max Speed: <span class="m">4000</span> MHz
+	Core Enabled: <span class="m">10</span>
+	Thread Count: <span class="m">20</span>
+	Version: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v4 @ 2.20GHz
+	Max Speed: <span class="m">4000</span> MHz
+	Core Enabled: <span class="m">10</span>
+	Thread Count: <span class="m">20</span>
+DISKS
+     NAME     SIZE TYPE FSTYPE MOUNTPOINT VENDOR   MODEL
+     sda      1.8T disk                   ATA      ST2000NM0018-2F3
+     ├─sda1 745.2G part xfs    /
+     ├─sda2    10G part swap   <span class="o">[</span>SWAP<span class="o">]</span>
+     └─sda3   1.1T part xfs    /var
+     sdb      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdb1   1.8T part xfs    /data/1
+     sdc      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdc1   1.8T part xfs    /data/2
+     sdd      1.8T disk                   ATA      ST2000NM0018-2F3
+     └─sdd1   1.8T part xfs    /data/3
+</code></pre></div>
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/ozone-notes/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+hdfs-site.xml
+File hdfs-site.xml has been written out successfullly.
+log4j.properties
+File log4j.properties has been written out successfullly.
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+======================================
+*** Launching "ozone freon dfsg -s1024000 -n10000 -t 1"
+2020-10-06 10:38:53 INFO  MetricsConfig:118 - Loaded properties from hadoop-metrics2.properties
+2020-10-06 10:38:53 INFO  MetricsSystemImpl:374 - Scheduled Metric snapshot period at 10 second(s).
+2020-10-06 10:38:53 INFO  MetricsSystemImpl:191 - ozone-freon metrics system started
+2020-10-06 10:38:53 INFO  BaseFreonGenerator:247 - Executing test with prefix lgpxspelhf
+2020-10-06 10:38:53 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 10:38:53 WARN  NativeCodeLoader:60 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2020-10-06 10:38:54 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 10:38:55 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 10:38:56 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 10:38:57 WARN  MetricsSystemImpl:151 - ozone-freon metrics system already initialized!
+2020-10-06 10:38:57 INFO  MetricRegistries:64 - Loaded MetricRegistries class org.apache.ratis.metrics.impl.MetricRegistriesImpl
+2020-10-06 10:38:57 INFO  RatisMetrics:36 - Creating Metrics Registry : ratis.client_message_metrics.client-A80AF309657D->e46ac0ce-840b-4b83-96bd-8ceba7798814
+2020-10-06 10:38:57 WARN  MetricRegistriesImpl:65 - First MetricRegistry has been created without registering reporters. You may need to call MetricRegistries.global().addReportRegistration(...) before.
+2020-10-06 10:38:57 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 10:38:58 INFO  ProgressBar:163 - Progress: 0.08 % (8 out of 10000)
+2020-10-06 10:38:59 INFO  ProgressBar:163 - Progress: 0.54 % (54 out of 10000)
+2020-10-06 10:39:00 INFO  ProgressBar:163 - Progress: 1.09 % (109 out of 10000)
+2020-10-06 10:39:01 INFO  ProgressBar:163 - Progress: 1.69 % (169 out of 10000)
+2020-10-06 10:39:02 INFO  ProgressBar:163 - Progress: 2.32 % (232 out of 10000)
+2020-10-06 10:39:03 INFO  ProgressBar:163 - Progress: 2.93 % (293 out of 10000)
+2020-10-06 10:39:04 INFO  ProgressBar:163 - Progress: 3.56 % (356 out of 10000)
+2020-10-06 10:39:05 INFO  ProgressBar:163 - Progress: 4.23 % (423 out of 10000)
+2020-10-06 10:39:06 INFO  ProgressBar:163 - Progress: 4.89 % (489 out of 10000)
+2020-10-06 10:39:07 INFO  ProgressBar:163 - Progress: 5.55 % (555 out of 10000)
+2020-10-06 10:39:08 INFO  ProgressBar:163 - Progress: 6.22 % (622 out of 10000)
+2020-10-06 10:39:09 INFO  ProgressBar:163 - Progress: 6.93 % (693 out of 10000)
+2020-10-06 10:39:10 INFO  ProgressBar:163 - Progress: 7.60 % (760 out of 10000)
+2020-10-06 10:39:11 INFO  ProgressBar:163 - Progress: 8.31 % (831 out of 10000)
+2020-10-06 10:39:12 INFO  ProgressBar:163 - Progress: 8.99 % (899 out of 10000)
+2020-10-06 10:39:13 INFO  ProgressBar:163 - Progress: 9.68 % (968 out of 10000)
+2020-10-06 10:39:14 INFO  ProgressBar:163 - Progress: 10.34 % (1034 out of 10000)
+2020-10-06 10:39:15 INFO  ProgressBar:163 - Progress: 11.06 % (1106 out of 10000)
+2020-10-06 10:39:16 INFO  ProgressBar:163 - Progress: 11.74 % (1174 out of 10000)
+2020-10-06 10:39:17 INFO  ProgressBar:163 - Progress: 12.44 % (1244 out of 10000)
+2020-10-06 10:39:18 INFO  ProgressBar:163 - Progress: 13.12 % (1312 out of 10000)
+2020-10-06 10:39:19 INFO  ProgressBar:163 - Progress: 13.83 % (1383 out of 10000)
+2020-10-06 10:39:20 INFO  ProgressBar:163 - Progress: 14.54 % (1454 out of 10000)
+2020-10-06 10:39:21 INFO  ProgressBar:163 - Progress: 15.24 % (1524 out of 10000)
+2020-10-06 10:39:22 INFO  ProgressBar:163 - Progress: 15.96 % (1596 out of 10000)
+2020-10-06 10:39:23 INFO  ProgressBar:163 - Progress: 16.67 % (1667 out of 10000)
+2020-10-06 10:39:24 INFO  ProgressBar:163 - Progress: 17.37 % (1737 out of 10000)
+2020-10-06 10:39:25 INFO  ProgressBar:163 - Progress: 18.09 % (1809 out of 10000)
+2020-10-06 10:39:26 INFO  ProgressBar:163 - Progress: 18.82 % (1882 out of 10000)
+2020-10-06 10:39:27 INFO  ProgressBar:163 - Progress: 19.53 % (1953 out of 10000)
+2020-10-06 10:39:28 INFO  ProgressBar:163 - Progress: 20.22 % (2022 out of 10000)
+2020-10-06 10:39:29 INFO  ProgressBar:163 - Progress: 20.94 % (2094 out of 10000)
+2020-10-06 10:39:30 INFO  ProgressBar:163 - Progress: 21.68 % (2168 out of 10000)
+2020-10-06 10:39:31 INFO  ProgressBar:163 - Progress: 22.38 % (2238 out of 10000)
+2020-10-06 10:39:32 INFO  ProgressBar:163 - Progress: 23.10 % (2310 out of 10000)
+2020-10-06 10:39:33 INFO  ProgressBar:163 - Progress: 23.83 % (2383 out of 10000)
+2020-10-06 10:39:34 INFO  ProgressBar:163 - Progress: 24.55 % (2455 out of 10000)
+2020-10-06 10:39:35 INFO  ProgressBar:163 - Progress: 25.28 % (2528 out of 10000)
+2020-10-06 10:39:36 INFO  ProgressBar:163 - Progress: 26.00 % (2600 out of 10000)
+2020-10-06 10:39:37 INFO  ProgressBar:163 - Progress: 26.73 % (2673 out of 10000)
+2020-10-06 10:39:38 INFO  ProgressBar:163 - Progress: 27.47 % (2747 out of 10000)
+2020-10-06 10:39:39 INFO  ProgressBar:163 - Progress: 28.22 % (2822 out of 10000)
+2020-10-06 10:39:40 INFO  ProgressBar:163 - Progress: 28.95 % (2895 out of 10000)
+2020-10-06 10:39:41 INFO  ProgressBar:163 - Progress: 29.68 % (2968 out of 10000)
+2020-10-06 10:39:42 INFO  ProgressBar:163 - Progress: 30.40 % (3040 out of 10000)
+2020-10-06 10:39:43 INFO  ProgressBar:163 - Progress: 31.12 % (3112 out of 10000)
+2020-10-06 10:39:44 INFO  ProgressBar:163 - Progress: 31.86 % (3186 out of 10000)
+2020-10-06 10:39:45 INFO  ProgressBar:163 - Progress: 32.59 % (3259 out of 10000)
+2020-10-06 10:39:46 INFO  ProgressBar:163 - Progress: 33.34 % (3334 out of 10000)
+2020-10-06 10:39:47 INFO  ProgressBar:163 - Progress: 34.08 % (3408 out of 10000)
+2020-10-06 10:39:48 INFO  ProgressBar:163 - Progress: 34.83 % (3483 out of 10000)
+2020-10-06 10:39:49 INFO  ProgressBar:163 - Progress: 35.57 % (3557 out of 10000)
+2020-10-06 10:39:50 INFO  ProgressBar:163 - Progress: 36.31 % (3631 out of 10000)
+2020-10-06 10:39:51 INFO  ProgressBar:163 - Progress: 37.05 % (3705 out of 10000)
+2020-10-06 10:39:52 INFO  ProgressBar:163 - Progress: 37.79 % (3779 out of 10000)
+2020-10-06 10:39:53 INFO  ProgressBar:163 - Progress: 38.55 % (3855 out of 10000)
+2020-10-06 10:39:54 INFO  ProgressBar:163 - Progress: 39.31 % (3931 out of 10000)
+2020-10-06 10:39:55 INFO  ProgressBar:163 - Progress: 40.07 % (4007 out of 10000)
+2020-10-06 10:39:56 INFO  ProgressBar:163 - Progress: 40.81 % (4081 out of 10000)
+2020-10-06 10:39:57 INFO  ProgressBar:163 - Progress: 41.56 % (4156 out of 10000)
+2020-10-06 10:39:58 INFO  ProgressBar:163 - Progress: 42.30 % (4230 out of 10000)
+2020-10-06 10:39:59 INFO  ProgressBar:163 - Progress: 43.04 % (4304 out of 10000)
+2020-10-06 10:40:00 INFO  ProgressBar:163 - Progress: 43.78 % (4378 out of 10000)
+2020-10-06 10:40:01 INFO  ProgressBar:163 - Progress: 44.51 % (4451 out of 10000)
+2020-10-06 10:40:02 INFO  ProgressBar:163 - Progress: 45.27 % (4527 out of 10000)
+2020-10-06 10:40:03 INFO  ProgressBar:163 - Progress: 46.04 % (4604 out of 10000)
+2020-10-06 10:40:04 INFO  ProgressBar:163 - Progress: 46.80 % (4680 out of 10000)
+2020-10-06 10:40:05 INFO  ProgressBar:163 - Progress: 47.56 % (4756 out of 10000)
+2020-10-06 10:40:06 INFO  ProgressBar:163 - Progress: 48.33 % (4833 out of 10000)
+2020-10-06 10:40:07 INFO  ProgressBar:163 - Progress: 49.06 % (4906 out of 10000)
+2020-10-06 10:40:08 INFO  ProgressBar:163 - Progress: 49.81 % (4981 out of 10000)
+2020-10-06 10:40:09 INFO  ProgressBar:163 - Progress: 50.56 % (5056 out of 10000)
+2020-10-06 10:40:10 INFO  ProgressBar:163 - Progress: 51.28 % (5128 out of 10000)
+2020-10-06 10:40:11 INFO  ProgressBar:163 - Progress: 52.02 % (5202 out of 10000)
+2020-10-06 10:40:12 INFO  ProgressBar:163 - Progress: 52.77 % (5277 out of 10000)
+2020-10-06 10:40:13 INFO  ProgressBar:163 - Progress: 53.51 % (5351 out of 10000)
+2020-10-06 10:40:14 INFO  ProgressBar:163 - Progress: 54.25 % (5425 out of 10000)
+2020-10-06 10:40:15 INFO  ProgressBar:163 - Progress: 55.00 % (5500 out of 10000)
+2020-10-06 10:40:16 INFO  ProgressBar:163 - Progress: 55.73 % (5573 out of 10000)
+2020-10-06 10:40:17 INFO  ProgressBar:163 - Progress: 56.48 % (5648 out of 10000)
+2020-10-06 10:40:18 INFO  ProgressBar:163 - Progress: 57.25 % (5725 out of 10000)
+2020-10-06 10:40:19 INFO  ProgressBar:163 - Progress: 57.97 % (5797 out of 10000)
+2020-10-06 10:40:20 INFO  ProgressBar:163 - Progress: 58.70 % (5870 out of 10000)
+2020-10-06 10:40:21 INFO  ProgressBar:163 - Progress: 59.46 % (5946 out of 10000)
+2020-10-06 10:40:22 INFO  ProgressBar:163 - Progress: 60.20 % (6020 out of 10000)
+2020-10-06 10:40:23 INFO  ProgressBar:163 - Progress: 60.96 % (6096 out of 10000)
+2020-10-06 10:40:24 INFO  ProgressBar:163 - Progress: 61.65 % (6165 out of 10000)
+2020-10-06 10:40:25 INFO  ProgressBar:163 - Progress: 62.39 % (6239 out of 10000)
+2020-10-06 10:40:26 INFO  ProgressBar:163 - Progress: 63.15 % (6315 out of 10000)
+2020-10-06 10:40:27 INFO  ProgressBar:163 - Progress: 63.92 % (6392 out of 10000)
+2020-10-06 10:40:28 INFO  ProgressBar:163 - Progress: 64.68 % (6468 out of 10000)
+2020-10-06 10:40:29 INFO  ProgressBar:163 - Progress: 65.45 % (6545 out of 10000)
+2020-10-06 10:40:30 INFO  ProgressBar:163 - Progress: 66.20 % (6620 out of 10000)
+2020-10-06 10:40:31 INFO  ProgressBar:163 - Progress: 66.97 % (6697 out of 10000)
+2020-10-06 10:40:32 INFO  ProgressBar:163 - Progress: 67.72 % (6772 out of 10000)
+2020-10-06 10:40:33 INFO  ProgressBar:163 - Progress: 68.47 % (6847 out of 10000)
+2020-10-06 10:40:34 INFO  ProgressBar:163 - Progress: 69.23 % (6923 out of 10000)
+2020-10-06 10:40:35 INFO  ProgressBar:163 - Progress: 69.98 % (6998 out of 10000)
+2020-10-06 10:40:36 INFO  ProgressBar:163 - Progress: 70.74 % (7074 out of 10000)
+2020-10-06 10:40:37 INFO  ProgressBar:163 - Progress: 71.49 % (7149 out of 10000)
+2020-10-06 10:40:38 INFO  ProgressBar:163 - Progress: 72.23 % (7223 out of 10000)
+2020-10-06 10:40:39 INFO  ProgressBar:163 - Progress: 72.98 % (7298 out of 10000)
+2020-10-06 10:40:40 INFO  ProgressBar:163 - Progress: 73.72 % (7372 out of 10000)
+2020-10-06 10:40:41 INFO  ProgressBar:163 - Progress: 74.46 % (7446 out of 10000)
+2020-10-06 10:40:42 INFO  ProgressBar:163 - Progress: 75.23 % (7523 out of 10000)
+2020-10-06 10:40:43 INFO  ProgressBar:163 - Progress: 75.97 % (7597 out of 10000)
+2020-10-06 10:40:44 INFO  ProgressBar:163 - Progress: 76.71 % (7671 out of 10000)
+2020-10-06 10:40:45 INFO  ProgressBar:163 - Progress: 77.45 % (7745 out of 10000)
+2020-10-06 10:40:46 INFO  ProgressBar:163 - Progress: 78.20 % (7820 out of 10000)
+2020-10-06 10:40:47 INFO  ProgressBar:163 - Progress: 78.94 % (7894 out of 10000)
+2020-10-06 10:40:48 INFO  ProgressBar:163 - Progress: 79.69 % (7969 out of 10000)
+2020-10-06 10:40:49 INFO  ProgressBar:163 - Progress: 80.44 % (8044 out of 10000)
+2020-10-06 10:40:50 INFO  ProgressBar:163 - Progress: 81.17 % (8117 out of 10000)
+2020-10-06 10:40:51 INFO  ProgressBar:163 - Progress: 81.90 % (8190 out of 10000)
+2020-10-06 10:40:52 INFO  ProgressBar:163 - Progress: 82.06 % (8206 out of 10000)
+2020-10-06 10:40:53 INFO  ProgressBar:163 - Progress: 82.06 % (8206 out of 10000)
+2020-10-06 10:40:54 INFO  ProgressBar:163 - Progress: 82.27 % (8227 out of 10000)
+2020-10-06 10:40:55 INFO  ProgressBar:163 - Progress: 82.99 % (8299 out of 10000)
+2020-10-06 10:40:56 INFO  ProgressBar:163 - Progress: 83.75 % (8375 out of 10000)
+2020-10-06 10:40:57 INFO  ProgressBar:163 - Progress: 84.51 % (8451 out of 10000)
+2020-10-06 10:40:58 INFO  ProgressBar:163 - Progress: 85.26 % (8526 out of 10000)
+2020-10-06 10:40:59 INFO  ProgressBar:163 - Progress: 86.01 % (8601 out of 10000)
+2020-10-06 10:41:00 INFO  ProgressBar:163 - Progress: 86.76 % (8676 out of 10000)
+2020-10-06 10:41:01 INFO  ProgressBar:163 - Progress: 87.49 % (8749 out of 10000)
+2020-10-06 10:41:02 INFO  ProgressBar:163 - Progress: 88.24 % (8824 out of 10000)
+2020-10-06 10:41:03 INFO  ProgressBar:163 - Progress: 89.00 % (8900 out of 10000)
+2020-10-06 10:41:04 INFO  ProgressBar:163 - Progress: 89.74 % (8974 out of 10000)
+2020-10-06 10:41:05 INFO  ProgressBar:163 - Progress: 90.50 % (9050 out of 10000)
+2020-10-06 10:41:06 INFO  ProgressBar:163 - Progress: 91.27 % (9127 out of 10000)
+2020-10-06 10:41:07 INFO  ProgressBar:163 - Progress: 92.01 % (9201 out of 10000)
+2020-10-06 10:41:08 INFO  ProgressBar:163 - Progress: 92.76 % (9276 out of 10000)
+2020-10-06 10:41:09 INFO  ProgressBar:163 - Progress: 93.51 % (9351 out of 10000)
+2020-10-06 10:41:10 INFO  ProgressBar:163 - Progress: 94.25 % (9425 out of 10000)
+2020-10-06 10:41:11 INFO  ProgressBar:163 - Progress: 95.00 % (9500 out of 10000)
+2020-10-06 10:41:12 INFO  ProgressBar:163 - Progress: 95.76 % (9576 out of 10000)
+2020-10-06 10:41:13 INFO  ProgressBar:163 - Progress: 96.52 % (9652 out of 10000)
+2020-10-06 10:41:14 INFO  ProgressBar:163 - Progress: 97.26 % (9726 out of 10000)
+2020-10-06 10:41:15 INFO  ProgressBar:163 - Progress: 98.02 % (9802 out of 10000)
+2020-10-06 10:41:16 INFO  ProgressBar:163 - Progress: 98.78 % (9878 out of 10000)
+2020-10-06 10:41:17 INFO  ProgressBar:163 - Progress: 99.51 % (9951 out of 10000)
+2020-10-06 10:41:18 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+2020-10-06 10:41:18 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=10.65004, max=38.565538, mean=12.711042194691965, stddev=1.6437864784003577, median=12.486477, p75=12.912632, p95=13.691395, p98=18.258821, p99=20.365656, p999=35.713657, mean_rate=69.40664071402304, m1=65.60903541420122, m5=34.52944880625562, m15=21.515109317757084, rate_unit=events/second, duration_unit=milliseconds
+2020-10-06 10:41:18 INFO  BaseFreonGenerator:75 - Total execution time (sec): 145
+2020-10-06 10:41:18 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-10-06 10:41:18 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+Closing file system instance: 695790325
+   write.call: 3000000
+   write.allTime: 7464
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 106108
+Process exited with exit code 0

@@ -8,22 +8,27 @@
   </url>
   
   <url>
-    <loc>https://elek.github.io/ozone-notes/performance/22_parquet_write/</loc>
-    <lastmod>2020-09-10T00:00:00+00:00</lastmod>
+    <loc>https://elek.github.io/ozone-notes/performance/23_hcfs_write/</loc>
+    <lastmod>2020-10-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elek.github.io/ozone-notes/tags/ozone-perftest/</loc>
-    <lastmod>2020-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elek.github.io/ozone-notes/performance/</loc>
-    <lastmod>2020-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elek.github.io/ozone-notes/tags/</loc>
+    <lastmod>2020-10-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elek.github.io/ozone-notes/performance/22_parquet_write/</loc>
     <lastmod>2020-09-10T00:00:00+00:00</lastmod>
   </url>
   

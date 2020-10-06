@@ -6,10 +6,15 @@
     <description>Recent content in Performances on Apache Hadoop Ozone Development notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://elek.github.io/ozone-notes/performance/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://elek.github.io/ozone-notes/performance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HDFS vs Ozone with Freon HCFS write test</title>
+      <link>https://elek.github.io/ozone-notes/performance/23_hcfs_write/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elek.github.io/ozone-notes/performance/23_hcfs_write/</guid>
+      <description>Test method  Start ozone freon dfsg -s1024000 -n10000 with -t 1 and -t 10 with both HDFS and Ozone path CRC calculation is disabled on both side Memdisk is used for persistent on both side  Results Time of execution (reported by the metrics of freon)</description>
+    </item>
     
     <item>
       <title>Ozone &#43; Spark &#43; Parquet</title>
