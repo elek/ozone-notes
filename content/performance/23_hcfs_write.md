@@ -8,7 +8,7 @@ date: 2020-10-06
 
  1. Start `ozone freon dfsg -s1024000 -n10000` with `-t 1` and `-t 10` with both HDFS and Ozone path
  2. CRC calculation is disabled on both side
- 3. Memdisk is used for persistent on both side
+ 3. Memdisk is used for persistent data on both side
 
  
 ## Results
