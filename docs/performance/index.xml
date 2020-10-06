@@ -13,7 +13,7 @@
       <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elek.github.io/ozone-notes/performance/23_hcfs_write/</guid>
-      <description>Test method  Start ozone freon dfsg -s1024000 -n10000 with -t 1 and -t 10 with both HDFS and Ozone path CRC calculation is disabled on both side Memdisk is used for persistent on both side  Results Time of execution (reported by the metrics of freon)</description>
+      <description>Test method  Start ozone freon dfsg -s1024000 -n10000 with -t 1 and -t 10 with both HDFS and Ozone path CRC calculation is disabled on both side Memdisk is used for persistent data on both side  Results Time of execution (reported by the metrics of freon)</description>
     </item>
     
     <item>
