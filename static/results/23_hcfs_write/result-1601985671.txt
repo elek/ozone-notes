@@ -1,0 +1,76 @@
+ozone freon dfsg -s1024000 -n10000 -t 10
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+log4j.properties
+File log4j.properties has been written out successfullly.
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+hdfs-site.xml
+File hdfs-site.xml has been written out successfullly.
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+======================================
+*** Launching "ozone freon dfsg -s1024000 -n10000 -t 10"
+2020-10-06 12:01:23 INFO  MetricsConfig:118 - Loaded properties from hadoop-metrics2.properties
+2020-10-06 12:01:23 INFO  MetricsSystemImpl:374 - Scheduled Metric snapshot period at 10 second(s).
+2020-10-06 12:01:23 INFO  MetricsSystemImpl:191 - ozone-freon metrics system started
+2020-10-06 12:01:23 INFO  BaseFreonGenerator:247 - Executing test with prefix e79xdpktdu
+2020-10-06 12:01:23 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 12:01:23 WARN  NativeCodeLoader:60 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2020-10-06 12:01:24 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 12:01:25 WARN  MetricsSystemImpl:151 - ozone-freon metrics system already initialized!
+2020-10-06 12:01:25 INFO  MetricRegistries:64 - Loaded MetricRegistries class org.apache.ratis.metrics.impl.MetricRegistriesImpl
+2020-10-06 12:01:25 INFO  RatisMetrics:36 - Creating Metrics Registry : ratis.client_message_metrics.client-BC9E57CDC7CA->a487c41d-aaf7-466b-8d13-e1ce808eb5c4
+2020-10-06 12:01:25 WARN  MetricRegistriesImpl:65 - First MetricRegistry has been created without registering reporters. You may need to call MetricRegistries.global().addReportRegistration(...) before.
+2020-10-06 12:01:25 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 10000)
+2020-10-06 12:01:26 INFO  ProgressBar:163 - Progress: 0.18 % (18 out of 10000)
+2020-10-06 12:01:27 INFO  ProgressBar:163 - Progress: 1.86 % (186 out of 10000)
+2020-10-06 12:01:28 INFO  ProgressBar:163 - Progress: 4.31 % (431 out of 10000)
+2020-10-06 12:01:29 INFO  ProgressBar:163 - Progress: 7.12 % (712 out of 10000)
+2020-10-06 12:01:30 INFO  ProgressBar:163 - Progress: 10.07 % (1007 out of 10000)
+2020-10-06 12:01:31 INFO  ProgressBar:163 - Progress: 13.02 % (1302 out of 10000)
+2020-10-06 12:01:32 INFO  ProgressBar:163 - Progress: 16.13 % (1613 out of 10000)
+2020-10-06 12:01:33 INFO  ProgressBar:163 - Progress: 19.01 % (1901 out of 10000)
+2020-10-06 12:01:34 INFO  ProgressBar:163 - Progress: 22.09 % (2209 out of 10000)
+2020-10-06 12:01:35 INFO  ProgressBar:163 - Progress: 25.18 % (2518 out of 10000)
+2020-10-06 12:01:36 INFO  ProgressBar:163 - Progress: 28.28 % (2828 out of 10000)
+2020-10-06 12:01:37 INFO  ProgressBar:163 - Progress: 31.38 % (3138 out of 10000)
+2020-10-06 12:01:38 INFO  ProgressBar:163 - Progress: 34.57 % (3457 out of 10000)
+2020-10-06 12:01:39 INFO  ProgressBar:163 - Progress: 37.77 % (3777 out of 10000)
+2020-10-06 12:01:40 INFO  ProgressBar:163 - Progress: 40.96 % (4096 out of 10000)
+2020-10-06 12:01:41 INFO  ProgressBar:163 - Progress: 44.19 % (4419 out of 10000)
+2020-10-06 12:01:42 INFO  ProgressBar:163 - Progress: 47.41 % (4741 out of 10000)
+2020-10-06 12:01:43 INFO  ProgressBar:163 - Progress: 50.71 % (5071 out of 10000)
+2020-10-06 12:01:44 INFO  ProgressBar:163 - Progress: 54.16 % (5416 out of 10000)
+2020-10-06 12:01:45 INFO  ProgressBar:163 - Progress: 57.38 % (5738 out of 10000)
+2020-10-06 12:01:46 INFO  ProgressBar:163 - Progress: 60.59 % (6059 out of 10000)
+2020-10-06 12:01:47 INFO  ProgressBar:163 - Progress: 64.13 % (6413 out of 10000)
+2020-10-06 12:01:48 INFO  ProgressBar:163 - Progress: 67.44 % (6744 out of 10000)
+2020-10-06 12:01:49 INFO  ProgressBar:163 - Progress: 70.84 % (7084 out of 10000)
+2020-10-06 12:01:50 INFO  ProgressBar:163 - Progress: 74.24 % (7424 out of 10000)
+2020-10-06 12:01:51 INFO  ProgressBar:163 - Progress: 77.54 % (7754 out of 10000)
+2020-10-06 12:01:52 INFO  ProgressBar:163 - Progress: 80.83 % (8083 out of 10000)
+2020-10-06 12:01:53 INFO  ProgressBar:163 - Progress: 84.10 % (8410 out of 10000)
+2020-10-06 12:01:54 INFO  ProgressBar:163 - Progress: 87.54 % (8754 out of 10000)
+2020-10-06 12:01:55 INFO  ProgressBar:163 - Progress: 90.76 % (9076 out of 10000)
+2020-10-06 12:01:56 INFO  ProgressBar:163 - Progress: 93.99 % (9399 out of 10000)
+2020-10-06 12:01:57 INFO  ProgressBar:163 - Progress: 97.13 % (9713 out of 10000)
+2020-10-06 12:01:58 INFO  ProgressBar:163 - Progress: 100.00 % (10000 out of 10000)
+2020-10-06 12:01:58 INFO  metrics:107 - type=TIMER, name=file-create, count=10000, min=12.645971, max=1248.752213, mean=32.68661070684404, stddev=47.35415009873845, median=29.84393, p75=34.50152, p95=44.207563, p98=49.198751, p99=52.432174, p999=1248.698139, mean_rate=293.8430063299747, m1=212.6858089397338, m5=168.75026574665975, m15=159.9689493420769, rate_unit=events/second, duration_unit=milliseconds
+2020-10-06 12:01:58 INFO  BaseFreonGenerator:75 - Total execution time (sec): 35
+2020-10-06 12:01:58 INFO  BaseFreonGenerator:75 - Failures: 0
+2020-10-06 12:01:58 INFO  BaseFreonGenerator:75 - Successful executions: 10000
+2020-10-06 12:02:02 WARN  GrpcUtil:217 - Timed out gracefully shutting down connection: ManagedChannelOrphanWrapper{delegate=ManagedChannelImpl{logId=1, target=10.42.3.89:9858}}. 
+Closing file system instance: 495098628
+   write.call: 3000000
+   write.allTime: 8745
+   hsync.call: 0
+   hsync.allTime: 0
+   hflush.call: 0
+   hflush.allTime: 0
+   close.call: 10000
+   close.allTime: 287403
+Process exited with exit code 0
