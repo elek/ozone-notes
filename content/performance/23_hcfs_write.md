@@ -24,7 +24,12 @@ https://github.com/elek/ozone-notes/tree/master/static/results/23_hcfs_write
 
 ## Analysis
 
-Ozone 1 thread is measured with async-profile (with event=cpu and event=lock).
+Ozone `10 thread` test is measured with async-profile (with event=cpu and event=lock).
+
+See:
+ * [lock profile](
+https://github.com/elek/ozone-notes/blob/master/static/results/23_hcfs_write/profile.svg)
+ * [cpu profile](https://github.com/elek/ozone-notes/blob/master/static/results/23_hcfs_write/profile.svg)
 
 `lock` profile shows time spent in Ratis `SlidingWindow` which contains a lot of `syncrhonize`-d method.
 
