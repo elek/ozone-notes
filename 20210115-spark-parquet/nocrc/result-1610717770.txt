@@ -1,0 +1,2541 @@
+copy hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+hdfs-site.xml
+File hdfs-site.xml has been written out successfullly.
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+hadoop.conf
+File hadoop.conf has been written out successfullly.
+Non-spark-on-k8s command provided, proceeding in pass-through mode...
+======================================
+*** Launching "/opt/testscripts/parquet.sh copy hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1"
++ : /opt/spark
++ : /opt/spark-test/jars/
++ : hcfs-read.btm
++ /opt/spark/bin/spark-submit --conf spark.executor.memory=4g --jars /opt/ozonefs/hadoop-ozone-filesystem.jar /opt/spark-test/jars//spark-samples-1.0-SNAPSHOT.jar copy hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:36:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+21/01/15 13:36:12 INFO SparkContext: Running Spark version 3.0.1
+21/01/15 13:36:12 INFO ResourceUtils: ==============================================================
+21/01/15 13:36:12 INFO ResourceUtils: Resources for spark.driver:
+
+21/01/15 13:36:12 INFO ResourceUtils: ==============================================================
+21/01/15 13:36:12 INFO SparkContext: Submitted application: Copy
+21/01/15 13:36:12 INFO SecurityManager: Changing view acls to: spark
+21/01/15 13:36:12 INFO SecurityManager: Changing modify acls to: spark
+21/01/15 13:36:12 INFO SecurityManager: Changing view acls groups to: 
+21/01/15 13:36:12 INFO SecurityManager: Changing modify acls groups to: 
+21/01/15 13:36:12 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(spark); groups with view permissions: Set(); users  with modify permissions: Set(spark); groups with modify permissions: Set()
+21/01/15 13:36:12 INFO Utils: Successfully started service 'sparkDriver' on port 33796.
+21/01/15 13:36:12 INFO SparkEnv: Registering MapOutputTracker
+21/01/15 13:36:12 INFO SparkEnv: Registering BlockManagerMaster
+21/01/15 13:36:12 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+21/01/15 13:36:12 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+21/01/15 13:36:12 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+21/01/15 13:36:12 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-df0099dd-b745-43a0-9519-96487645f4d0
+21/01/15 13:36:12 INFO MemoryStore: MemoryStore started with capacity 413.9 MiB
+21/01/15 13:36:12 INFO SparkEnv: Registering OutputCommitCoordinator
+21/01/15 13:36:13 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+21/01/15 13:36:13 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://test-runner-gmbh4:4040
+21/01/15 13:36:13 INFO SparkContext: Added JAR file:///opt/ozonefs/hadoop-ozone-filesystem.jar at spark://test-runner-gmbh4:33796/jars/hadoop-ozone-filesystem.jar with timestamp 1610717773153
+21/01/15 13:36:13 INFO SparkContext: Added JAR file:/opt/spark-test/jars/spark-samples-1.0-SNAPSHOT.jar at spark://test-runner-gmbh4:33796/jars/spark-samples-1.0-SNAPSHOT.jar with timestamp 1610717773153
+21/01/15 13:36:13 INFO Executor: Starting executor ID driver on host test-runner-gmbh4
+21/01/15 13:36:13 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43959.
+21/01/15 13:36:13 INFO NettyBlockTransferService: Server created on test-runner-gmbh4:43959
+21/01/15 13:36:13 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+21/01/15 13:36:13 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, test-runner-gmbh4, 43959, None)
+21/01/15 13:36:13 INFO BlockManagerMasterEndpoint: Registering block manager test-runner-gmbh4:43959 with 413.9 MiB RAM, BlockManagerId(driver, test-runner-gmbh4, 43959, None)
+21/01/15 13:36:13 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, test-runner-gmbh4, 43959, None)
+21/01/15 13:36:13 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, test-runner-gmbh4, 43959, None)
+21/01/15 13:36:13 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/opt/spark/spark-warehouse').
+21/01/15 13:36:13 INFO SharedState: Warehouse path is 'file:/opt/spark/spark-warehouse'.
+21/01/15 13:36:14 INFO InMemoryFileIndex: It took 138 ms to list leaf files for 1 paths.
+21/01/15 13:36:15 INFO SparkContext: Starting job: parquet at Copy.java:26
+21/01/15 13:36:15 INFO DAGScheduler: Got job 0 (parquet at Copy.java:26) with 1 output partitions
+21/01/15 13:36:15 INFO DAGScheduler: Final stage: ResultStage 0 (parquet at Copy.java:26)
+21/01/15 13:36:15 INFO DAGScheduler: Parents of final stage: List()
+21/01/15 13:36:15 INFO DAGScheduler: Missing parents: List()
+21/01/15 13:36:15 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at parquet at Copy.java:26), which has no missing parents
+21/01/15 13:36:15 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 84.2 KiB, free 413.8 MiB)
+21/01/15 13:36:15 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 29.8 KiB, free 413.8 MiB)
+21/01/15 13:36:15 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on test-runner-gmbh4:43959 (size: 29.8 KiB, free: 413.9 MiB)
+21/01/15 13:36:15 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1223
+21/01/15 13:36:15 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at parquet at Copy.java:26) (first 15 tasks are for partitions Vector(0))
+21/01/15 13:36:15 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+21/01/15 13:36:15 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, test-runner-gmbh4, executor driver, partition 0, PROCESS_LOCAL, 7566 bytes)
+21/01/15 13:36:15 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+21/01/15 13:36:15 INFO Executor: Fetching spark://test-runner-gmbh4:33796/jars/hadoop-ozone-filesystem.jar with timestamp 1610717773153
+21/01/15 13:36:15 INFO TransportClientFactory: Successfully created connection to test-runner-gmbh4/10.42.1.19:33796 after 33 ms (0 ms spent in bootstraps)
+21/01/15 13:36:15 INFO Utils: Fetching spark://test-runner-gmbh4:33796/jars/hadoop-ozone-filesystem.jar to /tmp/spark-713cba72-92ec-4bb6-b0d7-b8a89fd41936/userFiles-9c04c481-21db-4cbd-9484-93e51230983e/fetchFileTemp6555114087277707536.tmp
+21/01/15 13:36:15 INFO Executor: Adding file:/tmp/spark-713cba72-92ec-4bb6-b0d7-b8a89fd41936/userFiles-9c04c481-21db-4cbd-9484-93e51230983e/hadoop-ozone-filesystem.jar to class loader
+21/01/15 13:36:15 INFO Executor: Fetching spark://test-runner-gmbh4:33796/jars/spark-samples-1.0-SNAPSHOT.jar with timestamp 1610717773153
+21/01/15 13:36:15 INFO Utils: Fetching spark://test-runner-gmbh4:33796/jars/spark-samples-1.0-SNAPSHOT.jar to /tmp/spark-713cba72-92ec-4bb6-b0d7-b8a89fd41936/userFiles-9c04c481-21db-4cbd-9484-93e51230983e/fetchFileTemp7136701674166882243.tmp
+21/01/15 13:36:15 INFO Executor: Adding file:/tmp/spark-713cba72-92ec-4bb6-b0d7-b8a89fd41936/userFiles-9c04c481-21db-4cbd-9484-93e51230983e/spark-samples-1.0-SNAPSHOT.jar to class loader
+21/01/15 13:36:16 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1780 bytes result sent to driver
+21/01/15 13:36:16 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 881 ms on test-runner-gmbh4 (executor driver) (1/1)
+21/01/15 13:36:16 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+21/01/15 13:36:16 INFO DAGScheduler: ResultStage 0 (parquet at Copy.java:26) finished in 1.040 s
+21/01/15 13:36:16 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+21/01/15 13:36:16 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+21/01/15 13:36:16 INFO DAGScheduler: Job 0 finished: parquet at Copy.java:26, took 1.088344 s
+21/01/15 13:36:18 INFO BlockManagerInfo: Removed broadcast_0_piece0 on test-runner-gmbh4:43959 in memory (size: 29.8 KiB, free: 413.9 MiB)
+21/01/15 13:36:18 INFO FileSourceStrategy: Pruning directories with: 
+21/01/15 13:36:18 INFO FileSourceStrategy: Pushed Filters: 
+21/01/15 13:36:18 INFO FileSourceStrategy: Post-Scan Filters: 
+21/01/15 13:36:18 INFO FileSourceStrategy: Output Data Schema: struct<data: binary, index: int>
+21/01/15 13:36:18 INFO ParquetFileFormat: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:18 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:18 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:18 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:18 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:18 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:18 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:18 INFO CodeGenerator: Code generated in 221.194599 ms
+21/01/15 13:36:18 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 307.2 KiB, free 413.6 MiB)
+21/01/15 13:36:18 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 28.3 KiB, free 413.6 MiB)
+21/01/15 13:36:18 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on test-runner-gmbh4:43959 (size: 28.3 KiB, free: 413.9 MiB)
+21/01/15 13:36:18 INFO SparkContext: Created broadcast 1 from parquet at Copy.java:28
+21/01/15 13:36:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 134217728 bytes, open cost is considered as scanning 4194304 bytes.
+21/01/15 13:36:19 INFO SparkContext: Starting job: parquet at Copy.java:28
+21/01/15 13:36:19 INFO DAGScheduler: Got job 1 (parquet at Copy.java:28) with 50 output partitions
+21/01/15 13:36:19 INFO DAGScheduler: Final stage: ResultStage 1 (parquet at Copy.java:28)
+21/01/15 13:36:19 INFO DAGScheduler: Parents of final stage: List()
+21/01/15 13:36:19 INFO DAGScheduler: Missing parents: List()
+21/01/15 13:36:19 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[4] at parquet at Copy.java:28), which has no missing parents
+21/01/15 13:36:19 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 175.9 KiB, free 413.4 MiB)
+21/01/15 13:36:19 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 62.2 KiB, free 413.4 MiB)
+21/01/15 13:36:19 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on test-runner-gmbh4:43959 (size: 62.2 KiB, free: 413.8 MiB)
+21/01/15 13:36:19 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1223
+21/01/15 13:36:19 INFO DAGScheduler: Submitting 50 missing tasks from ResultStage 1 (MapPartitionsRDD[4] at parquet at Copy.java:28) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+21/01/15 13:36:19 INFO TaskSchedulerImpl: Adding task set 1.0 with 50 tasks
+21/01/15 13:36:19 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, test-runner-gmbh4, executor driver, partition 0, ANY, 7815 bytes)
+21/01/15 13:36:19 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+21/01/15 13:36:19 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:19 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:19 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:19 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:19 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:19 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:19 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:19 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:19 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:36:19 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:36:19 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:36:19 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:36:19 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:36:19 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:36:19 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:36:19 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:36:19 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:36:19 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:36:19 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:36:19 INFO CodecPool: Got brand-new compressor [.snappy]
+21/01/15 13:36:19 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-3562f2af-0afe-4805-bc5a-3651c19190f2-c000.snappy.parquet, range: 0-104863440, partition values: [empty row]
+21/01/15 13:36:19 INFO CodecPool: Got brand-new decompressor [.snappy]
+21/01/15 13:36:52 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:36:56 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000000_1' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:36:56 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000000_1: Committed
+21/01/15 13:36:56 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2570 bytes result sent to driver
+21/01/15 13:36:56 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2, test-runner-gmbh4, executor driver, partition 1, ANY, 7815 bytes)
+21/01/15 13:36:56 INFO Executor: Running task 1.0 in stage 1.0 (TID 2)
+21/01/15 13:36:56 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 37637 ms on test-runner-gmbh4 (executor driver) (1/50)
+21/01/15 13:36:56 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:56 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:56 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:56 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:56 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:56 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:56 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-4ad0a597-092e-448d-b496-0ab417b6e03a-c000.snappy.parquet, range: 0-104863439, partition values: [empty row]
+21/01/15 13:36:57 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:57 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:57 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:36:57 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:36:57 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:36:57 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:36:57 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:36:57 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:36:57 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:36:57 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:36:57 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:36:57 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:36:57 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:36:57 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:36:58 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000001_2' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:36:58 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000001_2: Committed
+21/01/15 13:36:58 INFO Executor: Finished task 1.0 in stage 1.0 (TID 2). 2527 bytes result sent to driver
+21/01/15 13:36:58 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 3, test-runner-gmbh4, executor driver, partition 2, ANY, 7815 bytes)
+21/01/15 13:36:58 INFO Executor: Running task 2.0 in stage 1.0 (TID 3)
+21/01/15 13:36:58 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 1318 ms on test-runner-gmbh4 (executor driver) (2/50)
+21/01/15 13:36:58 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:58 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:58 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:58 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:58 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:58 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:58 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-0f6679f5-8566-4d06-8d6f-9d45442ecbce-c000.snappy.parquet, range: 0-104863438, partition values: [empty row]
+21/01/15 13:36:58 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:58 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:58 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:36:58 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:36:58 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:36:58 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:36:58 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:36:58 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:36:58 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:36:58 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:36:58 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:36:58 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:36:58 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:36:58 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:36:59 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000002_3' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:36:59 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000002_3: Committed
+21/01/15 13:36:59 INFO Executor: Finished task 2.0 in stage 1.0 (TID 3). 2527 bytes result sent to driver
+21/01/15 13:36:59 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 4, test-runner-gmbh4, executor driver, partition 3, ANY, 7815 bytes)
+21/01/15 13:36:59 INFO Executor: Running task 3.0 in stage 1.0 (TID 4)
+21/01/15 13:36:59 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 3) in 1318 ms on test-runner-gmbh4 (executor driver) (3/50)
+21/01/15 13:36:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:59 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:36:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:36:59 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:36:59 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-3a98f1e2-0427-48e3-8dd9-4b41680a106d-c000.snappy.parquet, range: 0-104863438, partition values: [empty row]
+21/01/15 13:36:59 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:59 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:36:59 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:36:59 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:36:59 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:36:59 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:36:59 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:36:59 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:36:59 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:36:59 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:36:59 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:36:59 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:36:59 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:36:59 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:00 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000003_4' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:00 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000003_4: Committed
+21/01/15 13:37:00 INFO Executor: Finished task 3.0 in stage 1.0 (TID 4). 2527 bytes result sent to driver
+21/01/15 13:37:00 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 5, test-runner-gmbh4, executor driver, partition 4, ANY, 7815 bytes)
+21/01/15 13:37:00 INFO Executor: Running task 4.0 in stage 1.0 (TID 5)
+21/01/15 13:37:00 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 4) in 1206 ms on test-runner-gmbh4 (executor driver) (4/50)
+21/01/15 13:37:00 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:00 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:00 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:00 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:00 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:00 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:00 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-a07e98cd-81b2-49e3-b439-347e9e0f102d-c000.snappy.parquet, range: 0-104863438, partition values: [empty row]
+21/01/15 13:37:01 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:01 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:01 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:01 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:01 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:01 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:01 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:01 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:01 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:01 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:01 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:01 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:01 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:01 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:01 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000004_5' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:01 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000004_5: Committed
+21/01/15 13:37:01 INFO Executor: Finished task 4.0 in stage 1.0 (TID 5). 2527 bytes result sent to driver
+21/01/15 13:37:01 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 6, test-runner-gmbh4, executor driver, partition 5, ANY, 7815 bytes)
+21/01/15 13:37:01 INFO Executor: Running task 5.0 in stage 1.0 (TID 6)
+21/01/15 13:37:01 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 5) in 1239 ms on test-runner-gmbh4 (executor driver) (5/50)
+21/01/15 13:37:01 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:01 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:01 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:01 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:01 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:01 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:01 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-0c7c463e-bba6-4ec6-8720-17b185d6b782-c000.snappy.parquet, range: 0-104863437, partition values: [empty row]
+21/01/15 13:37:02 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:02 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:02 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:02 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:02 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:02 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:02 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:02 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:02 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:02 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:02 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:02 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:02 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:02 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:03 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000005_6' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:03 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000005_6: Committed
+21/01/15 13:37:03 INFO Executor: Finished task 5.0 in stage 1.0 (TID 6). 2527 bytes result sent to driver
+21/01/15 13:37:03 INFO TaskSetManager: Starting task 6.0 in stage 1.0 (TID 7, test-runner-gmbh4, executor driver, partition 6, ANY, 7815 bytes)
+21/01/15 13:37:03 INFO Executor: Running task 6.0 in stage 1.0 (TID 7)
+21/01/15 13:37:03 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 6) in 1234 ms on test-runner-gmbh4 (executor driver) (6/50)
+21/01/15 13:37:03 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:03 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:03 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:03 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:03 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:03 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:03 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-8b2433ad-9796-47ac-8302-c6d561575ab1-c000.snappy.parquet, range: 0-104863437, partition values: [empty row]
+21/01/15 13:37:03 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:03 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:03 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:03 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:03 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:03 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:03 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:03 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:03 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:03 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:03 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:03 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:03 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:03 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:04 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000006_7' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:04 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000006_7: Committed
+21/01/15 13:37:04 INFO Executor: Finished task 6.0 in stage 1.0 (TID 7). 2527 bytes result sent to driver
+21/01/15 13:37:04 INFO TaskSetManager: Starting task 7.0 in stage 1.0 (TID 8, test-runner-gmbh4, executor driver, partition 7, ANY, 7815 bytes)
+21/01/15 13:37:04 INFO Executor: Running task 7.0 in stage 1.0 (TID 8)
+21/01/15 13:37:04 INFO TaskSetManager: Finished task 6.0 in stage 1.0 (TID 7) in 1189 ms on test-runner-gmbh4 (executor driver) (7/50)
+21/01/15 13:37:04 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:04 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:04 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:04 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:04 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:04 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:04 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-26bfe45f-fedb-4e94-9e2e-0b2d66d54ec3-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:04 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:04 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:04 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:04 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:04 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:04 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:04 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:04 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:04 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:04 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:04 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:04 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:04 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:04 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:05 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000007_8' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:05 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000007_8: Committed
+21/01/15 13:37:05 INFO Executor: Finished task 7.0 in stage 1.0 (TID 8). 2527 bytes result sent to driver
+21/01/15 13:37:05 INFO TaskSetManager: Starting task 8.0 in stage 1.0 (TID 9, test-runner-gmbh4, executor driver, partition 8, ANY, 7815 bytes)
+21/01/15 13:37:05 INFO TaskSetManager: Finished task 7.0 in stage 1.0 (TID 8) in 1212 ms on test-runner-gmbh4 (executor driver) (8/50)
+21/01/15 13:37:05 INFO Executor: Running task 8.0 in stage 1.0 (TID 9)
+21/01/15 13:37:05 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:05 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:05 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:05 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:05 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:05 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:05 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-3322122a-ab76-4157-910d-5bbcce6b9dbe-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:06 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:06 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:06 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:06 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:06 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:06 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:06 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:06 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:06 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:06 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:06 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:06 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:06 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:06 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:06 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000008_9' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:06 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000008_9: Committed
+21/01/15 13:37:06 INFO Executor: Finished task 8.0 in stage 1.0 (TID 9). 2527 bytes result sent to driver
+21/01/15 13:37:06 INFO TaskSetManager: Starting task 9.0 in stage 1.0 (TID 10, test-runner-gmbh4, executor driver, partition 9, ANY, 7815 bytes)
+21/01/15 13:37:06 INFO Executor: Running task 9.0 in stage 1.0 (TID 10)
+21/01/15 13:37:06 INFO TaskSetManager: Finished task 8.0 in stage 1.0 (TID 9) in 1224 ms on test-runner-gmbh4 (executor driver) (9/50)
+21/01/15 13:37:06 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:06 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:06 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:06 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:06 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:06 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:06 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-38e00a3b-e981-4893-ad5e-1c60ea825995-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:07 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:07 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:07 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:07 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:07 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:07 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:07 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:07 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:07 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:07 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:07 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:07 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:07 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:07 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:07 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000009_10' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:07 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000009_10: Committed
+21/01/15 13:37:07 INFO Executor: Finished task 9.0 in stage 1.0 (TID 10). 2527 bytes result sent to driver
+21/01/15 13:37:07 INFO TaskSetManager: Starting task 10.0 in stage 1.0 (TID 11, test-runner-gmbh4, executor driver, partition 10, ANY, 7815 bytes)
+21/01/15 13:37:07 INFO Executor: Running task 10.0 in stage 1.0 (TID 11)
+21/01/15 13:37:07 INFO TaskSetManager: Finished task 9.0 in stage 1.0 (TID 10) in 1265 ms on test-runner-gmbh4 (executor driver) (10/50)
+21/01/15 13:37:07 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:07 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:07 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:07 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:07 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:07 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:07 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-424834ad-bc79-47d7-a5ab-5950fb04acdb-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:08 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:08 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:08 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:08 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:08 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:08 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:08 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:08 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:08 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:08 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:08 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:08 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:08 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:08 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:09 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000010_11' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:09 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000010_11: Committed
+21/01/15 13:37:09 INFO Executor: Finished task 10.0 in stage 1.0 (TID 11). 2527 bytes result sent to driver
+21/01/15 13:37:09 INFO TaskSetManager: Starting task 11.0 in stage 1.0 (TID 12, test-runner-gmbh4, executor driver, partition 11, ANY, 7815 bytes)
+21/01/15 13:37:09 INFO Executor: Running task 11.0 in stage 1.0 (TID 12)
+21/01/15 13:37:09 INFO TaskSetManager: Finished task 10.0 in stage 1.0 (TID 11) in 1188 ms on test-runner-gmbh4 (executor driver) (11/50)
+21/01/15 13:37:09 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:09 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:09 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:09 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:09 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:09 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:09 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-531524f5-e96a-497e-b584-cdd807e12873-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:09 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:09 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:09 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:09 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:09 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:09 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:09 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:09 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:09 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:09 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:09 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:09 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:09 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:09 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:10 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000011_12' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:10 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000011_12: Committed
+21/01/15 13:37:10 INFO Executor: Finished task 11.0 in stage 1.0 (TID 12). 2527 bytes result sent to driver
+21/01/15 13:37:10 INFO TaskSetManager: Starting task 12.0 in stage 1.0 (TID 13, test-runner-gmbh4, executor driver, partition 12, ANY, 7815 bytes)
+21/01/15 13:37:10 INFO Executor: Running task 12.0 in stage 1.0 (TID 13)
+21/01/15 13:37:10 INFO TaskSetManager: Finished task 11.0 in stage 1.0 (TID 12) in 1238 ms on test-runner-gmbh4 (executor driver) (12/50)
+21/01/15 13:37:10 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:10 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:10 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:10 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:10 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:10 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:10 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-8da99ceb-1211-4693-adb0-d35fdb26203b-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:10 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:10 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:10 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:10 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:10 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:10 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:10 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:10 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:10 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:10 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:10 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:10 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:10 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:11 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:11 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000012_13' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:11 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000012_13: Committed
+21/01/15 13:37:11 INFO Executor: Finished task 12.0 in stage 1.0 (TID 13). 2527 bytes result sent to driver
+21/01/15 13:37:11 INFO TaskSetManager: Starting task 13.0 in stage 1.0 (TID 14, test-runner-gmbh4, executor driver, partition 13, ANY, 7815 bytes)
+21/01/15 13:37:11 INFO Executor: Running task 13.0 in stage 1.0 (TID 14)
+21/01/15 13:37:11 INFO TaskSetManager: Finished task 12.0 in stage 1.0 (TID 13) in 1307 ms on test-runner-gmbh4 (executor driver) (13/50)
+21/01/15 13:37:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:11 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:11 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:11 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-c0a96430-b67f-462c-8adb-e6bc6950b30e-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:12 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:12 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:12 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:12 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:12 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:12 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:12 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:12 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:12 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:12 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:12 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:12 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:12 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:12 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:12 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000013_14' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:12 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000013_14: Committed
+21/01/15 13:37:12 INFO Executor: Finished task 13.0 in stage 1.0 (TID 14). 2527 bytes result sent to driver
+21/01/15 13:37:12 INFO TaskSetManager: Starting task 14.0 in stage 1.0 (TID 15, test-runner-gmbh4, executor driver, partition 14, ANY, 7815 bytes)
+21/01/15 13:37:12 INFO Executor: Running task 14.0 in stage 1.0 (TID 15)
+21/01/15 13:37:12 INFO TaskSetManager: Finished task 13.0 in stage 1.0 (TID 14) in 1251 ms on test-runner-gmbh4 (executor driver) (14/50)
+21/01/15 13:37:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:12 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:12 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:12 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-f09bae95-65b1-4853-9a90-d81a10073fa1-c000.snappy.parquet, range: 0-104863436, partition values: [empty row]
+21/01/15 13:37:13 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:13 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:13 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:13 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:13 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:13 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:13 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:13 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:13 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:13 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:13 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:13 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:13 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:13 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:14 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000014_15' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:14 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000014_15: Committed
+21/01/15 13:37:14 INFO Executor: Finished task 14.0 in stage 1.0 (TID 15). 2527 bytes result sent to driver
+21/01/15 13:37:14 INFO TaskSetManager: Starting task 15.0 in stage 1.0 (TID 16, test-runner-gmbh4, executor driver, partition 15, ANY, 7815 bytes)
+21/01/15 13:37:14 INFO Executor: Running task 15.0 in stage 1.0 (TID 16)
+21/01/15 13:37:14 INFO TaskSetManager: Finished task 14.0 in stage 1.0 (TID 15) in 1252 ms on test-runner-gmbh4 (executor driver) (15/50)
+21/01/15 13:37:14 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:14 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:14 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:14 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:14 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:14 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:14 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-b84027cf-8831-4240-99c6-239875a8b4ff-c000.snappy.parquet, range: 0-104863435, partition values: [empty row]
+21/01/15 13:37:14 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:14 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:14 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:14 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:14 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:14 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:14 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:14 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:14 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:14 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:14 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:14 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:14 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:14 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:15 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000015_16' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:15 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000015_16: Committed
+21/01/15 13:37:15 INFO Executor: Finished task 15.0 in stage 1.0 (TID 16). 2527 bytes result sent to driver
+21/01/15 13:37:15 INFO TaskSetManager: Starting task 16.0 in stage 1.0 (TID 17, test-runner-gmbh4, executor driver, partition 16, ANY, 7815 bytes)
+21/01/15 13:37:15 INFO Executor: Running task 16.0 in stage 1.0 (TID 17)
+21/01/15 13:37:15 INFO TaskSetManager: Finished task 15.0 in stage 1.0 (TID 16) in 1168 ms on test-runner-gmbh4 (executor driver) (16/50)
+21/01/15 13:37:15 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:15 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:15 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:15 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:15 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:15 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:15 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-d6018fd0-f0ff-4477-9f72-c9dacb3dea0e-c000.snappy.parquet, range: 0-104863435, partition values: [empty row]
+21/01/15 13:37:15 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:15 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:15 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:15 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:15 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:15 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:15 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:15 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:15 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:15 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:15 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:15 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:15 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:16 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:16 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000016_17' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:16 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000016_17: Committed
+21/01/15 13:37:16 INFO Executor: Finished task 16.0 in stage 1.0 (TID 17). 2527 bytes result sent to driver
+21/01/15 13:37:16 INFO TaskSetManager: Starting task 17.0 in stage 1.0 (TID 18, test-runner-gmbh4, executor driver, partition 17, ANY, 7815 bytes)
+21/01/15 13:37:16 INFO Executor: Running task 17.0 in stage 1.0 (TID 18)
+21/01/15 13:37:16 INFO TaskSetManager: Finished task 16.0 in stage 1.0 (TID 17) in 1301 ms on test-runner-gmbh4 (executor driver) (17/50)
+21/01/15 13:37:16 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:16 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:16 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:16 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:16 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:16 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:16 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-15bceba1-a740-4dca-82f6-8227fa4916c6-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:17 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:17 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:17 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:17 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:17 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:17 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:17 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:17 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:17 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:17 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:17 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:17 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:17 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:17 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:17 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000017_18' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:17 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000017_18: Committed
+21/01/15 13:37:17 INFO Executor: Finished task 17.0 in stage 1.0 (TID 18). 2527 bytes result sent to driver
+21/01/15 13:37:17 INFO TaskSetManager: Starting task 18.0 in stage 1.0 (TID 19, test-runner-gmbh4, executor driver, partition 18, ANY, 7815 bytes)
+21/01/15 13:37:17 INFO Executor: Running task 18.0 in stage 1.0 (TID 19)
+21/01/15 13:37:17 INFO TaskSetManager: Finished task 17.0 in stage 1.0 (TID 18) in 1229 ms on test-runner-gmbh4 (executor driver) (18/50)
+21/01/15 13:37:17 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:17 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:17 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:17 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:17 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:17 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:17 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-1841e91f-c211-4f41-9208-de3ac08d620f-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:18 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:18 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:18 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:18 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:18 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:18 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:18 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:18 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:18 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:18 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:18 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:18 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:18 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:18 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:19 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000018_19' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:19 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000018_19: Committed
+21/01/15 13:37:19 INFO Executor: Finished task 18.0 in stage 1.0 (TID 19). 2527 bytes result sent to driver
+21/01/15 13:37:19 INFO TaskSetManager: Starting task 19.0 in stage 1.0 (TID 20, test-runner-gmbh4, executor driver, partition 19, ANY, 7815 bytes)
+21/01/15 13:37:19 INFO Executor: Running task 19.0 in stage 1.0 (TID 20)
+21/01/15 13:37:19 INFO TaskSetManager: Finished task 18.0 in stage 1.0 (TID 19) in 1242 ms on test-runner-gmbh4 (executor driver) (19/50)
+21/01/15 13:37:19 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:19 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:19 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:19 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:19 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:19 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:19 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-19d92b70-0699-460b-ba07-03e117768f5b-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:19 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:19 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:19 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:19 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:19 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:19 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:19 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:19 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:19 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:19 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:19 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:19 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:19 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:19 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:20 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000019_20' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:20 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000019_20: Committed
+21/01/15 13:37:20 INFO Executor: Finished task 19.0 in stage 1.0 (TID 20). 2527 bytes result sent to driver
+21/01/15 13:37:20 INFO TaskSetManager: Starting task 20.0 in stage 1.0 (TID 21, test-runner-gmbh4, executor driver, partition 20, ANY, 7815 bytes)
+21/01/15 13:37:20 INFO Executor: Running task 20.0 in stage 1.0 (TID 21)
+21/01/15 13:37:20 INFO TaskSetManager: Finished task 19.0 in stage 1.0 (TID 20) in 1177 ms on test-runner-gmbh4 (executor driver) (20/50)
+21/01/15 13:37:20 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:20 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:20 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:20 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:20 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:20 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:20 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-1b4da8a4-363f-4717-926c-7efa51d353bc-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:20 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:20 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:20 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:20 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:20 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:20 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:20 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:20 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:20 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:20 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:20 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:20 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:20 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:20 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:21 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000020_21' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:21 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000020_21: Committed
+21/01/15 13:37:21 INFO Executor: Finished task 20.0 in stage 1.0 (TID 21). 2527 bytes result sent to driver
+21/01/15 13:37:21 INFO TaskSetManager: Starting task 21.0 in stage 1.0 (TID 22, test-runner-gmbh4, executor driver, partition 21, ANY, 7815 bytes)
+21/01/15 13:37:21 INFO Executor: Running task 21.0 in stage 1.0 (TID 22)
+21/01/15 13:37:21 INFO TaskSetManager: Finished task 20.0 in stage 1.0 (TID 21) in 1276 ms on test-runner-gmbh4 (executor driver) (21/50)
+21/01/15 13:37:21 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:21 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:21 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:21 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:21 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:21 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:21 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-2479e030-34a4-4211-a2c6-88e9199663e5-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:22 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:22 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:22 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:22 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:22 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:22 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:22 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:22 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:22 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:22 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:22 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:22 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:22 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:22 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:22 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000021_22' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:22 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000021_22: Committed
+21/01/15 13:37:22 INFO Executor: Finished task 21.0 in stage 1.0 (TID 22). 2527 bytes result sent to driver
+21/01/15 13:37:22 INFO TaskSetManager: Starting task 22.0 in stage 1.0 (TID 23, test-runner-gmbh4, executor driver, partition 22, ANY, 7815 bytes)
+21/01/15 13:37:22 INFO Executor: Running task 22.0 in stage 1.0 (TID 23)
+21/01/15 13:37:22 INFO TaskSetManager: Finished task 21.0 in stage 1.0 (TID 22) in 1189 ms on test-runner-gmbh4 (executor driver) (22/50)
+21/01/15 13:37:22 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:22 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:22 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:22 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:22 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:22 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:22 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-328da5de-2e0b-4d69-acdc-3a7a4f81c513-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:23 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:23 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:23 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:23 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:23 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:23 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:23 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:23 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:23 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:23 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:23 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:23 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:23 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:23 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:24 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000022_23' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:24 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000022_23: Committed
+21/01/15 13:37:24 INFO Executor: Finished task 22.0 in stage 1.0 (TID 23). 2527 bytes result sent to driver
+21/01/15 13:37:24 INFO TaskSetManager: Starting task 23.0 in stage 1.0 (TID 24, test-runner-gmbh4, executor driver, partition 23, ANY, 7815 bytes)
+21/01/15 13:37:24 INFO Executor: Running task 23.0 in stage 1.0 (TID 24)
+21/01/15 13:37:24 INFO TaskSetManager: Finished task 22.0 in stage 1.0 (TID 23) in 1256 ms on test-runner-gmbh4 (executor driver) (23/50)
+21/01/15 13:37:24 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:24 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:24 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:24 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:24 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:24 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:24 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-3669ccd3-555d-4c03-b303-125943dc4987-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:24 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:24 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:24 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:24 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:24 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:24 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:24 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:24 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:24 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:24 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:24 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:24 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:24 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:24 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:25 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000023_24' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:25 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000023_24: Committed
+21/01/15 13:37:25 INFO Executor: Finished task 23.0 in stage 1.0 (TID 24). 2527 bytes result sent to driver
+21/01/15 13:37:25 INFO TaskSetManager: Starting task 24.0 in stage 1.0 (TID 25, test-runner-gmbh4, executor driver, partition 24, ANY, 7815 bytes)
+21/01/15 13:37:25 INFO Executor: Running task 24.0 in stage 1.0 (TID 25)
+21/01/15 13:37:25 INFO TaskSetManager: Finished task 23.0 in stage 1.0 (TID 24) in 1290 ms on test-runner-gmbh4 (executor driver) (24/50)
+21/01/15 13:37:25 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:25 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:25 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:25 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:25 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:25 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:25 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-36a666d3-8458-4b37-ac2e-cef4b3a2d6b0-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:25 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:25 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:25 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:25 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:25 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:25 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:25 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:25 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:25 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:25 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:25 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:25 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:25 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:25 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:26 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000024_25' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:26 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000024_25: Committed
+21/01/15 13:37:26 INFO Executor: Finished task 24.0 in stage 1.0 (TID 25). 2527 bytes result sent to driver
+21/01/15 13:37:26 INFO TaskSetManager: Starting task 25.0 in stage 1.0 (TID 26, test-runner-gmbh4, executor driver, partition 25, ANY, 7815 bytes)
+21/01/15 13:37:26 INFO Executor: Running task 25.0 in stage 1.0 (TID 26)
+21/01/15 13:37:26 INFO TaskSetManager: Finished task 24.0 in stage 1.0 (TID 25) in 1223 ms on test-runner-gmbh4 (executor driver) (25/50)
+21/01/15 13:37:26 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:26 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:26 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:26 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:26 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:26 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:26 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-38bc915d-dfa8-464f-b527-c4e434c600a9-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:27 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:27 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:27 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:27 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:27 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:27 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:27 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:27 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:27 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:27 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:27 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:27 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:27 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:27 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:27 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000025_26' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:27 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000025_26: Committed
+21/01/15 13:37:27 INFO Executor: Finished task 25.0 in stage 1.0 (TID 26). 2527 bytes result sent to driver
+21/01/15 13:37:27 INFO TaskSetManager: Starting task 26.0 in stage 1.0 (TID 27, test-runner-gmbh4, executor driver, partition 26, ANY, 7815 bytes)
+21/01/15 13:37:27 INFO Executor: Running task 26.0 in stage 1.0 (TID 27)
+21/01/15 13:37:27 INFO TaskSetManager: Finished task 25.0 in stage 1.0 (TID 26) in 1183 ms on test-runner-gmbh4 (executor driver) (26/50)
+21/01/15 13:37:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:27 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:27 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:27 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-3a4c24e7-9533-414b-8caa-0863793603b0-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:28 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:28 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:28 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:28 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:28 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:28 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:28 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:28 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:28 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:28 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:28 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:28 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:28 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:28 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:28 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000026_27' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:28 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000026_27: Committed
+21/01/15 13:37:28 INFO Executor: Finished task 26.0 in stage 1.0 (TID 27). 2527 bytes result sent to driver
+21/01/15 13:37:28 INFO TaskSetManager: Starting task 27.0 in stage 1.0 (TID 28, test-runner-gmbh4, executor driver, partition 27, ANY, 7815 bytes)
+21/01/15 13:37:28 INFO Executor: Running task 27.0 in stage 1.0 (TID 28)
+21/01/15 13:37:28 INFO TaskSetManager: Finished task 26.0 in stage 1.0 (TID 27) in 1218 ms on test-runner-gmbh4 (executor driver) (27/50)
+21/01/15 13:37:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:28 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:28 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:28 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-3e9fde5e-56d3-491b-881b-93b5ebfac3d2-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:29 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:29 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:29 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:29 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:29 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:29 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:29 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:29 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:29 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:29 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:29 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:29 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:29 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:29 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:30 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000027_28' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:30 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000027_28: Committed
+21/01/15 13:37:30 INFO Executor: Finished task 27.0 in stage 1.0 (TID 28). 2527 bytes result sent to driver
+21/01/15 13:37:30 INFO TaskSetManager: Starting task 28.0 in stage 1.0 (TID 29, test-runner-gmbh4, executor driver, partition 28, ANY, 7815 bytes)
+21/01/15 13:37:30 INFO Executor: Running task 28.0 in stage 1.0 (TID 29)
+21/01/15 13:37:30 INFO TaskSetManager: Finished task 27.0 in stage 1.0 (TID 28) in 1311 ms on test-runner-gmbh4 (executor driver) (28/50)
+21/01/15 13:37:30 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:30 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:30 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:30 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:30 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:30 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:30 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-416ddb2a-2fec-459f-9d19-c971794a0330-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:30 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:30 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:30 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:30 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:30 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:30 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:30 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:30 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:30 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:30 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:30 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:30 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:30 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:31 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:31 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000028_29' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:31 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000028_29: Committed
+21/01/15 13:37:31 INFO Executor: Finished task 28.0 in stage 1.0 (TID 29). 2527 bytes result sent to driver
+21/01/15 13:37:31 INFO TaskSetManager: Starting task 29.0 in stage 1.0 (TID 30, test-runner-gmbh4, executor driver, partition 29, ANY, 7815 bytes)
+21/01/15 13:37:31 INFO Executor: Running task 29.0 in stage 1.0 (TID 30)
+21/01/15 13:37:31 INFO TaskSetManager: Finished task 28.0 in stage 1.0 (TID 29) in 1657 ms on test-runner-gmbh4 (executor driver) (29/50)
+21/01/15 13:37:31 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:31 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:31 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:31 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:31 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:31 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:31 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-45799592-6481-4e4a-a38b-c9fd62656ac0-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:32 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:32 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:32 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:32 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:32 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:32 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:32 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:32 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:32 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:32 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:32 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:32 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:32 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:32 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:33 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000029_30' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:33 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000029_30: Committed
+21/01/15 13:37:33 INFO Executor: Finished task 29.0 in stage 1.0 (TID 30). 2527 bytes result sent to driver
+21/01/15 13:37:33 INFO TaskSetManager: Starting task 30.0 in stage 1.0 (TID 31, test-runner-gmbh4, executor driver, partition 30, ANY, 7815 bytes)
+21/01/15 13:37:33 INFO Executor: Running task 30.0 in stage 1.0 (TID 31)
+21/01/15 13:37:33 INFO TaskSetManager: Finished task 29.0 in stage 1.0 (TID 30) in 1335 ms on test-runner-gmbh4 (executor driver) (30/50)
+21/01/15 13:37:33 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:33 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:33 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:33 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:33 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:33 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:33 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-47cd48cf-4f17-4674-9b3e-a2a476a3f0e9-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:33 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:33 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:33 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:33 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:33 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:33 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:33 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:33 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:33 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:33 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:33 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:33 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:33 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:33 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:34 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000030_31' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:34 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000030_31: Committed
+21/01/15 13:37:34 INFO Executor: Finished task 30.0 in stage 1.0 (TID 31). 2527 bytes result sent to driver
+21/01/15 13:37:34 INFO TaskSetManager: Starting task 31.0 in stage 1.0 (TID 32, test-runner-gmbh4, executor driver, partition 31, ANY, 7815 bytes)
+21/01/15 13:37:34 INFO Executor: Running task 31.0 in stage 1.0 (TID 32)
+21/01/15 13:37:34 INFO TaskSetManager: Finished task 30.0 in stage 1.0 (TID 31) in 1227 ms on test-runner-gmbh4 (executor driver) (31/50)
+21/01/15 13:37:34 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:34 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:34 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:34 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:34 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:34 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:34 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-4c17ddcc-58b0-43b8-9782-74ed850b5156-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:34 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:34 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:34 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:34 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:34 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:34 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:34 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:34 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:34 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:34 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:34 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:34 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:34 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:35 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:35 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000031_32' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:35 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000031_32: Committed
+21/01/15 13:37:35 INFO Executor: Finished task 31.0 in stage 1.0 (TID 32). 2527 bytes result sent to driver
+21/01/15 13:37:35 INFO TaskSetManager: Starting task 32.0 in stage 1.0 (TID 33, test-runner-gmbh4, executor driver, partition 32, ANY, 7815 bytes)
+21/01/15 13:37:35 INFO Executor: Running task 32.0 in stage 1.0 (TID 33)
+21/01/15 13:37:35 INFO TaskSetManager: Finished task 31.0 in stage 1.0 (TID 32) in 1193 ms on test-runner-gmbh4 (executor driver) (32/50)
+21/01/15 13:37:35 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:35 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:35 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:35 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:35 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:35 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:35 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-547009cd-4b6a-4bce-a860-9c1919c85ea8-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:36 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:36 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:36 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:36 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:36 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:36 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:36 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:36 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:36 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:36 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:36 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:36 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:36 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:36 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:36 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000032_33' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:36 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000032_33: Committed
+21/01/15 13:37:36 INFO Executor: Finished task 32.0 in stage 1.0 (TID 33). 2527 bytes result sent to driver
+21/01/15 13:37:36 INFO TaskSetManager: Starting task 33.0 in stage 1.0 (TID 34, test-runner-gmbh4, executor driver, partition 33, ANY, 7815 bytes)
+21/01/15 13:37:36 INFO Executor: Running task 33.0 in stage 1.0 (TID 34)
+21/01/15 13:37:36 INFO TaskSetManager: Finished task 32.0 in stage 1.0 (TID 33) in 1301 ms on test-runner-gmbh4 (executor driver) (33/50)
+21/01/15 13:37:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:36 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:36 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:36 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-57d03883-be1e-4b52-9309-a87ce6bed4d3-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:37 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:37 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:37 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:37 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:37 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:37 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:37 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:37 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:37 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:37 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:37 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:37 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:37 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:37 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:38 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000033_34' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:38 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000033_34: Committed
+21/01/15 13:37:38 INFO Executor: Finished task 33.0 in stage 1.0 (TID 34). 2527 bytes result sent to driver
+21/01/15 13:37:38 INFO TaskSetManager: Starting task 34.0 in stage 1.0 (TID 35, test-runner-gmbh4, executor driver, partition 34, ANY, 7815 bytes)
+21/01/15 13:37:38 INFO Executor: Running task 34.0 in stage 1.0 (TID 35)
+21/01/15 13:37:38 INFO TaskSetManager: Finished task 33.0 in stage 1.0 (TID 34) in 1318 ms on test-runner-gmbh4 (executor driver) (34/50)
+21/01/15 13:37:38 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:38 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:38 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:38 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:38 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:38 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:38 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-5d5a99fb-b27d-466d-89a2-2efb5bb030d9-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:38 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:38 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:38 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:38 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:38 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:38 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:38 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:38 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:38 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:38 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:38 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:38 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:38 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:38 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:39 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000034_35' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:39 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000034_35: Committed
+21/01/15 13:37:39 INFO Executor: Finished task 34.0 in stage 1.0 (TID 35). 2527 bytes result sent to driver
+21/01/15 13:37:39 INFO TaskSetManager: Starting task 35.0 in stage 1.0 (TID 36, test-runner-gmbh4, executor driver, partition 35, ANY, 7815 bytes)
+21/01/15 13:37:39 INFO Executor: Running task 35.0 in stage 1.0 (TID 36)
+21/01/15 13:37:39 INFO TaskSetManager: Finished task 34.0 in stage 1.0 (TID 35) in 1567 ms on test-runner-gmbh4 (executor driver) (35/50)
+21/01/15 13:37:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:39 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:39 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:39 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-653905a1-8b80-4cb0-b122-e30bfd3b59df-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:40 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:40 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:40 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:40 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:40 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:40 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:40 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:40 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:40 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:40 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:40 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:40 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:40 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:40 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:41 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000035_36' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:41 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000035_36: Committed
+21/01/15 13:37:41 INFO Executor: Finished task 35.0 in stage 1.0 (TID 36). 2527 bytes result sent to driver
+21/01/15 13:37:41 INFO TaskSetManager: Starting task 36.0 in stage 1.0 (TID 37, test-runner-gmbh4, executor driver, partition 36, ANY, 7815 bytes)
+21/01/15 13:37:41 INFO Executor: Running task 36.0 in stage 1.0 (TID 37)
+21/01/15 13:37:41 INFO TaskSetManager: Finished task 35.0 in stage 1.0 (TID 36) in 1531 ms on test-runner-gmbh4 (executor driver) (36/50)
+21/01/15 13:37:41 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:41 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:41 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:41 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:41 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:41 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:41 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-7645f74d-2495-4eb9-bcc9-a2f99ec7448d-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:41 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:41 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:41 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:41 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:41 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:41 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:41 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:41 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:41 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:41 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:41 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:41 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:41 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:42 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:42 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000036_37' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:42 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000036_37: Committed
+21/01/15 13:37:42 INFO Executor: Finished task 36.0 in stage 1.0 (TID 37). 2527 bytes result sent to driver
+21/01/15 13:37:42 INFO TaskSetManager: Starting task 37.0 in stage 1.0 (TID 38, test-runner-gmbh4, executor driver, partition 37, ANY, 7815 bytes)
+21/01/15 13:37:42 INFO Executor: Running task 37.0 in stage 1.0 (TID 38)
+21/01/15 13:37:42 INFO TaskSetManager: Finished task 36.0 in stage 1.0 (TID 37) in 1570 ms on test-runner-gmbh4 (executor driver) (37/50)
+21/01/15 13:37:42 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:42 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:42 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:42 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:42 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:42 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:42 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-85f05814-19b3-4815-a704-3aac03b1f971-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:43 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:43 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:43 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:43 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:43 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:43 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:43 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:43 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:43 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:43 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:43 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:43 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:43 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:43 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:44 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000037_38' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:44 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000037_38: Committed
+21/01/15 13:37:44 INFO Executor: Finished task 37.0 in stage 1.0 (TID 38). 2527 bytes result sent to driver
+21/01/15 13:37:44 INFO TaskSetManager: Starting task 38.0 in stage 1.0 (TID 39, test-runner-gmbh4, executor driver, partition 38, ANY, 7815 bytes)
+21/01/15 13:37:44 INFO Executor: Running task 38.0 in stage 1.0 (TID 39)
+21/01/15 13:37:44 INFO TaskSetManager: Finished task 37.0 in stage 1.0 (TID 38) in 1333 ms on test-runner-gmbh4 (executor driver) (38/50)
+21/01/15 13:37:44 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:44 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:44 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:44 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:44 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:44 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:44 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-894c280c-9eb6-44f4-9eec-e989cdc44140-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:44 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:44 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:44 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:44 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:44 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:44 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:44 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:44 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:44 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:44 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:44 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:44 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:44 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:44 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:45 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000038_39' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:45 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000038_39: Committed
+21/01/15 13:37:45 INFO Executor: Finished task 38.0 in stage 1.0 (TID 39). 2527 bytes result sent to driver
+21/01/15 13:37:45 INFO TaskSetManager: Starting task 39.0 in stage 1.0 (TID 40, test-runner-gmbh4, executor driver, partition 39, ANY, 7815 bytes)
+21/01/15 13:37:45 INFO Executor: Running task 39.0 in stage 1.0 (TID 40)
+21/01/15 13:37:45 INFO TaskSetManager: Finished task 38.0 in stage 1.0 (TID 39) in 1190 ms on test-runner-gmbh4 (executor driver) (39/50)
+21/01/15 13:37:45 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:45 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:45 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:45 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:45 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:45 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:45 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-8a7e6615-37ff-4f13-bb74-905bdfaf131b-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:46 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:46 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:46 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:46 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:46 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:46 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:46 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:46 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:46 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:46 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:46 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:46 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:46 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:46 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:46 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000039_40' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:46 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000039_40: Committed
+21/01/15 13:37:46 INFO Executor: Finished task 39.0 in stage 1.0 (TID 40). 2527 bytes result sent to driver
+21/01/15 13:37:46 INFO TaskSetManager: Starting task 40.0 in stage 1.0 (TID 41, test-runner-gmbh4, executor driver, partition 40, ANY, 7815 bytes)
+21/01/15 13:37:46 INFO Executor: Running task 40.0 in stage 1.0 (TID 41)
+21/01/15 13:37:46 INFO TaskSetManager: Finished task 39.0 in stage 1.0 (TID 40) in 1293 ms on test-runner-gmbh4 (executor driver) (40/50)
+21/01/15 13:37:46 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:46 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:46 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:46 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:46 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:46 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:46 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-8e2a6721-dd84-431c-96e8-59828567dc84-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:47 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:47 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:47 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:47 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:47 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:47 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:47 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:47 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:47 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:47 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:47 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:47 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:47 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:47 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:48 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000040_41' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:48 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000040_41: Committed
+21/01/15 13:37:48 INFO Executor: Finished task 40.0 in stage 1.0 (TID 41). 2527 bytes result sent to driver
+21/01/15 13:37:48 INFO TaskSetManager: Starting task 41.0 in stage 1.0 (TID 42, test-runner-gmbh4, executor driver, partition 41, ANY, 7815 bytes)
+21/01/15 13:37:48 INFO Executor: Running task 41.0 in stage 1.0 (TID 42)
+21/01/15 13:37:48 INFO TaskSetManager: Finished task 40.0 in stage 1.0 (TID 41) in 1272 ms on test-runner-gmbh4 (executor driver) (41/50)
+21/01/15 13:37:48 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:48 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:48 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:48 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:48 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:48 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:48 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-933458e5-5eb5-45d0-af2c-2aca6a5640a8-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:48 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:48 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:48 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:48 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:48 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:48 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:48 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:48 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:48 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:48 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:48 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:48 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:48 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:48 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:49 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000041_42' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:49 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000041_42: Committed
+21/01/15 13:37:49 INFO Executor: Finished task 41.0 in stage 1.0 (TID 42). 2527 bytes result sent to driver
+21/01/15 13:37:49 INFO TaskSetManager: Starting task 42.0 in stage 1.0 (TID 43, test-runner-gmbh4, executor driver, partition 42, ANY, 7815 bytes)
+21/01/15 13:37:49 INFO Executor: Running task 42.0 in stage 1.0 (TID 43)
+21/01/15 13:37:49 INFO TaskSetManager: Finished task 41.0 in stage 1.0 (TID 42) in 1512 ms on test-runner-gmbh4 (executor driver) (42/50)
+21/01/15 13:37:49 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:49 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:49 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:49 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:49 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:49 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:49 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-a88a25fa-120a-4635-b637-cf397693bb98-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:50 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:50 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:50 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:50 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:50 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:50 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:50 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:50 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:50 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:50 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:50 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:50 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:50 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:50 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:51 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000042_43' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:51 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000042_43: Committed
+21/01/15 13:37:51 INFO Executor: Finished task 42.0 in stage 1.0 (TID 43). 2527 bytes result sent to driver
+21/01/15 13:37:51 INFO TaskSetManager: Starting task 43.0 in stage 1.0 (TID 44, test-runner-gmbh4, executor driver, partition 43, ANY, 7815 bytes)
+21/01/15 13:37:51 INFO Executor: Running task 43.0 in stage 1.0 (TID 44)
+21/01/15 13:37:51 INFO TaskSetManager: Finished task 42.0 in stage 1.0 (TID 43) in 1650 ms on test-runner-gmbh4 (executor driver) (43/50)
+21/01/15 13:37:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:51 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:51 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:51 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-b8f47d7b-a7a3-4fb6-8cb7-3e626634a5b6-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:51 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:51 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:51 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:51 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:51 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:51 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:51 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:51 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:51 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:51 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:51 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:51 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:51 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:51 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:52 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000043_44' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:52 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000043_44: Committed
+21/01/15 13:37:52 INFO Executor: Finished task 43.0 in stage 1.0 (TID 44). 2527 bytes result sent to driver
+21/01/15 13:37:52 INFO TaskSetManager: Starting task 44.0 in stage 1.0 (TID 45, test-runner-gmbh4, executor driver, partition 44, ANY, 7815 bytes)
+21/01/15 13:37:52 INFO Executor: Running task 44.0 in stage 1.0 (TID 45)
+21/01/15 13:37:52 INFO TaskSetManager: Finished task 43.0 in stage 1.0 (TID 44) in 1638 ms on test-runner-gmbh4 (executor driver) (44/50)
+21/01/15 13:37:52 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:52 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:52 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:52 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:52 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:52 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:52 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-b96c2a24-2aa6-4180-b7c7-8cf7f26a8955-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:53 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:53 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:53 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:53 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:53 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:53 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:53 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:53 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:53 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:53 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:53 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:53 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:53 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:53 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:54 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000044_45' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:54 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000044_45: Committed
+21/01/15 13:37:54 INFO Executor: Finished task 44.0 in stage 1.0 (TID 45). 2527 bytes result sent to driver
+21/01/15 13:37:54 INFO TaskSetManager: Starting task 45.0 in stage 1.0 (TID 46, test-runner-gmbh4, executor driver, partition 45, ANY, 7815 bytes)
+21/01/15 13:37:54 INFO Executor: Running task 45.0 in stage 1.0 (TID 46)
+21/01/15 13:37:54 INFO TaskSetManager: Finished task 44.0 in stage 1.0 (TID 45) in 1590 ms on test-runner-gmbh4 (executor driver) (45/50)
+21/01/15 13:37:54 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:54 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:54 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:54 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:54 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:54 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:54 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-cc510596-1de0-404a-abf5-22661c227fd4-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:54 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:54 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:54 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:54 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:54 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:54 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:54 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:54 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:54 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:54 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:54 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:54 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:54 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:55 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000045_46' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:55 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000045_46: Committed
+21/01/15 13:37:55 INFO Executor: Finished task 45.0 in stage 1.0 (TID 46). 2527 bytes result sent to driver
+21/01/15 13:37:55 INFO TaskSetManager: Starting task 46.0 in stage 1.0 (TID 47, test-runner-gmbh4, executor driver, partition 46, ANY, 7815 bytes)
+21/01/15 13:37:55 INFO Executor: Running task 46.0 in stage 1.0 (TID 47)
+21/01/15 13:37:55 INFO TaskSetManager: Finished task 45.0 in stage 1.0 (TID 46) in 1183 ms on test-runner-gmbh4 (executor driver) (46/50)
+21/01/15 13:37:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:55 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:55 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:55 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-cf70cc65-5b6c-464e-8c35-3a9f7c42eadd-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:56 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:56 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:56 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:56 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:56 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:56 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:56 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:56 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:56 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:56 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:56 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:56 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:56 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:56 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:56 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000046_47' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:56 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000046_47: Committed
+21/01/15 13:37:56 INFO Executor: Finished task 46.0 in stage 1.0 (TID 47). 2527 bytes result sent to driver
+21/01/15 13:37:56 INFO TaskSetManager: Starting task 47.0 in stage 1.0 (TID 48, test-runner-gmbh4, executor driver, partition 47, ANY, 7815 bytes)
+21/01/15 13:37:56 INFO Executor: Running task 47.0 in stage 1.0 (TID 48)
+21/01/15 13:37:56 INFO TaskSetManager: Finished task 46.0 in stage 1.0 (TID 47) in 1186 ms on test-runner-gmbh4 (executor driver) (47/50)
+21/01/15 13:37:56 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:56 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:56 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:56 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:56 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:56 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:56 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-d7507af1-39d8-4041-8c45-93bb177e83ae-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:57 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:57 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:57 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:57 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:57 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:57 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:57 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:57 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:57 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:57 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:57 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:57 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:57 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:57 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:57 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000047_48' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:57 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000047_48: Committed
+21/01/15 13:37:57 INFO Executor: Finished task 47.0 in stage 1.0 (TID 48). 2527 bytes result sent to driver
+21/01/15 13:37:57 INFO TaskSetManager: Starting task 48.0 in stage 1.0 (TID 49, test-runner-gmbh4, executor driver, partition 48, ANY, 7815 bytes)
+21/01/15 13:37:57 INFO Executor: Running task 48.0 in stage 1.0 (TID 49)
+21/01/15 13:37:57 INFO TaskSetManager: Finished task 47.0 in stage 1.0 (TID 48) in 1198 ms on test-runner-gmbh4 (executor driver) (48/50)
+21/01/15 13:37:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:57 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:57 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:57 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-de7c07aa-90d5-44b6-aa89-faf37c123ea7-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:58 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:58 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:58 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:58 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:58 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:58 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:58 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:58 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:58 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:58 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:58 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:58 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:58 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:58 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/15 13:37:59 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000048_49' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:37:59 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000048_49: Committed
+21/01/15 13:37:59 INFO Executor: Finished task 48.0 in stage 1.0 (TID 49). 2527 bytes result sent to driver
+21/01/15 13:37:59 INFO TaskSetManager: Starting task 49.0 in stage 1.0 (TID 50, test-runner-gmbh4, executor driver, partition 49, ANY, 7963 bytes)
+21/01/15 13:37:59 INFO Executor: Running task 49.0 in stage 1.0 (TID 50)
+21/01/15 13:37:59 INFO TaskSetManager: Finished task 48.0 in stage 1.0 (TID 49) in 1179 ms on test-runner-gmbh4 (executor driver) (49/50)
+21/01/15 13:37:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:59 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/15 13:37:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/15 13:37:59 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/15 13:37:59 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-f76b2048-96de-4438-ba44-86e5bb6d0afd-c000.snappy.parquet, range: 0-104863434, partition values: [empty row]
+21/01/15 13:37:59 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:59 INFO CodecConfig: Compression: SNAPPY
+21/01/15 13:37:59 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/15 13:37:59 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/15 13:37:59 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/15 13:37:59 INFO ParquetOutputFormat: Dictionary is on
+21/01/15 13:37:59 INFO ParquetOutputFormat: Validation is off
+21/01/15 13:37:59 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/15 13:37:59 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/15 13:37:59 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/15 13:37:59 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/15 13:37:59 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/15 13:37:59 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  optional int32 index;
+}
+
+       
+21/01/15 13:37:59 INFO FileScanRDD: Reading File path: hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata/part-00000-17e8b388-04fa-449f-ab2e-ab4857a5c8d8-c000.snappy.parquet, range: 0-608, partition values: [empty row]
+21/01/15 13:38:00 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104863257
+21/01/15 13:38:00 INFO FileOutputCommitter: Saved output of task 'attempt_20210115133619_0001_m_000049_50' to hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1
+21/01/15 13:38:00 INFO SparkHadoopMapRedUtil: attempt_20210115133619_0001_m_000049_50: Committed
+21/01/15 13:38:00 INFO Executor: Finished task 49.0 in stage 1.0 (TID 50). 2527 bytes result sent to driver
+21/01/15 13:38:00 INFO TaskSetManager: Finished task 49.0 in stage 1.0 (TID 50) in 1505 ms on test-runner-gmbh4 (executor driver) (50/50)
+21/01/15 13:38:00 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+21/01/15 13:38:00 INFO DAGScheduler: ResultStage 1 (parquet at Copy.java:28) finished in 101.570 s
+21/01/15 13:38:00 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+21/01/15 13:38:00 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+21/01/15 13:38:00 INFO DAGScheduler: Job 1 finished: parquet at Copy.java:28, took 101.589609 s
+21/01/15 13:38:00 INFO FileFormatWriter: Write Job 82ab5910-c679-4d75-a743-ef432c51b7c5 committed.
+21/01/15 13:38:00 INFO FileFormatWriter: Finished processing stats for write job 82ab5910-c679-4d75-a743-ef432c51b7c5.
+21/01/15 13:38:00 INFO SparkUI: Stopped Spark web UI at http://test-runner-gmbh4:4040
+21/01/15 13:38:00 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+21/01/15 13:38:00 INFO MemoryStore: MemoryStore cleared
+21/01/15 13:38:00 INFO BlockManager: BlockManager stopped
+21/01/15 13:38:00 INFO BlockManagerMaster: BlockManagerMaster stopped
+21/01/15 13:38:00 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+21/01/15 13:38:00 INFO SparkContext: Successfully stopped SparkContext
+21/01/15 13:38:00 INFO ShutdownHookManager: Shutdown hook called
+21/01/15 13:38:00 INFO ShutdownHookManager: Deleting directory /tmp/spark-3d93520d-1a0d-4d78-a2ea-b2137d5cd96f
+21/01/15 13:38:00 INFO ShutdownHookManager: Deleting directory /tmp/spark-713cba72-92ec-4bb6-b0d7-b8a89fd41936
+
+real	1m50.800s
+user	1m42.230s
+sys	0m20.887s
+Process exited with exit code 0
