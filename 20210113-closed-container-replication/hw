@@ -1,0 +1,79 @@
+VENDOR
+	Manufacturer: Cisco Systems Inc
+	Product Name: UCS-S3260-M5SRB
+MEMORY
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+	Size: 32 GB
+CPUs
+	Version: Intel(R) Xeon(R) Gold 6132 CPU @ 2.60GHz
+	Max Speed: 4000 MHz
+	Core Enabled: 14
+	Thread Count: 28
+	Version: Intel(R) Xeon(R) Gold 6132 CPU @ 2.60GHz
+	Max Speed: 4000 MHz
+	Core Enabled: 14
+	Thread Count: 28
+DISKS
+     NAME      SIZE TYPE FSTYPE MOUNTPOINT   VENDOR   MODEL
+     sda       7.3T disk xfs    /data/disk1  HGST     HUH728080AL4200 
+     sdb       7.3T disk xfs    /data/disk2  HGST     HUH728080AL4200 
+     sdc       7.3T disk xfs    /data/disk3  HGST     HUH728080AL4200 
+     sdd       7.3T disk xfs    /data/disk4  HGST     HUH728080AL4200 
+     sde       7.3T disk xfs    /data/disk5  HGST     HUH728080AL4200 
+     sdf       7.3T disk xfs    /data/disk6  HGST     HUH728080AL4200 
+     sdg       7.3T disk xfs    /data/disk7  HGST     HUH728080AL4200 
+     sdh       7.3T disk xfs    /data/disk8  HGST     HUH728080AL4200 
+     sdi       7.3T disk xfs    /data/disk9  HGST     HUH728080AL4200 
+     sdj       7.3T disk xfs    /data/disk10 HGST     HUH728080AL4200 
+     sdk       7.3T disk xfs    /data/disk11 HGST     HUH728080AL4200 
+     sdl       7.3T disk xfs    /data/disk12 HGST     HUH728080AL4200 
+     sdm       7.3T disk xfs    /data/disk13 HGST     HUH728080AL4200 
+     sdn       7.3T disk xfs    /data/disk14 HGST     HUH728080AL4200 
+     sdo       7.3T disk xfs    /data/disk15 HGST     HUH728080AL4200 
+     sdp       7.3T disk xfs    /data/disk16 HGST     HUH728080AL4200 
+     sdq       7.3T disk xfs    /data/disk17 HGST     HUH728080AL4200 
+     sdr       7.3T disk xfs    /data/disk18 HGST     HUH728080AL4200 
+     sds       7.3T disk xfs    /data/disk19 HGST     HUH728080AL4200 
+     sdt       7.3T disk xfs    /data/disk20 HGST     HUH728080AL4200 
+     sdu       7.3T disk xfs    /data/disk21 HGST     HUH728080AL4200 
+     sdv       7.3T disk xfs    /data/disk22 HGST     HUH728080AL4200 
+     sdw       7.3T disk xfs    /data/disk23 HGST     HUH728080AL4200 
+     sdx       7.3T disk xfs    /data/disk24 HGST     HUH728080AL4200 
+     sdy       7.3T disk xfs    /data/disk25 HGST     HUH728080AL4200 
+     sdz       7.3T disk xfs    /data/disk26 HGST     HUH728080AL4200 
+     sdaa      7.3T disk xfs    /data/disk27 HGST     HUH728080AL4200 
+     sdab      7.3T disk xfs    /data/disk28 HGST     HUH728080AL4200 
+     sdac      7.3T disk xfs    /data/disk29 HGST     HUH728080AL4200 
+     sdad      7.3T disk xfs    /data/disk30 HGST     HUH728080AL4200 
+     sdae      7.3T disk xfs    /data/disk31 HGST     HUH728080AL4200 
+     sdaf      7.3T disk xfs    /data/disk32 HGST     HUH728080AL4200 
+     sdag      7.3T disk xfs    /data/disk33 HGST     HUH728080AL4200 
+     sdah      7.3T disk xfs    /data/disk34 HGST     HUH728080AL4200 
+     sdai      7.3T disk xfs    /data/disk35 HGST     HUH728080AL4200 
+     sdaj      7.3T disk xfs    /data/disk36 HGST     HUH728080AL4200 
+     sdak      7.3T disk xfs    /data/disk37 HGST     HUH728080AL4200 
+     sdal      7.3T disk xfs    /data/disk38 HGST     HUH728080AL4200 
+     sdam      7.3T disk xfs    /data/disk39 HGST     HUH728080AL4200 
+     sdan      7.3T disk xfs    /data/disk40 HGST     HUH728080AL4200 
+     sdao      7.3T disk xfs    /data/disk41 HGST     HUH728080AL4200 
+     sdap      7.3T disk xfs    /data/disk42 HGST     HUH728080AL4200 
+     sdaq      7.3T disk xfs    /data/disk43 HGST     HUH728080AL4200 
+     sdar      7.3T disk xfs    /data/disk44 HGST     HUH728080AL4200 
+     sdas      7.3T disk xfs    /data/disk45 HGST     HUH728080AL4200 
+     sdat      7.3T disk xfs    /data/disk46 HGST     HUH728080AL4200 
+     sdau      7.3T disk xfs    /data/disk47 HGST     HUH728080AL4200 
+     sdav      7.3T disk xfs    /data/disk48 HGST     HUH728080AL4200 
+     sdaw    446.1G disk                     Cisco    UCS-S3260-DRAID 
+     ├─sdaw1   1.9G part xfs    /boot                 
+     ├─sdaw2   1.9G part swap   [SWAP]                
+     └─sdaw3 442.3G part xfs    /  
