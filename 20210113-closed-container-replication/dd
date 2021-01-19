@@ -1,0 +1,4 @@
+dd if=/dev/zero of=/data/disk1/elek/test bs=16M count=640 oflag=direct
+640+0 records in
+640+0 records out
+10737418240 bytes (11 GB) copied, 57.6281 s, 186 MB/s

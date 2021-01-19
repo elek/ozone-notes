@@ -1,0 +1,27 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-runner
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      name: test-runner
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: ghcr.io/elek/spark-test@sha256:d19d19bc2ba3fec102b6cdea452acd6e4d7b6c82fccfbb39f33af366cbcac0d1
+        name: test
+        args:
+        - sleep
+        - infinity
+        volumeMounts:
+          - mountPath: /opt/testscripts
+            name: testscripts
+      restartPolicy: Never
+      volumes:
+        - name: testscripts
+          configMap:
+              name: testscripts
+              defaultMode: 0755

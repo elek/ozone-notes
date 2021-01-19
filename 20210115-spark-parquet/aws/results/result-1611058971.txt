@@ -1,0 +1,1 @@
+generate --iteration 200 hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata

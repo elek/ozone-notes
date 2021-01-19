@@ -8,6 +8,8 @@ Instead of emulating errors, a stand-alone Freon (Ozone load-tester tool) test i
 
 **After disabling the additional compression (gz) on the extracted container data, the replication process became 160 % faster.**
 
+![results](./results.png)
+
 ## Details
 
 1. 3 dedicated nodes used to run an Ozone cluster with one pipeline (SCM / OM are placed to separated nodes, but shared the nodes with the datanode).

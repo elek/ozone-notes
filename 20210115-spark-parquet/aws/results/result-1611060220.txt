@@ -1,0 +1,1 @@
+copy hdfs://hdfs-namenode-0.hdfs-namenode:9820/testdata hdfs://hdfs-namenode-0.hdfs-namenode:9820/r1

@@ -1,0 +1,9 @@
+set title "Container replication (seconds)"
+set key autotitle columnheader
+set style data histogram
+set style histogram rowstacked
+set style fill solid border -1
+set boxwidth 0.5
+set terminal png
+set yrange [0:200]
+plot 'data.generate' using 2:xtic(1) title 'Download',  '' using 3 title 'Import',

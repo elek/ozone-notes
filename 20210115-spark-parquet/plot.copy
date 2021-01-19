@@ -1,0 +1,9 @@
+set title "20GB Spark parquet read+write (seconds)"
+set key autotitle columnheader
+set style data histogram
+set style histogram rowstacked
+set style fill solid border -1
+set boxwidth 0.5
+set terminal png
+set yrange [0:430]
+plot 'data.copy' using 2:xtic(1) title 'Base',  '' using 3 title 'CRC',

@@ -1,0 +1,4 @@
+[root@ozone3-1 ~]# dd if=/dev/zero of=/data1/test bs=16M count=640 oflag=direct
+640+0 records in
+640+0 records out
+10737418240 bytes (11 GB) copied, 39.1044 s, 275 MB/s

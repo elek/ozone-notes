@@ -1,0 +1,40 @@
+name: nocrc
+---
+- type: add
+  trigger:
+     metadata:
+        name: ozone-client-config
+  path:
+    - data
+  value:
+     OZONE-SITE.XML_ozone.client.checksum.type: NONE
+- type: add
+  trigger:
+     metadata:
+        name: ozone-config
+  path:
+    - data
+  value:
+     OZONE-SITE.XML_ozone.client.checksum.type: NONE
+- type: add
+  trigger:
+     metadata:
+       name: hdfs-config
+  path:
+    - data
+  value:
+     HDFS-SITE.XML_dfs.checksum.type: "NULL"
+- type: add
+  trigger:
+     metadata:
+       name: test-runner
+  path:
+    - spec
+    - template
+    - spec
+    - containers
+    - .*
+    - env
+  value:
+     - name: HDFS-SITE.XML_dfs.checksum.type
+       value: "NULL"

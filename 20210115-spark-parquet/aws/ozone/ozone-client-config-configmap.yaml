@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ozone-client-config
+  labels:
+    app: ozone
+    component: client-config
+data:
+  CORE-SITE.XML_fs.o3fs.impl: org.apache.hadoop.fs.ozone.OzoneFileSystem
+  CORE-SITE.xml_fs.AbstractFileSystem.o3fs.impl: org.apache.hadoop.fs.ozone.OzFs
+  HDFS-SITE.XML_ozone.om.address: ozone-om-0.ozone-om
+  OZONE-SITE.XML_ozone.om.address: ozone-om-0.ozone-om
+  MAPRED-SITE.XML_mapreduce.application.classpath: /opt/hadoop/share/hadoop/mapreduce/*:/opt/hadoop/share/hadoop/mapreduce/lib/*:/opt/ozonefs/hadoop-ozone-filesystem.jar
+  OZONE-SITE.XML_ozone.client.checksum.type: NONE
