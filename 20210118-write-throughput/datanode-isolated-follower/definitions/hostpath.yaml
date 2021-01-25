@@ -1,0 +1,46 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+name: hostpath
+description: Use pre-defined host-path directory as /data
+parameters:
+  - name: path
+    value: "/tmp/data"
+---
+- type: Add
+  trigger:
+    kind: Deployment
+  path:
+    - spec
+    - template
+    - spec
+    - volumes
+  value:
+      name: data
+      hostPath:
+         path: {{ .path }}
+- type: Add
+  trigger:
+    kind: Deployment
+  path:
+    - spec
+    - template
+    - spec
+    - (initC|c)ontainers
+    - .*
+    - volumeMounts
+  value:
+      name: data
+      mountPath: /data

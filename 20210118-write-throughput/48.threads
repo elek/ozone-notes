@@ -1,0 +1,737 @@
+Flokkr launcher script 1.1-18-g58a3efc
+
+===== Plugin is activated ENVTOCONF =====
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+log4j.properties
+File log4j.properties has been written out successfullly.
+core-site.xml
+File core-site.xml has been written out successfullly.
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+======================================
+*** Launching "/opt/test/test.sh"
++++++++++++++++++++ seq 1 48
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk1/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk2/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk3/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk4/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk5/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk6/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk7/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk8/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk9/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk10/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk11/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk12/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk13/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk14/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk15/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk16/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk17/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk18/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk19/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk20/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk21/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk22/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk23/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk24/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk25/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk26/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk27/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk28/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk29/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk30/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk31/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk32/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk33/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk34/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk35/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk36/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk37/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk38/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk39/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk40/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk41/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk42/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk43/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk44/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk45/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk46/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk47/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo rm -rf /data/disk48/elek
++++++++++++++++++++ seq 1 48
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk1/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk2/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk3/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk4/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk5/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk6/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk7/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk8/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk9/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk10/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk11/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk12/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk13/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk14/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk15/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk16/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk17/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk18/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk19/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk20/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk21/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk22/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk23/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk24/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk25/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk26/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk27/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk28/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk29/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk30/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk31/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk32/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk33/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk34/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk35/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk36/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk37/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk38/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk39/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk40/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk41/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk42/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk43/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk44/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk45/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk46/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk47/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo mkdir /data/disk48/elek
++++++++++++++++++++ seq 1 48
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk1/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk2/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk3/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk4/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk5/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk6/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk7/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk8/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk9/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk10/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk11/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk12/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk13/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk14/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk15/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk16/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk17/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk18/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk19/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk20/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk21/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk22/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk23/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk24/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk25/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk26/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk27/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk28/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk29/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk30/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk31/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk32/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk33/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk34/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk35/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk36/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk37/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk38/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk39/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk40/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk41/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk42/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk43/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk44/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk45/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk46/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk47/elek
+++++++++++++++++++ for i in `seq 1 48`
+++++++++++++++++++ sudo chmod 777 /data/disk48/elek
+++++++++++++++++++ sync
+
+real	0m0.657s
+user	0m0.000s
+sys	0m0.007s
++++++++++++++++++++ date +%s.%N
+++++++++++++++++++ START_TIME=1611147269.966108343
++++++++++++++++++++ numfmt --from=iec 4M
+++++++++++++++++++ ozone freon --verbose cmdw -n250000 -s4194304 -t48 -l FILE_PER_BLOCK
+2021-01-20 12:54:30 INFO  MetricsConfig:118 - Loaded properties from hadoop-metrics2.properties
+2021-01-20 12:54:30 INFO  MetricsSystemImpl:374 - Scheduled Metric snapshot period at 10 second(s).
+2021-01-20 12:54:30 INFO  MetricsSystemImpl:191 - ozone-freon metrics system started
+2021-01-20 12:54:30 INFO  BaseFreonGenerator:256 - Executing test with prefix msj13i8kan
+2021-01-20 12:54:30 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:30 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk2/elek/scmUsed not found
+2021-01-20 12:54:30 INFO  HddsVolume:176 - Creating Volume: /data/disk2/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:30 INFO  MutableVolumeSet:179 - Added Volume : /data/disk2/elek/hdds to VolumeSet
+2021-01-20 12:54:30 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk3/elek/scmUsed not found
+2021-01-20 12:54:30 INFO  HddsVolume:176 - Creating Volume: /data/disk3/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk3/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk4/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk4/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk4/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk5/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk5/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk5/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk6/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk6/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk6/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk7/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk7/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk7/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk8/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk8/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk8/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk9/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk9/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk9/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk10/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk10/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk10/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk11/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk11/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk11/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk12/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk12/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk12/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk13/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk13/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk13/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk14/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk14/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk14/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk15/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk15/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk15/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk16/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk16/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk16/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk17/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk17/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk17/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk18/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk18/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk18/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk19/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk19/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk19/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk20/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk20/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk20/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk21/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk21/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk21/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk22/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk22/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk22/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk23/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk23/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk23/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk24/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk24/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk24/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk25/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk25/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk25/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk26/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk26/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk26/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk27/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk27/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk27/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk28/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk28/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk28/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk29/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk29/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk29/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk30/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk30/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk30/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk31/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk31/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk31/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk32/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk32/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk32/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk33/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk33/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk33/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk34/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk34/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk34/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk35/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk35/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk35/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk36/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk36/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk36/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk37/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk37/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk37/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk38/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk38/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk38/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk39/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk39/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk39/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk40/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk40/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk40/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk41/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk41/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk41/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk42/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk42/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk42/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk43/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk43/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk43/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk44/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk44/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk44/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk45/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk45/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk45/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk46/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk46/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk46/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk47/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk47/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk47/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk48/elek/scmUsed not found
+2021-01-20 12:54:31 INFO  HddsVolume:176 - Creating Volume: /data/disk48/elek/hdds of storage type : DISK and capacity : 7999426224128
+2021-01-20 12:54:31 INFO  MutableVolumeSet:179 - Added Volume : /data/disk48/elek/hdds to VolumeSet
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk40/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk40/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk2/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk2/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk36/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk36/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk10/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk10/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk23/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk23/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk6/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk6/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk17/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk17/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk39/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk39/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk26/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk26/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk13/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk13/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk32/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk32/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk45/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk45/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk28/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk28/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk42/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk42/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk8/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk8/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk15/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk15/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk47/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk47/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk34/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk34/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk21/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk21/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk3/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk3/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk35/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk35/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk16/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk16/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk22/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk22/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk18/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk18/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk20/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk20/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk48/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk48/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk37/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk37/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk5/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk5/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk43/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk43/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk11/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk11/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk29/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk29/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk24/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk24/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk31/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk31/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk44/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk44/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk12/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk12/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk25/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk25/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk30/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk30/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk7/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk7/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk38/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk38/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk33/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk33/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk4/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk4/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk9/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk9/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk46/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk46/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk19/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk19/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk27/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk27/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk14/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk14/elek/hdds
+2021-01-20 12:54:31 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk41/elek/hdds
+2021-01-20 12:54:31 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk41/elek/hdds
+2021-01-20 12:54:31 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:32 WARN  NativeCodeLoader:60 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2021-01-20 12:54:32 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:33 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:34 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:35 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:36 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:37 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:38 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:39 INFO  ChunkManagerDiskWrite:142 - Running chunk write test: threads=48 chunkSize=4194304 chunksPerBlock=16 layout=ChunkLayout:v2
+2021-01-20 12:54:39 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 250000)
+2021-01-20 12:54:40 INFO  ProgressBar:163 - Progress: 2.10 % (5257 out of 250000)
+2021-01-20 12:54:41 INFO  ProgressBar:163 - Progress: 4.07 % (10170 out of 250000)
+2021-01-20 12:54:42 INFO  ProgressBar:163 - Progress: 6.11 % (15266 out of 250000)
+2021-01-20 12:54:43 INFO  ProgressBar:163 - Progress: 7.98 % (19942 out of 250000)
+2021-01-20 12:54:44 INFO  ProgressBar:163 - Progress: 9.10 % (22754 out of 250000)
+2021-01-20 12:54:45 INFO  ProgressBar:163 - Progress: 9.60 % (23999 out of 250000)
+2021-01-20 12:54:46 INFO  ProgressBar:163 - Progress: 9.87 % (24683 out of 250000)
+2021-01-20 12:54:47 INFO  ProgressBar:163 - Progress: 10.20 % (25512 out of 250000)
+2021-01-20 12:54:48 INFO  ProgressBar:163 - Progress: 10.51 % (26283 out of 250000)
+2021-01-20 12:54:49 INFO  ProgressBar:163 - Progress: 10.57 % (26430 out of 250000)
+2021-01-20 12:54:50 INFO  ProgressBar:163 - Progress: 11.19 % (27983 out of 250000)
+2021-01-20 12:54:51 INFO  ProgressBar:163 - Progress: 11.83 % (29585 out of 250000)
+2021-01-20 12:54:52 INFO  ProgressBar:163 - Progress: 12.68 % (31703 out of 250000)
+2021-01-20 12:54:53 INFO  ProgressBar:163 - Progress: 13.38 % (33453 out of 250000)
+2021-01-20 12:54:54 INFO  ProgressBar:163 - Progress: 14.16 % (35390 out of 250000)
+2021-01-20 12:54:55 INFO  ProgressBar:163 - Progress: 14.92 % (37297 out of 250000)
+2021-01-20 12:54:57 INFO  ProgressBar:163 - Progress: 15.92 % (39795 out of 250000)
+2021-01-20 12:54:58 INFO  ProgressBar:163 - Progress: 16.71 % (41772 out of 250000)
+2021-01-20 12:54:59 INFO  ProgressBar:163 - Progress: 17.64 % (44092 out of 250000)
+2021-01-20 12:55:00 INFO  ProgressBar:163 - Progress: 18.46 % (46147 out of 250000)
+2021-01-20 12:55:01 INFO  ProgressBar:163 - Progress: 19.08 % (47696 out of 250000)
+2021-01-20 12:55:02 INFO  ProgressBar:163 - Progress: 19.82 % (49549 out of 250000)
+2021-01-20 12:55:03 INFO  ProgressBar:163 - Progress: 20.60 % (51488 out of 250000)
+2021-01-20 12:55:04 INFO  ProgressBar:163 - Progress: 21.35 % (53369 out of 250000)
+2021-01-20 12:55:05 INFO  ProgressBar:163 - Progress: 22.01 % (55014 out of 250000)
+2021-01-20 12:55:06 INFO  ProgressBar:163 - Progress: 22.66 % (56650 out of 250000)
+2021-01-20 12:55:07 INFO  ProgressBar:163 - Progress: 23.31 % (58280 out of 250000)
+2021-01-20 12:55:08 INFO  ProgressBar:163 - Progress: 23.95 % (59875 out of 250000)
+2021-01-20 12:55:09 INFO  ProgressBar:163 - Progress: 24.58 % (61443 out of 250000)
+2021-01-20 12:55:10 INFO  ProgressBar:163 - Progress: 25.20 % (63001 out of 250000)
+2021-01-20 12:55:11 INFO  ProgressBar:163 - Progress: 25.82 % (64559 out of 250000)
+2021-01-20 12:55:12 INFO  ProgressBar:163 - Progress: 26.44 % (66094 out of 250000)
+2021-01-20 12:55:13 INFO  ProgressBar:163 - Progress: 27.07 % (67681 out of 250000)
+2021-01-20 12:55:14 INFO  ProgressBar:163 - Progress: 27.68 % (69209 out of 250000)
+2021-01-20 12:55:15 INFO  ProgressBar:163 - Progress: 28.30 % (70751 out of 250000)
+2021-01-20 12:55:16 INFO  ProgressBar:163 - Progress: 28.92 % (72297 out of 250000)
+2021-01-20 12:55:17 INFO  ProgressBar:163 - Progress: 29.52 % (73790 out of 250000)
+2021-01-20 12:55:18 INFO  ProgressBar:163 - Progress: 30.07 % (75184 out of 250000)
+2021-01-20 12:55:19 INFO  ProgressBar:163 - Progress: 30.68 % (76700 out of 250000)
+2021-01-20 12:55:20 INFO  ProgressBar:163 - Progress: 31.30 % (78261 out of 250000)
+2021-01-20 12:55:21 INFO  ProgressBar:163 - Progress: 31.93 % (79830 out of 250000)
+2021-01-20 12:55:22 INFO  ProgressBar:163 - Progress: 32.56 % (81401 out of 250000)
+2021-01-20 12:55:23 INFO  ProgressBar:163 - Progress: 33.18 % (82956 out of 250000)
+2021-01-20 12:55:24 INFO  ProgressBar:163 - Progress: 33.85 % (84618 out of 250000)
+2021-01-20 12:55:25 INFO  ProgressBar:163 - Progress: 34.50 % (86262 out of 250000)
+2021-01-20 12:55:26 INFO  ProgressBar:163 - Progress: 35.13 % (87819 out of 250000)
+2021-01-20 12:55:27 INFO  ProgressBar:163 - Progress: 35.74 % (89342 out of 250000)
+2021-01-20 12:55:28 INFO  ProgressBar:163 - Progress: 36.37 % (90927 out of 250000)
+2021-01-20 12:55:29 INFO  ProgressBar:163 - Progress: 37.03 % (92581 out of 250000)
+2021-01-20 12:55:30 INFO  ProgressBar:163 - Progress: 37.70 % (94258 out of 250000)
+2021-01-20 12:55:31 INFO  ProgressBar:163 - Progress: 38.36 % (95902 out of 250000)
+2021-01-20 12:55:32 INFO  ProgressBar:163 - Progress: 38.98 % (97442 out of 250000)
+2021-01-20 12:55:33 INFO  ProgressBar:163 - Progress: 39.58 % (98954 out of 250000)
+2021-01-20 12:55:34 INFO  ProgressBar:163 - Progress: 40.19 % (100482 out of 250000)
+2021-01-20 12:55:35 INFO  ProgressBar:163 - Progress: 40.82 % (102047 out of 250000)
+2021-01-20 12:55:36 INFO  ProgressBar:163 - Progress: 41.45 % (103632 out of 250000)
+2021-01-20 12:55:37 INFO  ProgressBar:163 - Progress: 42.08 % (105197 out of 250000)
+2021-01-20 12:55:38 INFO  ProgressBar:163 - Progress: 42.70 % (106740 out of 250000)
+2021-01-20 12:55:39 INFO  ProgressBar:163 - Progress: 43.31 % (108278 out of 250000)
+2021-01-20 12:55:40 INFO  ProgressBar:163 - Progress: 43.91 % (109774 out of 250000)
+2021-01-20 12:55:41 INFO  ProgressBar:163 - Progress: 44.52 % (111300 out of 250000)
+2021-01-20 12:55:42 INFO  ProgressBar:163 - Progress: 45.14 % (112848 out of 250000)
+2021-01-20 12:55:43 INFO  ProgressBar:163 - Progress: 45.76 % (114389 out of 250000)
+2021-01-20 12:55:44 INFO  ProgressBar:163 - Progress: 46.38 % (115960 out of 250000)
+2021-01-20 12:55:45 INFO  ProgressBar:163 - Progress: 47.00 % (117504 out of 250000)
+2021-01-20 12:55:46 INFO  ProgressBar:163 - Progress: 47.62 % (119057 out of 250000)
+2021-01-20 12:55:47 INFO  ProgressBar:163 - Progress: 48.27 % (120685 out of 250000)
+2021-01-20 12:55:48 INFO  ProgressBar:163 - Progress: 48.93 % (122337 out of 250000)
+2021-01-20 12:55:49 INFO  ProgressBar:163 - Progress: 49.57 % (123935 out of 250000)
+2021-01-20 12:55:50 INFO  ProgressBar:163 - Progress: 50.22 % (125540 out of 250000)
+2021-01-20 12:55:51 INFO  ProgressBar:163 - Progress: 50.85 % (127136 out of 250000)
+2021-01-20 12:55:52 INFO  ProgressBar:163 - Progress: 51.46 % (128651 out of 250000)
+2021-01-20 12:55:53 INFO  ProgressBar:163 - Progress: 52.08 % (130189 out of 250000)
+2021-01-20 12:55:54 INFO  ProgressBar:163 - Progress: 52.70 % (131752 out of 250000)
+2021-01-20 12:55:55 INFO  ProgressBar:163 - Progress: 53.33 % (133335 out of 250000)
+2021-01-20 12:55:56 INFO  ProgressBar:163 - Progress: 53.95 % (134863 out of 250000)
+2021-01-20 12:55:57 INFO  ProgressBar:163 - Progress: 54.57 % (136425 out of 250000)
+2021-01-20 12:55:58 INFO  ProgressBar:163 - Progress: 55.19 % (137974 out of 250000)
+2021-01-20 12:55:59 INFO  ProgressBar:163 - Progress: 55.79 % (139475 out of 250000)
+2021-01-20 12:56:00 INFO  ProgressBar:163 - Progress: 56.37 % (140914 out of 250000)
+2021-01-20 12:56:01 INFO  ProgressBar:163 - Progress: 57.03 % (142566 out of 250000)
+2021-01-20 12:56:02 INFO  ProgressBar:163 - Progress: 57.68 % (144196 out of 250000)
+2021-01-20 12:56:03 INFO  ProgressBar:163 - Progress: 58.33 % (145819 out of 250000)
+2021-01-20 12:56:04 INFO  ProgressBar:163 - Progress: 58.96 % (147401 out of 250000)
+2021-01-20 12:56:05 INFO  ProgressBar:163 - Progress: 59.60 % (149007 out of 250000)
+2021-01-20 12:56:06 INFO  ProgressBar:163 - Progress: 60.22 % (150538 out of 250000)
+2021-01-20 12:56:07 INFO  ProgressBar:163 - Progress: 60.82 % (152047 out of 250000)
+2021-01-20 12:56:08 INFO  ProgressBar:163 - Progress: 61.44 % (153593 out of 250000)
+2021-01-20 12:56:09 INFO  ProgressBar:163 - Progress: 62.07 % (155165 out of 250000)
+2021-01-20 12:56:10 INFO  ProgressBar:163 - Progress: 62.69 % (156735 out of 250000)
+2021-01-20 12:56:11 INFO  ProgressBar:163 - Progress: 63.32 % (158299 out of 250000)
+2021-01-20 12:56:12 INFO  ProgressBar:163 - Progress: 63.94 % (159838 out of 250000)
+2021-01-20 12:56:13 INFO  ProgressBar:163 - Progress: 64.55 % (161375 out of 250000)
+2021-01-20 12:56:14 INFO  ProgressBar:163 - Progress: 65.15 % (162884 out of 250000)
+2021-01-20 12:56:15 INFO  ProgressBar:163 - Progress: 65.76 % (164392 out of 250000)
+2021-01-20 12:56:16 INFO  ProgressBar:163 - Progress: 66.37 % (165922 out of 250000)
+2021-01-20 12:56:17 INFO  ProgressBar:163 - Progress: 67.05 % (167615 out of 250000)
+2021-01-20 12:56:18 INFO  ProgressBar:163 - Progress: 67.69 % (169229 out of 250000)
+2021-01-20 12:56:19 INFO  ProgressBar:163 - Progress: 68.32 % (170800 out of 250000)
+2021-01-20 12:56:20 INFO  ProgressBar:163 - Progress: 68.93 % (172337 out of 250000)
+2021-01-20 12:56:21 INFO  ProgressBar:163 - Progress: 69.54 % (173851 out of 250000)
+2021-01-20 12:56:22 INFO  ProgressBar:163 - Progress: 70.16 % (175410 out of 250000)
+2021-01-20 12:56:23 INFO  ProgressBar:163 - Progress: 70.79 % (176978 out of 250000)
+2021-01-20 12:56:24 INFO  ProgressBar:163 - Progress: 71.40 % (178503 out of 250000)
+2021-01-20 12:56:25 INFO  ProgressBar:163 - Progress: 72.01 % (180033 out of 250000)
+2021-01-20 12:56:26 INFO  ProgressBar:163 - Progress: 72.60 % (181510 out of 250000)
+2021-01-20 12:56:27 INFO  ProgressBar:163 - Progress: 73.20 % (183008 out of 250000)
+2021-01-20 12:56:28 INFO  ProgressBar:163 - Progress: 73.79 % (184486 out of 250000)
+2021-01-20 12:56:29 INFO  ProgressBar:163 - Progress: 74.39 % (185986 out of 250000)
+2021-01-20 12:56:30 INFO  ProgressBar:163 - Progress: 74.99 % (187471 out of 250000)
+2021-01-20 12:56:31 INFO  ProgressBar:163 - Progress: 75.60 % (188994 out of 250000)
+2021-01-20 12:56:32 INFO  ProgressBar:163 - Progress: 76.18 % (190451 out of 250000)
+2021-01-20 12:56:33 INFO  ProgressBar:163 - Progress: 76.82 % (192052 out of 250000)
+2021-01-20 12:56:34 INFO  ProgressBar:163 - Progress: 77.44 % (193588 out of 250000)
+2021-01-20 12:56:35 INFO  ProgressBar:163 - Progress: 78.04 % (195098 out of 250000)
+2021-01-20 12:56:36 INFO  ProgressBar:163 - Progress: 78.65 % (196615 out of 250000)
+2021-01-20 12:56:37 INFO  ProgressBar:163 - Progress: 79.26 % (198140 out of 250000)
+2021-01-20 12:56:38 INFO  ProgressBar:163 - Progress: 79.88 % (199698 out of 250000)
+2021-01-20 12:56:39 INFO  ProgressBar:163 - Progress: 80.50 % (201242 out of 250000)
+2021-01-20 12:56:40 INFO  ProgressBar:163 - Progress: 81.11 % (202763 out of 250000)
+2021-01-20 12:56:41 INFO  ProgressBar:163 - Progress: 81.71 % (204274 out of 250000)
+2021-01-20 12:56:42 INFO  ProgressBar:163 - Progress: 82.31 % (205773 out of 250000)
+2021-01-20 12:56:43 INFO  ProgressBar:163 - Progress: 82.90 % (207260 out of 250000)
+2021-01-20 12:56:44 INFO  ProgressBar:163 - Progress: 83.50 % (208760 out of 250000)
+2021-01-20 12:56:45 INFO  ProgressBar:163 - Progress: 84.10 % (210259 out of 250000)
+2021-01-20 12:56:46 INFO  ProgressBar:163 - Progress: 84.65 % (211637 out of 250000)
+2021-01-20 12:56:47 INFO  ProgressBar:163 - Progress: 85.29 % (213213 out of 250000)
+2021-01-20 12:56:48 INFO  ProgressBar:163 - Progress: 85.89 % (214716 out of 250000)
+2021-01-20 12:56:49 INFO  ProgressBar:163 - Progress: 86.49 % (216237 out of 250000)
+2021-01-20 12:56:50 INFO  ProgressBar:163 - Progress: 87.09 % (217716 out of 250000)
+2021-01-20 12:56:51 INFO  ProgressBar:163 - Progress: 87.68 % (219194 out of 250000)
+2021-01-20 12:56:52 INFO  ProgressBar:163 - Progress: 88.26 % (220660 out of 250000)
+2021-01-20 12:56:53 INFO  ProgressBar:163 - Progress: 88.86 % (222143 out of 250000)
+2021-01-20 12:56:54 INFO  ProgressBar:163 - Progress: 89.46 % (223657 out of 250000)
+2021-01-20 12:56:55 INFO  ProgressBar:163 - Progress: 90.07 % (225180 out of 250000)
+2021-01-20 12:56:56 INFO  ProgressBar:163 - Progress: 90.67 % (226673 out of 250000)
+2021-01-20 12:56:57 INFO  ProgressBar:163 - Progress: 91.24 % (228110 out of 250000)
+2021-01-20 12:56:58 INFO  ProgressBar:163 - Progress: 91.85 % (229626 out of 250000)
+2021-01-20 12:56:59 INFO  ProgressBar:163 - Progress: 92.44 % (231112 out of 250000)
+2021-01-20 12:57:00 INFO  ProgressBar:163 - Progress: 93.04 % (232603 out of 250000)
+2021-01-20 12:57:01 INFO  ProgressBar:163 - Progress: 93.64 % (234094 out of 250000)
+2021-01-20 12:57:02 INFO  ProgressBar:163 - Progress: 94.23 % (235581 out of 250000)
+2021-01-20 12:57:03 INFO  ProgressBar:163 - Progress: 94.83 % (237070 out of 250000)
+2021-01-20 12:57:04 INFO  ProgressBar:163 - Progress: 95.43 % (238567 out of 250000)
+2021-01-20 12:57:05 INFO  ProgressBar:163 - Progress: 96.02 % (240061 out of 250000)
+2021-01-20 12:57:06 INFO  ProgressBar:163 - Progress: 96.62 % (241550 out of 250000)
+2021-01-20 12:57:07 INFO  ProgressBar:163 - Progress: 97.22 % (243043 out of 250000)
+2021-01-20 12:57:08 INFO  ProgressBar:163 - Progress: 97.81 % (244513 out of 250000)
+2021-01-20 12:57:09 INFO  ProgressBar:163 - Progress: 98.41 % (246017 out of 250000)
+2021-01-20 12:57:10 INFO  ProgressBar:163 - Progress: 99.00 % (247502 out of 250000)
+2021-01-20 12:57:11 INFO  ProgressBar:163 - Progress: 99.60 % (248993 out of 250000)
+2021-01-20 12:57:12 INFO  ProgressBar:163 - Progress: 100.00 % (250000 out of 250000)
+2021-01-20 12:57:12 INFO  metrics:107 - type=TIMER, name=chunk-write, count=250000, min=2.4073, max=204.492847, mean=31.1261255940993, stddev=15.346211453439052, median=29.893261, p75=35.646407, p95=54.704367, p98=83.134394, p99=88.294827, p999=153.833232, mean_rate=1641.5328295461695, m1=1792.481069609906, m5=3370.4126208759167, m15=4064.8193665970316, rate_unit=events/second, duration_unit=milliseconds
+2021-01-20 12:57:12 INFO  BaseFreonGenerator:75 - Total execution time (sec): 161
+2021-01-20 12:57:12 INFO  BaseFreonGenerator:75 - Failures: 0
+2021-01-20 12:57:12 INFO  BaseFreonGenerator:75 - Successful executions: 250000
+++++++++++++++++++ sync
+
+real	0m6.047s
+user	0m0.002s
+sys	0m0.012s
++++++++++++++++++++ date +%s.%N
+++++++++++++++++++ END_TIME=1611147451.242301097
++++++++++++++++++++ echo 1611147451.242301097 1611147269.966108343
++++++++++++++++++++ awk '{print $1 - $2}'
+++++++++++++++++++ echo 'Total time: 181.276'
+Total time: 181.276
++++++++++++++++++++ hostname
+Hostname: ozone-env-6576bd5d56-frdvg
+Test is Done
+++++++++++++++++++ echo 'Hostname: ozone-env-6576bd5d56-frdvg'
+++++++++++++++++++ echo 'Test is Done'
+++++++++++++++++++ sleep 100000

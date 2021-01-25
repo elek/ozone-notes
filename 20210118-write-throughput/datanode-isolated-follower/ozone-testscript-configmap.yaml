@@ -1,0 +1,21 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ozone-testscript
+data:
+  test.sh: |
+    #!/usr/bin/env bash
+    set -ex
+    for i in `seq 1 48`; do sudo rm -rf /data/disk$i/elek; done
+    for i in `seq 1 48`; do sudo mkdir /data/disk$i/elek; done
+    for i in `seq 1 48`; do sudo chmod 777 /data/disk$i/elek; done
+
+    time sync
+    START_TIME=$(date +%s.%N)
+    ozone freon --verbose falg -n2000 -b1 -s 52428800 -c ozone-datanode-0.ozone-datanode:9858 -t1 -r d106f261-a6b9-4d96-95c3-4b9d698fe345
+    time sync
+    END_TIME=$(date +%s.%N)
+    echo "Total time: $(echo $END_TIME $START_TIME | awk '{print $1 - $2}')"
+    echo "Test is Done"
+    sleep 100000

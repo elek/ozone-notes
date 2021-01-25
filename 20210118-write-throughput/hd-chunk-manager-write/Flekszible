@@ -1,0 +1,37 @@
+source:
+- url: github.com/flokkr/docker-ozone
+import:
+- path: ozone
+  transformations:
+  - type: onprem
+  - type: namefilter
+    include:
+      - ozone-config
+  - type: add
+    trigger:
+      metadata:
+        name: ozone-config
+    path:
+      - data
+    value:
+       HADOOP_OPTS: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/heap.hprof
+- path: ozone-environment
+  transformations:
+  - type: perftest/mountfile
+    configmap: ozone-testscript
+    filename: test.sh
+    destination: /opt/test
+  - type: ozone/image
+    image: ghcr.io/elek/ozone-dev:159b0c61c
+  - type: hostpath
+    path: /data
+  - type: replace
+    path:
+      - spec
+      - template
+      - spec
+      - containers
+      - ozone
+      - args
+    value:
+      - /opt/test/test.sh
