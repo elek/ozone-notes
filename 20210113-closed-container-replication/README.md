@@ -74,5 +74,5 @@ The full recovery time from ~3553 seconds reduced by ~160 %. With compression on
 ## Environment
 
 * [node2node network is 30Gbit/sec](./iperf)
-* [disk speed results](./iozone)
+* [disk speed results](./iozone) shows 7.7Gb/sec (buffered) write trhoughput per node (48 disk)
 * [Generic hardware information](./hw)
