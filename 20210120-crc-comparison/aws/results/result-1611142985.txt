@@ -1,0 +1,1 @@
+copy o3fs://bucket1.vol1/testdata o3fs://bucket1.vol1/r1

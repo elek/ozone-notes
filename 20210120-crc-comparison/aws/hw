@@ -1,0 +1,16 @@
+VENDOR
+	Manufacturer: Amazon EC2
+	Product Name: m5ad.4xlarge
+MEMORY
+CPUs
+	Version: AMD EPYC 7571
+	Max Speed: 3000 MHz
+	Core Enabled: 8
+	Thread Count: 16
+DISKS
+     NAME          SIZE TYPE FSTYPE MOUNTPOINT VENDOR MODEL
+     nvme0n1       100G disk                          Amazon Elastic Block Store              
+     ├─nvme0n1p1     1M part                          
+     └─nvme0n1p2   100G part xfs    /                 
+     nvme1n1     279.4G disk xfs    /data1            Amazon EC2 NVMe Instance Storage        
+     nvme2n1     279.4G disk xfs    /data             Amazon EC2 NVMe Instance Storage  

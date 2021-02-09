@@ -1,0 +1,333 @@
+Flokkr launcher script 1.1-25-gd3c5e10
+
+===== Plugin is activated ENVTOCONF =====
+core-site.xml
+File core-site.xml has been written out successfullly.
+mapred-site.xml
+File mapred-site.xml has been written out successfullly.
+ozone-site.xml
+File ozone-site.xml has been written out successfullly.
+ozone.conf
+File ozone.conf has been written out successfullly.
+log4j.properties
+File log4j.properties has been written out successfullly.
+======================================
+*** Launching "ozone freon cr -n 1 -t 48"
+WARNING: HADOOP_OPTS has been deprecated by OZONE_OPTS.
+2021-01-29 10:00:13 INFO  MetricsConfig:120 - Loaded properties from hadoop-metrics2.properties
+2021-01-29 10:00:13 INFO  MetricsSystemImpl:378 - Scheduled Metric snapshot period at 10 second(s).
+2021-01-29 10:00:13 INFO  MetricsSystemImpl:191 - ozone-freon metrics system started
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk2/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk2/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk2/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk3/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk3/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk3/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk4/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk4/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk4/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk5/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk5/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk5/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk6/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk6/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk6/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk7/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk7/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk7/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk8/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk8/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk8/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk9/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk9/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk9/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk10/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk10/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk10/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk11/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk11/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk11/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk12/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk12/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk12/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk13/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk13/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk13/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk14/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk14/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk14/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk15/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk15/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk15/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk16/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk16/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk16/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk17/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk17/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk17/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk18/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk18/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk18/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk19/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk19/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk19/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk20/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk20/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk20/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk21/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk21/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk21/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk22/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk22/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk22/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk23/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk23/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk23/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk24/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk24/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk24/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk25/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk25/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk25/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk26/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk26/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk26/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk27/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk27/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk27/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk28/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk28/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk28/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk29/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk29/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk29/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk30/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk30/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk30/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk31/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk31/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk31/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk32/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk32/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk32/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk33/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk33/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk33/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk34/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk34/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk34/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk35/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk35/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk35/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk36/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk36/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk36/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk37/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk37/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk37/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk38/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk38/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk38/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk39/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk39/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk39/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk40/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk40/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk40/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk41/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk41/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk41/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk42/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk42/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk42/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk43/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk43/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk43/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk44/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk44/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk44/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk45/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk45/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk45/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk46/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk46/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk46/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk47/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk47/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk47/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  SaveSpaceUsageToFile:94 - Cached usage info file /data/disk48/elek/scmUsed not found
+2021-01-29 10:00:13 INFO  HddsVolume:176 - Creating Volume: /data/disk48/elek/hdds of storage type : DISK and capacity : 5999038128128
+2021-01-29 10:00:13 INFO  MutableVolumeSet:179 - Added Volume : /data/disk48/elek/hdds to VolumeSet
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk40/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk40/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk2/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk2/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk36/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk36/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk10/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk10/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk23/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk23/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk6/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk6/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk17/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk17/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk39/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk39/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk26/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk26/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk13/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk13/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk32/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk32/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk45/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk45/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk28/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk28/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk42/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk42/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk8/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk8/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk15/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk15/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk47/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk47/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk34/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk34/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk21/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk21/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk3/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk3/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk35/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk35/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk16/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk16/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk22/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk22/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk18/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk18/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk20/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk20/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk48/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk48/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk37/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk37/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk5/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk5/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk43/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk43/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk11/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk11/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk29/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk29/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk24/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk24/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk31/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk31/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk44/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk44/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk12/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk12/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk25/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk25/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk30/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk30/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk7/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk7/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk38/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk38/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk33/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk33/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk4/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk4/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk9/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk9/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk46/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk46/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk19/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk19/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk27/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk27/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk14/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk14/elek/hdds
+2021-01-29 10:00:13 INFO  ThrottledAsyncChecker:141 - Scheduling a check for /data/disk41/elek/hdds
+2021-01-29 10:00:13 INFO  HddsVolumeChecker:200 - Scheduled health check for volume /data/disk41/elek/hdds
+2021-01-29 10:00:13 WARN  NativeCodeLoader:60 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2021-01-29 10:00:14 INFO  BaseFreonGenerator:256 - Executing test with prefix wlkzk8hsn8
+2021-01-29 10:00:14 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:14 INFO  DownloadAndImportReplicator:86 - Starting replication of container 1 from [5359bf0f-d2df-42f7-b372-693687c02340{ip: 10.42.5.25, host: 10-42-5-25.ozone-datanode-public.default.svc.cluster.local, networkLocation: /default-rack, certSerialId: null, persistedOpState: IN_SERVICE, persistedOpStateExpiryEpochSec: 0}, f37cc633-28ad-430d-8cbe-48cf8fa14688{ip: 10.42.4.45, host: ozone-datanode-1.ozone-datanode.default.svc.cluster.local, networkLocation: /default-rack, certSerialId: null, persistedOpState: IN_SERVICE, persistedOpStateExpiryEpochSec: 0}, 3076a70b-806c-4889-81ed-7fc390051e62{ip: 10.42.3.25, host: 10-42-3-25.ozone-datanode-public.default.svc.cluster.local, networkLocation: /default-rack, certSerialId: null, persistedOpState: IN_SERVICE, persistedOpStateExpiryEpochSec: 0}]
+2021-01-29 10:00:15 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:16 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:17 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:18 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:19 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:20 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:21 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:22 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:23 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:24 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:25 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:26 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:27 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:28 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:29 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:30 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:31 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:32 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:33 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:34 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:35 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:36 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:37 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:38 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:39 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:40 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:41 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:42 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:43 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:44 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:45 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:46 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:47 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:48 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:49 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:50 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:51 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:52 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:53 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:54 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:55 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:56 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:57 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:58 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:00:59 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:00 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:01 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:02 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:03 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:04 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:05 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:06 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:07 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:08 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:09 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:10 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:11 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:12 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:13 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:14 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:15 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:16 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:17 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:18 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:19 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:20 INFO  ProgressBar:163 - Progress: 0.00 % (0 out of 1)
+2021-01-29 10:01:20 INFO  DownloadAndImportReplicator:116 - Container 1 is downloaded, starting to import.
+2021-01-29 10:01:20 INFO  DownloadAndImportReplicator:132 - Container 1 is replicated successfully
+2021-01-29 10:01:20 INFO  ReplicationSupervisor:150 - Container 1 is replicated.
+2021-01-29 10:01:21 INFO  ProgressBar:163 - Progress: 100.00 % (1 out of 1)
+2021-01-29 10:01:21 INFO  metrics:107 - type=TIMER, name=replicate-container, count=1, min=66724.400089, max=66724.400089, mean=66724.400089, stddev=0.0, median=66724.400089, p75=66724.400089, p95=66724.400089, p98=66724.400089, p99=66724.400089, p999=66724.400089, mean_rate=0.01491231998046511, m1=0.0, m5=0.0, m15=0.0, rate_unit=events/second, duration_unit=milliseconds
+2021-01-29 10:01:21 INFO  BaseFreonGenerator:75 - Total execution time (sec): 67
+2021-01-29 10:01:21 INFO  BaseFreonGenerator:75 - Failures: 0
+2021-01-29 10:01:21 INFO  BaseFreonGenerator:75 - Successful executions: 1
+Process exited with exit code 0

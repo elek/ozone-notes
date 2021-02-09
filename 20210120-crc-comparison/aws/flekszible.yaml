@@ -1,0 +1,29 @@
+#apiVersion: flekszible.github.io/v1
+#kind: Descriptor
+#metadata:
+#   name: spark-ozone
+source:
+ - url: git::https://github.com/flokkr/docker-ozone.git
+import:
+ - path: ozone
+   destination: ozone
+   transformations:
+    - type: add
+      trigger:
+          metadata:
+              name: ozone-config
+      path:
+        - data
+      value:
+        OZONE-SITE.XML_ozone.om.ratis.enable: "false"
+        OZONE-SITE.XML_ozone.client.checksum.type: CRC32CJ9
+    - type: hostpath
+      path: /data1
+ - path: job
+   destination: tester
+   transformations:
+   - type: ozone/client-config
+   - type: ozone/ozonefs
+transformations:
+  - type: ozone/image
+    image: ghcr.io/elek/ozone-dev:7fba40a3f

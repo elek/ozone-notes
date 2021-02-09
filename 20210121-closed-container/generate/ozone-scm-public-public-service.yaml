@@ -1,0 +1,16 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ozone-scm-public-public
+  labels:
+    app: ozone
+    component: scm
+spec:
+  ports:
+  - port: 9876
+    name: ui
+  selector:
+    app: ozone
+    component: scm
+  type: NodePort

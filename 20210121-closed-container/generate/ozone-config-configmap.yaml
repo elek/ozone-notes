@@ -1,0 +1,30 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ozone-config
+  labels:
+    app: ozone
+    component: config
+data:
+  CORE-SITE.XML_fs.defaultFS: o3fs://bucket1.vol1.ozone-om-0.ozone-om/
+  CORE-SITE.xml_fs.AbstractFileSystem.o3fs.impl: org.apache.hadoop.fs.ozone.OzFs
+  OZONE-SITE.XML_hdds.datanode.dir: /data/disk2/elek,/data/disk3/elek,/data/disk4/elek,/data/disk5/elek,/data/disk6/elek,/data/disk7/elek,/data/disk8/elek,/data/disk9/elek,/data/disk10/elek,/data/disk11/elek,/data/disk12/elek,/data/disk13/elek,/data/disk14/elek,/data/disk15/elek,/data/disk16/elek,/data/disk17/elek,/data/disk18/elek,/data/disk19/elek,/data/disk20/elek,/data/disk21/elek,/data/disk22/elek,/data/disk23/elek,/data/disk24/elek,/data/disk25/elek,/data/disk26/elek,/data/disk27/elek,/data/disk28/elek,/data/disk29/elek,/data/disk30/elek,/data/disk31/elek,/data/disk32/elek,/data/disk33/elek,/data/disk34/elek,/data/disk35/elek,/data/disk36/elek,/data/disk37/elek,/data/disk38/elek,/data/disk39/elek,/data/disk40/elek,/data/disk41/elek,/data/disk42/elek,/data/disk43/elek,/data/disk44/elek,/data/disk45/elek,/data/disk46/elek,/data/disk47/elek,/data/disk48/elek
+  OZONE-SITE.XML_ozone.scm.datanode.id.dir: /data/disk1/elek
+  OZONE-SITE.XML_ozone.metadata.dirs: /data/disk1/elek
+  OZONE-SITE.XML_ozone.scm.block.client.address: ozone-scm-0.ozone-scm
+  OZONE-SITE.XML_ozone.om.address: ozone-om-0.ozone-om
+  OZONE-SITE.XML_ozone.scm.client.address: ozone-scm-0.ozone-scm
+  OZONE-SITE.XML_ozone.scm.names: ozone-scm-0.ozone-scm
+  OZONE-SITE.XML_ozone.enabled: "true"
+  OZONE-SITE.XML_hdds.scm.safemode.min.datanode: "3"
+  OZONE-SITE.XML_ozone.om.http-address: ozone-om-0.ozone-om:9874
+  OZONE-SITE.XML_ozone.recon.address: ozone-recon-0.ozone-recon
+  LOG4J.PROPERTIES_log4j.rootLogger: INFO, stdout
+  LOG4J.PROPERTIES_log4j.appender.stdout: org.apache.log4j.ConsoleAppender
+  LOG4J.PROPERTIES_log4j.appender.stdout.layout: org.apache.log4j.PatternLayout
+  LOG4J.PROPERTIES_log4j.appender.stdout.layout.ConversionPattern: '%d{yyyy-MM-dd
+    HH:mm:ss} %-5p %c{1}:%L - %m%n'
+  MAPRED-SITE.XML_mapreduce.application.classpath: /opt/hadoop/share/hadoop/mapreduce/*:/opt/hadoop/share/hadoop/mapreduce/lib/*:/opt/ozonefs/hadoop-ozone-filesystem.jar
+  HADOOP_OPTS: -XX:ParallelGCThreads=8
+  SLEEP_AFTER_SECONDS: infinity

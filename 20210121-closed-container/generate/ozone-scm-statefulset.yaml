@@ -1,0 +1,46 @@
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ozone-scm
+  labels:
+    app: ozone
+    component: scm
+spec:
+  selector:
+    matchLabels:
+      app: ozone
+      component: scm
+  serviceName: ozone-scm
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ozone
+        component: scm
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9876"
+        prometheus.io/path: /prom
+    spec:
+      containers:
+      - name: scm
+        image: ghcr.io/elek/ozone-dev:aa2f05485
+        args:
+        - ozone
+        - freon
+        - cgscm
+        - -n
+        - "200"
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+      volumes:
+      - name: data
+        hostPath:
+          path: /data
+      nodeSelector:
+        placement: scm

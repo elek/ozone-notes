@@ -1,0 +1,46 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-runner
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      name: test-runner
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: ghcr.io/elek/spark-test@sha256:94411577c7f074cc51e83bfdd7907f5db98480d0e4fc1b82bb88a63dd85874c3
+        name: test
+        args:
+        - sleep
+        - infinity
+        volumeMounts:
+        - mountPath: /opt/testscripts
+          name: testscripts
+        - name: ozonefs
+          mountPath: /opt/ozonefs
+        envFrom:
+        - configMapRef:
+            name: ozone-client-config
+        env:
+        - name: HADOOP_CLASSPATH
+          value: /opt/ozonefs/hadoop-ozone-filesystem.jar
+      volumes:
+      - name: testscripts
+        configMap:
+          name: testscripts
+          defaultMode: 493
+      - name: ozonefs
+        emptyDir: {}
+      initContainers:
+      - name: ozonefscopy
+        image: ghcr.io/elek/ozone-dev:7fba40a3f
+        command:
+        - bash
+        - -c
+        - cp share/ozone/lib/hadoop-ozone-filesystem-hadoop3-*.jar /opt/ozonefs/hadoop-ozone-filesystem.jar
+        volumeMounts:
+        - name: ozonefs
+          mountPath: /opt/ozonefs

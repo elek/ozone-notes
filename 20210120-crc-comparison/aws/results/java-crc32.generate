@@ -1,0 +1,200 @@
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : false,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  required int32 index;
+}
+
+       
+21/01/20 15:47:33 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/20 15:47:34 INFO FileOutputCommitter: Saved output of task 'attempt_20210120154733_0198_m_000000_198' to o3fs://bucket1.vol1/testdata
+21/01/20 15:47:34 INFO SparkHadoopMapRedUtil: attempt_20210120154733_0198_m_000000_198: Committed
+21/01/20 15:47:34 INFO Executor: Finished task 0.0 in stage 198.0 (TID 198). 2155 bytes result sent to driver
+21/01/20 15:47:34 INFO TaskSetManager: Finished task 0.0 in stage 198.0 (TID 198) in 1033 ms on test-runner-lmfgs (executor driver) (1/1)
+21/01/20 15:47:34 INFO TaskSchedulerImpl: Removed TaskSet 198.0, whose tasks have all completed, from pool 
+21/01/20 15:47:34 INFO DAGScheduler: ResultStage 198 (parquet at Generate.java:61) finished in 1.050 s
+21/01/20 15:47:34 INFO DAGScheduler: Job 198 is finished. Cancelling potential speculative or zombie tasks for this job
+21/01/20 15:47:34 INFO TaskSchedulerImpl: Killing all running tasks in stage 198: Stage finished
+21/01/20 15:47:34 INFO DAGScheduler: Job 198 finished: parquet at Generate.java:61, took 1.051800 s
+21/01/20 15:47:34 WARN BasicOzoneFileSystem: delete: Path does not exist: o3fs://bucket1.vol1/testdata/.spark-staging-23b9a183-916a-4e71-9622-f0b017ab797f
+21/01/20 15:47:34 INFO FileFormatWriter: Write Job 24ee1670-3257-4bd9-8a00-f3ad861bc2c5 committed.
+21/01/20 15:47:34 INFO FileFormatWriter: Finished processing stats for write job 24ee1670-3257-4bd9-8a00-f3ad861bc2c5.
+21/01/20 15:47:35 INFO BlockManagerInfo: Removed broadcast_198_piece0 on test-runner-lmfgs:39761 in memory (size: 74.0 KiB, free: 413.9 MiB)
+21/01/20 15:47:36 INFO ParquetFileFormat: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:36 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:36 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:36 INFO SparkContext: Starting job: parquet at Generate.java:61
+21/01/20 15:47:36 INFO DAGScheduler: Got job 199 (parquet at Generate.java:61) with 1 output partitions
+21/01/20 15:47:36 INFO DAGScheduler: Final stage: ResultStage 199 (parquet at Generate.java:61)
+21/01/20 15:47:36 INFO DAGScheduler: Parents of final stage: List()
+21/01/20 15:47:36 INFO DAGScheduler: Missing parents: List()
+21/01/20 15:47:36 INFO DAGScheduler: Submitting ResultStage 199 (MapPartitionsRDD[797] at parquet at Generate.java:61), which has no missing parents
+21/01/20 15:47:36 INFO MemoryStore: Block broadcast_199 stored as values in memory (estimated size 205.8 KiB, free 413.7 MiB)
+21/01/20 15:47:36 INFO MemoryStore: Block broadcast_199_piece0 stored as bytes in memory (estimated size 74.0 KiB, free 413.7 MiB)
+21/01/20 15:47:36 INFO BlockManagerInfo: Added broadcast_199_piece0 in memory on test-runner-lmfgs:39761 (size: 74.0 KiB, free: 413.9 MiB)
+21/01/20 15:47:36 INFO SparkContext: Created broadcast 199 from broadcast at DAGScheduler.scala:1200
+21/01/20 15:47:36 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 199 (MapPartitionsRDD[797] at parquet at Generate.java:61) (first 15 tasks are for partitions Vector(0))
+21/01/20 15:47:36 INFO TaskSchedulerImpl: Adding task set 199.0 with 1 tasks
+21/01/20 15:47:36 WARN TaskSetManager: Stage 199 contains a task of very large size (102911 KiB). The maximum recommended task size is 1000 KiB.
+21/01/20 15:47:36 INFO TaskSetManager: Starting task 0.0 in stage 199.0 (TID 199, test-runner-lmfgs, executor driver, partition 0, PROCESS_LOCAL, 105381192 bytes)
+21/01/20 15:47:36 INFO Executor: Running task 0.0 in stage 199.0 (TID 199)
+21/01/20 15:47:37 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:37 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:37 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:37 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:37 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:37 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:37 INFO CodecConfig: Compression: SNAPPY
+21/01/20 15:47:37 INFO CodecConfig: Compression: SNAPPY
+21/01/20 15:47:37 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/20 15:47:37 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/20 15:47:37 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/20 15:47:37 INFO ParquetOutputFormat: Dictionary is on
+21/01/20 15:47:37 INFO ParquetOutputFormat: Validation is off
+21/01/20 15:47:37 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/20 15:47:37 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/20 15:47:37 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/20 15:47:37 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/20 15:47:37 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/20 15:47:37 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : false,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  required int32 index;
+}
+
+       
+21/01/20 15:47:37 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/20 15:47:37 INFO FileOutputCommitter: Saved output of task 'attempt_20210120154736_0199_m_000000_199' to o3fs://bucket1.vol1/testdata
+21/01/20 15:47:37 INFO SparkHadoopMapRedUtil: attempt_20210120154736_0199_m_000000_199: Committed
+21/01/20 15:47:37 INFO Executor: Finished task 0.0 in stage 199.0 (TID 199). 2155 bytes result sent to driver
+21/01/20 15:47:37 INFO TaskSetManager: Finished task 0.0 in stage 199.0 (TID 199) in 913 ms on test-runner-lmfgs (executor driver) (1/1)
+21/01/20 15:47:37 INFO TaskSchedulerImpl: Removed TaskSet 199.0, whose tasks have all completed, from pool 
+21/01/20 15:47:37 INFO DAGScheduler: ResultStage 199 (parquet at Generate.java:61) finished in 0.955 s
+21/01/20 15:47:37 INFO DAGScheduler: Job 199 is finished. Cancelling potential speculative or zombie tasks for this job
+21/01/20 15:47:37 INFO TaskSchedulerImpl: Killing all running tasks in stage 199: Stage finished
+21/01/20 15:47:37 INFO DAGScheduler: Job 199 finished: parquet at Generate.java:61, took 0.956489 s
+21/01/20 15:47:37 WARN BasicOzoneFileSystem: delete: Path does not exist: o3fs://bucket1.vol1/testdata/.spark-staging-7de28d2e-eda8-4d2f-a05e-bf598d9b6878
+21/01/20 15:47:37 INFO FileFormatWriter: Write Job 6d905f2d-225d-4fea-a5f6-289910645552 committed.
+21/01/20 15:47:37 INFO FileFormatWriter: Finished processing stats for write job 6d905f2d-225d-4fea-a5f6-289910645552.
+21/01/20 15:47:38 INFO BlockManagerInfo: Removed broadcast_199_piece0 on test-runner-lmfgs:39761 in memory (size: 74.0 KiB, free: 413.9 MiB)
+21/01/20 15:47:40 INFO ParquetFileFormat: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:40 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:40 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:40 INFO SparkContext: Starting job: parquet at Generate.java:61
+21/01/20 15:47:40 INFO DAGScheduler: Got job 200 (parquet at Generate.java:61) with 1 output partitions
+21/01/20 15:47:40 INFO DAGScheduler: Final stage: ResultStage 200 (parquet at Generate.java:61)
+21/01/20 15:47:40 INFO DAGScheduler: Parents of final stage: List()
+21/01/20 15:47:40 INFO DAGScheduler: Missing parents: List()
+21/01/20 15:47:40 INFO DAGScheduler: Submitting ResultStage 200 (MapPartitionsRDD[801] at parquet at Generate.java:61), which has no missing parents
+21/01/20 15:47:40 INFO MemoryStore: Block broadcast_200 stored as values in memory (estimated size 205.8 KiB, free 413.7 MiB)
+21/01/20 15:47:40 INFO MemoryStore: Block broadcast_200_piece0 stored as bytes in memory (estimated size 74.0 KiB, free 413.7 MiB)
+21/01/20 15:47:40 INFO BlockManagerInfo: Added broadcast_200_piece0 in memory on test-runner-lmfgs:39761 (size: 74.0 KiB, free: 413.9 MiB)
+21/01/20 15:47:40 INFO SparkContext: Created broadcast 200 from broadcast at DAGScheduler.scala:1200
+21/01/20 15:47:40 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 200 (MapPartitionsRDD[801] at parquet at Generate.java:61) (first 15 tasks are for partitions Vector(0))
+21/01/20 15:47:40 INFO TaskSchedulerImpl: Adding task set 200.0 with 1 tasks
+21/01/20 15:47:40 WARN TaskSetManager: Stage 200 contains a task of very large size (102911 KiB). The maximum recommended task size is 1000 KiB.
+21/01/20 15:47:40 INFO TaskSetManager: Starting task 0.0 in stage 200.0 (TID 200, test-runner-lmfgs, executor driver, partition 0, PROCESS_LOCAL, 105381192 bytes)
+21/01/20 15:47:40 INFO Executor: Running task 0.0 in stage 200.0 (TID 200)
+21/01/20 15:47:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:40 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+21/01/20 15:47:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+21/01/20 15:47:40 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+21/01/20 15:47:40 INFO CodecConfig: Compression: SNAPPY
+21/01/20 15:47:40 INFO CodecConfig: Compression: SNAPPY
+21/01/20 15:47:40 INFO ParquetOutputFormat: Parquet block size to 134217728
+21/01/20 15:47:40 INFO ParquetOutputFormat: Parquet page size to 1048576
+21/01/20 15:47:40 INFO ParquetOutputFormat: Parquet dictionary page size to 1048576
+21/01/20 15:47:40 INFO ParquetOutputFormat: Dictionary is on
+21/01/20 15:47:40 INFO ParquetOutputFormat: Validation is off
+21/01/20 15:47:40 INFO ParquetOutputFormat: Writer version is: PARQUET_1_0
+21/01/20 15:47:40 INFO ParquetOutputFormat: Maximum row group padding size is 8388608 bytes
+21/01/20 15:47:40 INFO ParquetOutputFormat: Page size checking is: estimated
+21/01/20 15:47:40 INFO ParquetOutputFormat: Min row count for page size check is: 100
+21/01/20 15:47:40 INFO ParquetOutputFormat: Max row count for page size check is: 10000
+21/01/20 15:47:40 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "data",
+    "type" : "binary",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "index",
+    "type" : "integer",
+    "nullable" : false,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary data;
+  required int32 index;
+}
+
+       
+21/01/20 15:47:40 INFO InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104858404
+21/01/20 15:47:41 INFO FileOutputCommitter: Saved output of task 'attempt_20210120154740_0200_m_000000_200' to o3fs://bucket1.vol1/testdata
+21/01/20 15:47:41 INFO SparkHadoopMapRedUtil: attempt_20210120154740_0200_m_000000_200: Committed
+21/01/20 15:47:41 INFO Executor: Finished task 0.0 in stage 200.0 (TID 200). 2155 bytes result sent to driver
+21/01/20 15:47:41 INFO TaskSetManager: Finished task 0.0 in stage 200.0 (TID 200) in 1098 ms on test-runner-lmfgs (executor driver) (1/1)
+21/01/20 15:47:41 INFO TaskSchedulerImpl: Removed TaskSet 200.0, whose tasks have all completed, from pool 
+21/01/20 15:47:41 INFO DAGScheduler: ResultStage 200 (parquet at Generate.java:61) finished in 1.118 s
+21/01/20 15:47:41 INFO DAGScheduler: Job 200 is finished. Cancelling potential speculative or zombie tasks for this job
+21/01/20 15:47:41 INFO TaskSchedulerImpl: Killing all running tasks in stage 200: Stage finished
+21/01/20 15:47:41 INFO DAGScheduler: Job 200 finished: parquet at Generate.java:61, took 1.119392 s
+21/01/20 15:47:41 WARN BasicOzoneFileSystem: delete: Path does not exist: o3fs://bucket1.vol1/testdata/.spark-staging-ffedabe1-5368-4b71-b922-02121de59b63
+21/01/20 15:47:41 INFO FileFormatWriter: Write Job 0b404b20-9331-4534-801d-3373e2d5eb0d committed.
+21/01/20 15:47:41 INFO FileFormatWriter: Finished processing stats for write job 0b404b20-9331-4534-801d-3373e2d5eb0d.
+21/01/20 15:47:41 INFO SparkUI: Stopped Spark web UI at http://test-runner-lmfgs:4040
+21/01/20 15:47:41 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+21/01/20 15:47:41 INFO MemoryStore: MemoryStore cleared
+21/01/20 15:47:41 INFO BlockManager: BlockManager stopped
+21/01/20 15:47:41 INFO BlockManagerMaster: BlockManagerMaster stopped
+21/01/20 15:47:41 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+21/01/20 15:47:41 INFO SparkContext: Successfully stopped SparkContext
+21/01/20 15:47:41 INFO ShutdownHookManager: Shutdown hook called
+21/01/20 15:47:41 INFO ShutdownHookManager: Deleting directory /tmp/spark-14e82dee-8c82-43bb-9e69-c24c447fc558
+21/01/20 15:47:41 INFO ShutdownHookManager: Deleting directory /tmp/spark-3560574f-432b-42f8-81ec-8e6b6fa31b6a
+
+real	12m24.062s
+user	12m20.801s
+sys	0m16.890s
+Process exited with exit code 0

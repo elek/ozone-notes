@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ozone-replicator
+  labels:
+    app: ozone
+    component: replicator
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9882"
+    prometheus.io/path: /prom
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    placement: replicator
+  securityContext:
+    fsGroup: 1000
+  containers:
+  - name: replicator
+    image: ghcr.io/elek/ozone-dev:f5e1fcadc
+    args:
+    - ozone
+    - freon
+    - cr
+    - -t
+    - '10'
+    volumeMounts:
+    - name: data
+      mountPath: /data
+    envFrom:
+    - configMapRef:
+        name: ozone-config
+    env:
+      - name: OZONE_CONF_DIR
+        value: /opt/ozone/etc/hadoop
+  volumes:
+  - name: data
+    hostPath:
+      path: /data
