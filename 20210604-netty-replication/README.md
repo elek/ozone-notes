@@ -187,6 +187,7 @@ ChannelFuture nextFuture = ctx.writeAndFlush(new ChunkedFile(file.toFile())));
 ./ozone freon strmg -t 1 -n 100
 ```
 
+```
 6/1/21, 7:27:31 AM =============================================================
 
 -- Timers ----------------------------------------------------------------------
@@ -211,9 +212,16 @@ streaming
 Total execution time (sec): 439
 Failures: 0
 Successful executions: 100
+```
 
 ### Netty, buffered stream, one thread
 
+```
+./ozone freon strmg -t 1 -n 100
+```
+
+
+```
 6/1/21, 7:59:04 AM =============================================================
 
 -- Timers ----------------------------------------------------------------------
@@ -238,7 +246,7 @@ streaming
 Total execution time (sec): 645
 Failures: 0
 Successful executions: 100
-
+```
 
 ### Netty, buffered stream, 5 threads
 
@@ -246,7 +254,7 @@ Successful executions: 100
 ./ozone freon strmg -t 5 -n 100
 ```
 
-
+```
 6/1/21, 8:06:54 AM =============================================================
 
 -- Timers ----------------------------------------------------------------------
@@ -271,6 +279,7 @@ streaming
 Total execution time (sec): 156
 Failures: 0
 Successful executions: 100
+```
 
 ## Netty, buffered stream, 10 threads
 
