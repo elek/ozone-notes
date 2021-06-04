@@ -317,7 +317,7 @@ Successful executions: 100
 
 ## GRPC, one thread (1GB!)
 
-``
+```
 ./ozone freon -Dhdds.datanode.replication.work.dir=/tmp/ozone-streaming css -n100 -t1
 ```
 
