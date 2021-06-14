@@ -1,0 +1,53 @@
+source:
+  - url: github.com/flokkr/docker-ozone
+import:
+    - path: ozone
+      transformations:
+         - type: onprem
+         - type: hostpath
+           path: /data
+         - type: add
+           trigger:
+             metadata:
+               name: ozone-config
+           path:
+             - data
+           value:
+             OZONE_OPTS: -XX:ParallelGCThreads=8
+         - type: Change
+           path: 
+             - spec
+             - replicas
+           trigger:
+             metadata:
+                name: ozone-datanode
+           replacement: 3
+    - path: ozone-freon
+      destination: freon
+      transformations:
+         - type: Change
+           path: 
+             - spec
+             - replicas
+           trigger:
+             metadata:
+                name: ozone-freon
+           replacement: 30
+         - type: Replace
+           path:
+             - spec
+             - template
+             - spec
+             - containers
+             - .*
+             - args
+           value:
+             - ozone
+             - freon
+             - dcg
+             - --size=1048576
+             - -t20
+             - -n1000000
+transformations:
+- type: ozone/image
+  image: ghcr.io/elek/ozone-dev:19d115d99

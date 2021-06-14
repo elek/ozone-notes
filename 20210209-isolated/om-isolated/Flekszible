@@ -1,0 +1,7 @@
+source:
+  - path: ../flekszible
+  - url: github.com/flokkr/docker-ozone
+  - url: github.com/elek/docker-byteman
+transformations:
+  - type: perftest/tuning
+  - type: byteman/install

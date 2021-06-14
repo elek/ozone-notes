@@ -1,0 +1,39 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: freon
+  labels:
+    app: ozone
+    component: freon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ozone
+      component: freon
+  template:
+    metadata:
+      labels:
+        app: ozone
+        component: freon
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9884"
+        prometheus.io/path: /prom
+    spec:
+      containers:
+      - name: ozone
+        image: ghcr.io/elek/ozone-dev:19d115d99
+        args:
+        - ozone
+        - freon
+        - dcg
+        - --size=1048576
+        - -t20
+        - -n1000000
+        env: []
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+      initContainers: []

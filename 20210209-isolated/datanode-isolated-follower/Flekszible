@@ -1,0 +1,57 @@
+source:
+- path: ../flekszible
+- url: github.com/flokkr/docker-ozone
+import:
+- path: ozone
+  transformations:
+  - type: onprem
+  - type: hostpath
+    path: /data
+  - type: namefilter
+    include:
+      - ozone-datanode
+      - ozone-config
+  - type: add
+    trigger:
+      metadata:
+        name: ozone-config
+    path:
+      - data
+    value:
+       OZONE-SITE.XML_ozone.om.ratis.segment.preallocated.size: 16MB
+       OZONE-SITE.XML_ozone.om.ratis.segment.size: 16MB
+       OZONE-SITE.XML_ozone.recon.address: ""
+       OZONE-SITE.XML_dfs.ratis.leader.election.minimum.timeout.duration: 2d
+       OZONE_DATANODE_STANDALONE_TEST: follower
+       HADOOP_OPTS: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/heap.hprof
+  - type: replace
+    trigger:
+      metadata:
+        name: ozone-datanode
+      kind: StatefulSet
+    path:
+      - spec
+      - replicas
+    value: 1
+- path: ozone-environment
+  transformations:
+  - type: perftest/mountfile
+    configmap: ozone-testscript
+    filename: test.sh
+    destination: /opt/test/
+  - type: hostpath
+    path: /data
+  - type: replace
+    path:
+      - spec
+      - template
+      - spec
+      - containers
+      - ozone
+      - args
+    value:
+      - /opt/test/test.sh
+transformations:
+  - type: ozone/image
+    image: localhost:32100/elek/ozone-dev:ae99844e0
+

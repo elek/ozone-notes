@@ -1,0 +1,54 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-runner
+spec:
+  template:
+    metadata:
+      name: test-runner
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: flokkr/hadoop:latest
+        name: test
+        args:
+        - /opt/tests/teragen.sh
+        volumeMounts:
+        - name: tests
+          mountPath: /opt/tests
+        - name: ozonefs
+          mountPath: /opt/ozonefs
+        - name: btm
+          mountPath: /opt/btm
+        envFrom:
+        - configMapRef:
+            name: yarn-config
+        - configMapRef:
+            name: ozone-client-config
+        env:
+        - name: HADOOP_CLASSPATH
+          value: /opt/ozonefs/hadoop-ozone-filesystem.jar
+        - name: HADOOP_OPTS
+          value: -javaagent:/opt/byteman/lib/byteman.jar=script:/opt/btm/hcfs-write.btm
+      volumes:
+      - name: tests
+        configMap:
+          name: teragen-testscript
+          defaultMode: 493
+      - name: ozonefs
+        emptyDir: {}
+      - name: btm
+        configMap:
+          name: btm
+          defaultMode: 493
+      initContainers:
+      - name: ozonefscopy
+        image: elek/ozone-dev:66d85f303
+        command:
+        - bash
+        - -c
+        - cp share/ozone/lib/hadoop-ozone-filesystem-hadoop3-*.jar /opt/ozonefs/hadoop-ozone-filesystem.jar
+        volumeMounts:
+        - name: ozonefs
+          mountPath: /opt/ozonefs

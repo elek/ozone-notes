@@ -1,0 +1,48 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ozone-env
+  labels:
+    app: ozone
+    component: env
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ozone
+      component: env
+  template:
+    metadata:
+      labels:
+        app: ozone
+        component: env
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9884"
+        prometheus.io/path: /prom
+    spec:
+      containers:
+      - name: ozone
+        image: ghcr.io/elek/ozone-dev:19d115d99
+        args:
+        - /opt/test/test.sh
+        env: []
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+        volumeMounts:
+        - name: script
+          mountPath: /opt/test/test.sh
+          subPath: test.sh
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: script
+        configMap:
+          name: ozone-testscript
+          defaultMode: 493
+      - name: data
+        hostPath:
+          path: /data
+      initContainers: []

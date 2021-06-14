@@ -1,0 +1,93 @@
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: perftest-omi
+  labels:
+    app: perftest
+    component: om-isolated
+spec:
+  serviceName: perftest-omi
+  selector:
+    matchLabels:
+      app: perftest
+      component: om-isolated
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: perftest
+        component: om-isolated
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9874"
+        prometheus.io/path: /prom
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: component
+                operator: In
+                values:
+                - om-isolated
+            topologyKey: kubernetes.io/hostname
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: om
+        image: ghcr.io/elek/ozone-snapshot:5eae96cbd
+        args:
+        - bash
+        - -c
+        - '''rm -rf /data/metadata && ozone om --init && ozone om'''
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        - name: byteman
+          mountPath: /opt/byteman
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+        env:
+        - name: BYTEMAN_HOME
+          value: /opt/byteman
+      - name: freon
+        image: ghcr.io/elek/ozone-snapshot:5eae96cbd
+        args:
+        - /opt/tester/test.sh
+        volumeMounts:
+        - name: script
+          mountPath: /opt/tester/test.sh
+          subPath: test.sh
+        - name: data
+          mountPath: /data
+        - name: byteman
+          mountPath: /opt/byteman
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+        env:
+        - name: BYTEMAN_HOME
+          value: /opt/byteman
+      volumes:
+      - name: data
+        emptyDir:
+          medium: Memory
+      - name: script
+        configMap:
+          name: isolated-om-testscript
+          defaultMode: 493
+      - name: byteman
+        emptyDir: {}
+      initContainers:
+      - name: byteman-copy
+        image: elek/byteman
+        command:
+        - bash
+        - -c
+        - cp -r /tmp/byteman /opt/
+        volumeMounts:
+        - name: byteman
+          mountPath: /opt/byteman

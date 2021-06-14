@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: perftest-omi
+  labels:
+    app: perftest
+    component: om-isolated
+spec:
+  serviceName: perftest-omi
+  selector:
+    matchLabels:
+      app: perftest
+      component: om-isolated
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: perftest
+        component: om-isolated
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9874"
+        prometheus.io/path: /prom
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: component
+                operator: In
+                values:
+                - om-isolated
+            topologyKey: kubernetes.io/hostname
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: om
+        image: flokkr/ozone
+        args:
+         - bash
+         - -c
+         - "'rm -rf /data/metadata && ozone om --init && ozone om'"
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+      - name: freon
+        image: flokkr/ozone
+        args:
+         - /opt/tester/test.sh
+        volumeMounts:
+        - name: script
+          mountPath: /opt/tester/test.sh
+          subPath: test.sh
+        - name: data
+          mountPath: /data
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+      volumes:
+      - name: data
+        emptyDir:
+           medium: Memory
+      - name: script
+        configMap:
+           name: isolated-om-testscript
+           defaultMode: 0755

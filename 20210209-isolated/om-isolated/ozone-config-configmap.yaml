@@ -1,0 +1,27 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ozone-config
+data:
+  HADOOP_OPTS: -javaagent:/opt/byteman/lib/byteman.jar=script:/opt/ozone/share/ozone/byteman/mock-scm.btm,boot:/opt/byteman/lib/byteman.jar
+    -Dorg.jboss.byteman.transform.all
+  OZONE-SITE.XML_ozone.scm.datanode.id.dir: /data
+  OZONE-SITE.XML_ozone.metadata.dirs: /data/metadata
+  OZONE-SITE.XML_ozone.scm.block.client.address: ozone-scm-0.ozone-scm
+  OZONE-SITE.XML_ozone.om.address: perftest-omi-0.perftest-omi
+  OZONE-SITE.XML_ozone.scm.client.address: ozone-scm-0.ozone-scm
+  OZONE-SITE.XML_ozone.scm.names: perftest-omi-0.perftest-omi
+  LOG4J.PROPERTIES_log4j.rootLogger: INFO, stdout
+  LOG4J.PROPERTIES_log4j.appender.stdout: org.apache.log4j.ConsoleAppender
+  LOG4J.PROPERTIES_log4j.appender.stdout.layout: org.apache.log4j.PatternLayout
+  LOG4J.PROPERTIES_log4j.appender.stdout.layout.ConversionPattern: '%d{yyyy-MM-dd
+    HH:mm:ss} %-5p %c{1}:%L - %m%n'
+  OZONE-SITE.XML_hdds.profiler.endpoint.enabled: "true"
+  ASYNC_PROFILER_HOME: /opt/profiler
+  OZONE-SITE.XML_ozone.om.handler.count.key: "250"
+  OZONE-SITE.XML_ozone.scm.handler.count.key: "250"
+  OZONE-SITE.XML_dfs.ratis.client.request.retry.interval: 15s
+  OZONE-SITE.XML_hdds.ratis.raft.server.write.element-limit: "4096"
+  OZONE-SITE.XML_hdds.datanode.df.refresh.period: 60m
+  OZONE-SITE.XML_hdds.datanode.du.factory.classname: org.apache.hadoop.hdds.fs.DedicatedDiskSpaceUsageFactory
