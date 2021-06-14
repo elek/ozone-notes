@@ -4,7 +4,7 @@ import:
     - path: ozone
 transformations:
   - type: ozone/image
-    image: ghcr.io/elek/ozone-dev:3f25e0143
+    image: localhost:32100/elek/ozone-dev:970b069f6
   - type: PublishService
   - type: placement
   - type: hostpath

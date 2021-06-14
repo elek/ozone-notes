@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: s3g
-        image: ghcr.io/elek/ozone-dev:f5e1fcadc
+        image: localhost:32100/elek/ozone-dev:93e61f21d
         args:
         - ozone
         - s3g

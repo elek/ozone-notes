@@ -41,7 +41,7 @@ spec:
         fsGroup: 1000
       containers:
       - name: datanode
-        image: ghcr.io/elek/ozone-dev:aa2f05485
+        image: localhost:32100/elek/ozone-dev:970b069f6
         args:
         - ozone
         - freon

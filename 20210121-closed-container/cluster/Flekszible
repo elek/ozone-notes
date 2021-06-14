@@ -4,7 +4,7 @@ import:
     - path: ozone
 transformations:
   - type: ozone/image
-    image: ghcr.io/elek/ozone-dev:f5e1fcadc
+    image: localhost:32100/elek/ozone-dev:93e61f21d
   - type: add
     trigger:
       metadata:
