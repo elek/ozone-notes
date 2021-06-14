@@ -25,16 +25,17 @@ These offline data generators write the data directly to the RocksDB and
 
 | data type | threads | data generation speed 
 |---|---|---|
-| Zero | 48 | ~ 2 GB/s | 
-| Random | 48 | ~ 2.6 GB/s |
+| Random | 48 | ~ 2 GB/s | 
+| Zero | 48 | ~ 2.6 GB/s |
 | Random | 100 | 2.1 GB-s 
+
+![Random](./random.png)
 
 ## Profile
 
 Profiling showed that the biggest time spent on checksum generator (this can be cached for zero data generation)
 
 ![profile](./profile.png)
-
 
 Full [profile.svg](./profile.svg).
 
