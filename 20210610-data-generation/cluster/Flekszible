@@ -1,0 +1,28 @@
+source:
+  - url: git::https://github.com/flokkr/docker-ozone.git
+import:
+    - path: ozone
+transformations:
+  - type: ozone/image
+    image: localhost:32100/elek/ozone-dev:159fb248a
+  - type: add
+    trigger:
+      metadata:
+        name: ozone-config
+    path:
+     - data
+    value:
+      OZONE-SITE.XML_ozone.scm.datanode.pipeline.limit: "1"
+  - type: PublishService
+  - type: placement
+  - type: hostpath
+    path: /data
+  - type: dataconfig
+  - type: add
+    trigger:
+      metadata:
+        name: ozone-config
+    path:
+      - data
+    value:
+      HADOOP_OPTS: -XX:ParallelGCThreads=8

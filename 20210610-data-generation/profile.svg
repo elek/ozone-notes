@@ -1,0 +1,1221 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="1200" height="614" onload="init(evt)" viewBox="0 0 1200 614" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+	text { font-family:Verdana; font-size:12px; fill:rgb(0,0,0); }
+	#search { opacity:0.1; cursor:pointer; }
+	#search:hover, #search.show { opacity:1; }
+	#subtitle { text-anchor:middle; font-color:rgb(160,160,160); }
+	#title { text-anchor:middle; font-size:17px}
+	#unzoom { cursor:pointer; }
+	#frames > *:hover { stroke:black; stroke-width:0.5; cursor:pointer; }
+	.hide { display:none; }
+	.parent { opacity:0.5; }
+</style>
+<script type="text/ecmascript">
+<![CDATA[
+	"use strict";
+	var details, searchbtn, unzoombtn, matchedtxt, svg, searching;
+	function init(evt) {
+		details = document.getElementById("details").firstChild;
+		searchbtn = document.getElementById("search");
+		unzoombtn = document.getElementById("unzoom");
+		matchedtxt = document.getElementById("matched");
+		svg = document.getElementsByTagName("svg")[0];
+		searching = 0;
+	}
+
+	window.addEventListener("click", function(e) {
+		var target = find_group(e.target);
+		if (target) {
+			if (target.nodeName == "a") {
+				if (e.ctrlKey === false) return;
+				e.preventDefault();
+			}
+			if (target.classList.contains("parent")) unzoom();
+			zoom(target);
+		}
+		else if (e.target.id == "unzoom") unzoom();
+		else if (e.target.id == "search") search_prompt();
+	}, false)
+
+	// mouse-over for info
+	// show
+	window.addEventListener("mouseover", function(e) {
+		var target = find_group(e.target);
+		if (target) details.nodeValue = "Function: " + g_to_text(target);
+	}, false)
+
+	// clear
+	window.addEventListener("mouseout", function(e) {
+		var target = find_group(e.target);
+		if (target) details.nodeValue = ' ';
+	}, false)
+
+	// ctrl-F for search
+	window.addEventListener("keydown",function (e) {
+		if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+			e.preventDefault();
+			search_prompt();
+		}
+	}, false)
+
+	// functions
+	function find_child(node, selector) {
+		var children = node.querySelectorAll(selector);
+		if (children.length) return children[0];
+		return;
+	}
+	function find_group(node) {
+		var parent = node.parentElement;
+		if (!parent) return;
+		if (parent.id == "frames") return node;
+		return find_group(parent);
+	}
+	function orig_save(e, attr, val) {
+		if (e.attributes["_orig_" + attr] != undefined) return;
+		if (e.attributes[attr] == undefined) return;
+		if (val == undefined) val = e.attributes[attr].value;
+		e.setAttribute("_orig_" + attr, val);
+	}
+	function orig_load(e, attr) {
+		if (e.attributes["_orig_"+attr] == undefined) return;
+		e.attributes[attr].value = e.attributes["_orig_" + attr].value;
+		e.removeAttribute("_orig_"+attr);
+	}
+	function g_to_text(e) {
+		var text = find_child(e, "title").firstChild.nodeValue;
+		return (text)
+	}
+	function g_to_func(e) {
+		var func = g_to_text(e);
+		// if there's any manipulation we want to do to the function
+		// name before it's searched, do it here before returning.
+		return (func);
+	}
+	function update_text(e) {
+		var r = find_child(e, "rect");
+		var t = find_child(e, "text");
+		var w = parseFloat(r.attributes.width.value) -3;
+		var txt = find_child(e, "title").textContent.replace(/\([^(]*\)$/,"");
+		t.attributes.x.value = parseFloat(r.attributes.x.value) + 3;
+
+		// Smaller than this size won't fit anything
+		if (w < 2 * 12 * 0.59) {
+			t.textContent = "";
+			return;
+		}
+
+		t.textContent = txt;
+		// Fit in full text width
+		if (/^ *$/.test(txt) || t.getSubStringLength(0, txt.length) < w)
+			return;
+
+		for (var x = txt.length - 2; x > 0; x--) {
+			if (t.getSubStringLength(0, x + 2) <= w) {
+				t.textContent = txt.substring(0, x) + "..";
+				return;
+			}
+		}
+		t.textContent = "";
+	}
+
+	// zoom
+	function zoom_reset(e) {
+		if (e.attributes != undefined) {
+			orig_load(e, "x");
+			orig_load(e, "width");
+		}
+		if (e.childNodes == undefined) return;
+		for (var i = 0, c = e.childNodes; i < c.length; i++) {
+			zoom_reset(c[i]);
+		}
+	}
+	function zoom_child(e, x, ratio) {
+		if (e.attributes != undefined) {
+			if (e.attributes.x != undefined) {
+				orig_save(e, "x");
+				e.attributes.x.value = (parseFloat(e.attributes.x.value) - x - 10) * ratio + 10;
+				if (e.tagName == "text")
+					e.attributes.x.value = find_child(e.parentNode, "rect[x]").attributes.x.value + 3;
+			}
+			if (e.attributes.width != undefined) {
+				orig_save(e, "width");
+				e.attributes.width.value = parseFloat(e.attributes.width.value) * ratio;
+			}
+		}
+
+		if (e.childNodes == undefined) return;
+		for (var i = 0, c = e.childNodes; i < c.length; i++) {
+			zoom_child(c[i], x - 10, ratio);
+		}
+	}
+	function zoom_parent(e) {
+		if (e.attributes) {
+			if (e.attributes.x != undefined) {
+				orig_save(e, "x");
+				e.attributes.x.value = 10;
+			}
+			if (e.attributes.width != undefined) {
+				orig_save(e, "width");
+				e.attributes.width.value = parseInt(svg.width.baseVal.value) - (10 * 2);
+			}
+		}
+		if (e.childNodes == undefined) return;
+		for (var i = 0, c = e.childNodes; i < c.length; i++) {
+			zoom_parent(c[i]);
+		}
+	}
+	function zoom(node) {
+		var attr = find_child(node, "rect").attributes;
+		var width = parseFloat(attr.width.value);
+		var xmin = parseFloat(attr.x.value);
+		var xmax = parseFloat(xmin + width);
+		var ymin = parseFloat(attr.y.value);
+		var ratio = (svg.width.baseVal.value - 2 * 10) / width;
+
+		// XXX: Workaround for JavaScript float issues (fix me)
+		var fudge = 0.0001;
+
+		unzoombtn.classList.remove("hide");
+
+		var el = document.getElementById("frames").children;
+		for (var i = 0; i < el.length; i++) {
+			var e = el[i];
+			var a = find_child(e, "rect").attributes;
+			var ex = parseFloat(a.x.value);
+			var ew = parseFloat(a.width.value);
+			var upstack;
+			// Is it an ancestor
+			if (0 == 0) {
+				upstack = parseFloat(a.y.value) > ymin;
+			} else {
+				upstack = parseFloat(a.y.value) < ymin;
+			}
+			if (upstack) {
+				// Direct ancestor
+				if (ex <= xmin && (ex+ew+fudge) >= xmax) {
+					e.classList.add("parent");
+					zoom_parent(e);
+					update_text(e);
+				}
+				// not in current path
+				else
+					e.classList.add("hide");
+			}
+			// Children maybe
+			else {
+				// no common path
+				if (ex < xmin || ex + fudge >= xmax) {
+					e.classList.add("hide");
+				}
+				else {
+					zoom_child(e, xmin, ratio);
+					update_text(e);
+				}
+			}
+		}
+	}
+	function unzoom() {
+		unzoombtn.classList.add("hide");
+		var el = document.getElementById("frames").children;
+		for(var i = 0; i < el.length; i++) {
+			el[i].classList.remove("parent");
+			el[i].classList.remove("hide");
+			zoom_reset(el[i]);
+			update_text(el[i]);
+		}
+	}
+
+	// search
+	function reset_search() {
+		var el = document.querySelectorAll("#frames rect");
+		for (var i = 0; i < el.length; i++) {
+			orig_load(el[i], "fill")
+		}
+	}
+	function search_prompt() {
+		if (!searching) {
+			var term = prompt("Enter a search term (regexp " +
+			    "allowed, eg: ^ext4_)", "");
+			if (term != null) {
+				search(term)
+			}
+		} else {
+			reset_search();
+			searching = 0;
+			searchbtn.classList.remove("show");
+			searchbtn.firstChild.nodeValue = "Search"
+			matchedtxt.classList.add("hide");
+			matchedtxt.firstChild.nodeValue = ""
+		}
+	}
+	function search(term) {
+		var re = new RegExp(term);
+		var el = document.getElementById("frames").children;
+		var matches = new Object();
+		var maxwidth = 0;
+		for (var i = 0; i < el.length; i++) {
+			var e = el[i];
+			var func = g_to_func(e);
+			var rect = find_child(e, "rect");
+			if (func == null || rect == null)
+				continue;
+
+			// Save max width. Only works as we have a root frame
+			var w = parseFloat(rect.attributes.width.value);
+			if (w > maxwidth)
+				maxwidth = w;
+
+			if (func.match(re)) {
+				// highlight
+				var x = parseFloat(rect.attributes.x.value);
+				orig_save(rect, "fill");
+				rect.attributes.fill.value = "rgb(230,0,230)";
+
+				// remember matches
+				if (matches[x] == undefined) {
+					matches[x] = w;
+				} else {
+					if (w > matches[x]) {
+						// overwrite with parent
+						matches[x] = w;
+					}
+				}
+				searching = 1;
+			}
+		}
+		if (!searching)
+			return;
+
+		searchbtn.classList.add("show");
+		searchbtn.firstChild.nodeValue = "Reset Search";
+
+		// calculate percent matched, excluding vertical overlap
+		var count = 0;
+		var lastx = -1;
+		var lastw = 0;
+		var keys = Array();
+		for (k in matches) {
+			if (matches.hasOwnProperty(k))
+				keys.push(k);
+		}
+		// sort the matched frames by their x location
+		// ascending, then width descending
+		keys.sort(function(a, b){
+			return a - b;
+		});
+		// Step through frames saving only the biggest bottom-up frames
+		// thanks to the sort order. This relies on the tree property
+		// where children are always smaller than their parents.
+		var fudge = 0.0001;	// JavaScript floating point
+		for (var k in keys) {
+			var x = parseFloat(keys[k]);
+			var w = matches[keys[k]];
+			if (x >= lastx + lastw - fudge) {
+				count += w;
+				lastx = x;
+				lastw = w;
+			}
+		}
+		// display matched percent
+		matchedtxt.classList.remove("hide");
+		var pct = 100 * count / maxwidth;
+		if (pct != 100) pct = pct.toFixed(1)
+		matchedtxt.firstChild.nodeValue = "Matched: " + pct + "%";
+	}
+]]>
+</script>
+<rect x="0" y="0" width="100%" height="100%" fill="rgb(240,240,220)"/>
+<text id="title" x="600" y="24">Flame Graph</text>
+<text id="details" x="10" y="597"> </text>
+<text id="unzoom" x="10" y="24" class="hide">Reset Zoom</text>
+<text id="search" x="1090" y="24">Search</text>
+<text id="matched" x="1090" y="597"> </text>
+<g id="frames">
+<g>
+<title>all (54,394 samples, 100.00%)</title><rect x="10.0" y="563.0" width="1180.0" height="15" fill="#fa7b7b" rx="2" ry="2"/>
+<text x="13.0" y="574.0">all</text>
+</g>
+<g>
+<title>OptoRuntime::new_array_C(Klass*, int, JavaThread*) (417 samples, 0.77%)</title><rect x="10.1" y="547.0" width="9.1" height="15" fill="#d3d33f" rx="2" ry="2"/>
+<text x="13.1" y="558.0"></text>
+</g>
+<g>
+<title>TypeArrayKlass::allocate_common(int, bool, Thread*) (416 samples, 0.76%)</title><rect x="10.2" y="531.0" width="9.0" height="15" fill="#dfdf43" rx="2" ry="2"/>
+<text x="13.2" y="542.0"></text>
+</g>
+<g>
+<title>MemAllocator::allocate() const (416 samples, 0.76%)</title><rect x="10.2" y="515.0" width="9.0" height="15" fill="#dfdf43" rx="2" ry="2"/>
+<text x="13.2" y="526.0"></text>
+</g>
+<g>
+<title>__memset_avx2_erms (412 samples, 0.76%)</title><rect x="10.2" y="499.0" width="9.0" height="15" fill="#fc7e7e" rx="2" ry="2"/>
+<text x="13.2" y="510.0"></text>
+</g>
+<g>
+<title>[not_walkable_Java] (12 samples, 0.02%)</title><rect x="19.2" y="547.0" width="0.3" height="15" fill="#e66161" rx="2" ry="2"/>
+<text x="22.2" y="558.0"></text>
+</g>
+<g>
+<title>java/lang/Thread.run (50,833 samples, 93.45%)</title><rect x="20.0" y="547.0" width="1102.7" height="15" fill="#5aeb5a" rx="2" ry="2"/>
+<text x="23.0" y="558.0">java/lang/Thread.run</text>
+</g>
+<g>
+<title>java/util/concurrent/ThreadPoolExecutor$Worker.run (50,831 samples, 93.45%)</title><rect x="20.0" y="531.0" width="1102.7" height="15" fill="#67f867" rx="2" ry="2"/>
+<text x="23.0" y="542.0">java/util/concurrent/ThreadPoolExecutor$Worker.run</text>
+</g>
+<g>
+<title>java/util/concurrent/ThreadPoolExecutor.runWorker (50,831 samples, 93.45%)</title><rect x="20.0" y="515.0" width="1102.7" height="15" fill="#58e958" rx="2" ry="2"/>
+<text x="23.0" y="526.0">java/util/concurrent/ThreadPoolExecutor.runWorker</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/BaseFreonGenerator$$Lambda$136.0x0000000800cc3b70.run (50,831 samples, 93.45%)</title><rect x="20.0" y="499.0" width="1102.7" height="15" fill="#60f160" rx="2" ry="2"/>
+<text x="23.0" y="510.0">org/apache/hadoop/ozone/freon/BaseFreonGenerator$$Lambda$136.0x0000000800cc3b70.run</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/BaseFreonGenerator.lambda$startTaskRunners$0 (50,831 samples, 93.45%)</title><rect x="20.0" y="483.0" width="1102.7" height="15" fill="#5eef5e" rx="2" ry="2"/>
+<text x="23.0" y="494.0">org/apache/hadoop/ozone/freon/BaseFreonGenerator.lambda$startTaskRunners$0</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/BaseFreonGenerator.taskLoop (50,831 samples, 93.45%)</title><rect x="20.0" y="467.0" width="1102.7" height="15" fill="#62f362" rx="2" ry="2"/>
+<text x="23.0" y="478.0">org/apache/hadoop/ozone/freon/BaseFreonGenerator.taskLoop</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/BaseFreonGenerator.tryNextTask (50,831 samples, 93.45%)</title><rect x="20.0" y="451.0" width="1102.7" height="15" fill="#5aeb5a" rx="2" ry="2"/>
+<text x="23.0" y="462.0">org/apache/hadoop/ozone/freon/BaseFreonGenerator.tryNextTask</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode$$Lambda$135.0x0000000800cc3948.executeNextTask (50,831 samples, 93.45%)</title><rect x="20.0" y="435.0" width="1102.7" height="15" fill="#5ff05f" rx="2" ry="2"/>
+<text x="23.0" y="446.0">org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode$$Lambda$135.0x0000000800cc3948.executeNextTask</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.generateData (50,831 samples, 93.45%)</title><rect x="20.0" y="419.0" width="1102.7" height="15" fill="#6cfd6c" rx="2" ry="2"/>
+<text x="23.0" y="430.0">org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.generateData</text>
+</g>
+<g>
+<title>com/codahale/metrics/Timer.time (50,831 samples, 93.45%)</title><rect x="20.0" y="403.0" width="1102.7" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="23.0" y="414.0">com/codahale/metrics/Timer.time</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode$$Lambda$137.0x0000000800cc4b10.call (50,831 samples, 93.45%)</title><rect x="20.0" y="387.0" width="1102.7" height="15" fill="#63f463" rx="2" ry="2"/>
+<text x="23.0" y="398.0">org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode$$Lambda$137.0x0000000800cc4b10.call</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.lambda$generateData$1 (50,831 samples, 93.45%)</title><rect x="20.0" y="371.0" width="1102.7" height="15" fill="#65f665" rx="2" ry="2"/>
+<text x="23.0" y="382.0">org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.lambda$generateData$1</text>
+</g>
+<g>
+<title>OptoRuntime::new_array_C(Klass*, int, JavaThread*) (5,577 samples, 10.25%)</title><rect x="20.0" y="355.0" width="121.0" height="15" fill="#cccc3d" rx="2" ry="2"/>
+<text x="23.0" y="366.0">OptoRuntime::ne..</text>
+</g>
+<g>
+<title>TypeArrayKlass::allocate_common(int, bool, Thread*) (5,575 samples, 10.25%)</title><rect x="20.1" y="339.0" width="120.9" height="15" fill="#dada42" rx="2" ry="2"/>
+<text x="23.1" y="350.0">TypeArrayKlass:..</text>
+</g>
+<g>
+<title>MemAllocator::allocate() const (5,574 samples, 10.25%)</title><rect x="20.1" y="323.0" width="120.9" height="15" fill="#c8c83c" rx="2" ry="2"/>
+<text x="23.1" y="334.0">MemAllocator::a..</text>
+</g>
+<g>
+<title>__memset_avx2_erms (5,556 samples, 10.21%)</title><rect x="20.5" y="307.0" width="120.5" height="15" fill="#e86363" rx="2" ry="2"/>
+<text x="23.5" y="318.0">__memset_avx2_e..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum.computeChecksum (18,136 samples, 33.34%)</title><rect x="141.3" y="355.0" width="393.5" height="15" fill="#54e554" rx="2" ry="2"/>
+<text x="144.3" y="366.0">org/apache/hadoop/ozone/common/Checksum.computeChecksum</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum.computeChecksum (18,132 samples, 33.33%)</title><rect x="141.4" y="339.0" width="393.4" height="15" fill="#68f968" rx="2" ry="2"/>
+<text x="144.4" y="350.0">org/apache/hadoop/ozone/common/Checksum.computeChecksum</text>
+</g>
+<g>
+<title>java/util/ArrayList.add (16 samples, 0.03%)</title><rect x="141.5" y="323.0" width="0.3" height="15" fill="#54e554" rx="2" ry="2"/>
+<text x="144.5" y="334.0"></text>
+</g>
+<g>
+<title>java/util/ArrayList.add (16 samples, 0.03%)</title><rect x="141.5" y="307.0" width="0.3" height="15" fill="#5ced5c" rx="2" ry="2"/>
+<text x="144.5" y="318.0"></text>
+</g>
+<g>
+<title>java/util/ArrayList.grow (16 samples, 0.03%)</title><rect x="141.5" y="291.0" width="0.3" height="15" fill="#53e453" rx="2" ry="2"/>
+<text x="144.5" y="302.0"></text>
+</g>
+<g>
+<title>java/util/ArrayList.grow (16 samples, 0.03%)</title><rect x="141.5" y="275.0" width="0.3" height="15" fill="#53e453" rx="2" ry="2"/>
+<text x="144.5" y="286.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum$Algorithm.valueOf (12 samples, 0.02%)</title><rect x="141.8" y="323.0" width="0.3" height="15" fill="#6dfe6d" rx="2" ry="2"/>
+<text x="144.8" y="334.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum$Algorithm.valueOf (12 samples, 0.02%)</title><rect x="141.8" y="307.0" width="0.3" height="15" fill="#56e756" rx="2" ry="2"/>
+<text x="144.8" y="318.0"></text>
+</g>
+<g>
+<title>java/lang/Enum.valueOf (12 samples, 0.02%)</title><rect x="141.8" y="291.0" width="0.3" height="15" fill="#5ff05f" rx="2" ry="2"/>
+<text x="144.8" y="302.0"></text>
+</g>
+<g>
+<title>java/util/HashMap.get (12 samples, 0.02%)</title><rect x="141.8" y="275.0" width="0.3" height="15" fill="#69fa69" rx="2" ry="2"/>
+<text x="144.8" y="286.0"></text>
+</g>
+<g>
+<title>java/util/HashMap.getNode (12 samples, 0.02%)</title><rect x="141.8" y="259.0" width="0.3" height="15" fill="#62f362" rx="2" ry="2"/>
+<text x="144.8" y="270.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum.computeChecksum (18,100 samples, 33.28%)</title><rect x="142.1" y="323.0" width="392.6" height="15" fill="#58e958" rx="2" ry="2"/>
+<text x="145.1" y="334.0">org/apache/hadoop/ozone/common/Checksum.computeChecksum</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum$$Lambda$283.0x0000000800d1a540.apply (18,100 samples, 33.28%)</title><rect x="142.1" y="307.0" width="392.6" height="15" fill="#63f463" rx="2" ry="2"/>
+<text x="145.1" y="318.0">org/apache/hadoop/ozone/common/Checksum$$Lambda$283.0x..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/Checksum.lambda$newChecksumByteBufferFunction$1 (18,100 samples, 33.28%)</title><rect x="142.1" y="291.0" width="392.6" height="15" fill="#5ff05f" rx="2" ry="2"/>
+<text x="145.1" y="302.0">org/apache/hadoop/ozone/common/Checksum.lambda$newChec..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/ChecksumByteBufferImpl.update (18,095 samples, 33.27%)</title><rect x="142.2" y="275.0" width="392.5" height="15" fill="#5eef5e" rx="2" ry="2"/>
+<text x="145.2" y="286.0">org/apache/hadoop/ozone/common/ChecksumByteBufferImpl...</text>
+</g>
+<g>
+<title>OptoRuntime::new_array_C(Klass*, int, JavaThread*) (5,768 samples, 10.60%)</title><rect x="143.3" y="259.0" width="125.1" height="15" fill="#e5e545" rx="2" ry="2"/>
+<text x="146.3" y="270.0">OptoRuntime::ne..</text>
+</g>
+<g>
+<title>TypeArrayKlass::allocate_common(int, bool, Thread*) (5,765 samples, 10.60%)</title><rect x="143.4" y="243.0" width="125.0" height="15" fill="#d0d03e" rx="2" ry="2"/>
+<text x="146.4" y="254.0">TypeArrayKlass:..</text>
+</g>
+<g>
+<title>MemAllocator::allocate() const (5,755 samples, 10.58%)</title><rect x="143.5" y="227.0" width="124.8" height="15" fill="#dfdf43" rx="2" ry="2"/>
+<text x="146.5" y="238.0">MemAllocator::a..</text>
+</g>
+<g>
+<title>MemAllocator::mem_allocate(MemAllocator::Allocation&amp;) const (12 samples, 0.02%)</title><rect x="143.6" y="211.0" width="0.3" height="15" fill="#d7d741" rx="2" ry="2"/>
+<text x="146.6" y="222.0"></text>
+</g>
+<g>
+<title>__memset_avx2_erms (5,724 samples, 10.52%)</title><rect x="144.1" y="211.0" width="124.2" height="15" fill="#f87878" rx="2" ry="2"/>
+<text x="147.1" y="222.0">__memset_avx2_e..</text>
+</g>
+<g>
+<title>jbyte_disjoint_arraycopy (8,044 samples, 14.79%)</title><rect x="268.4" y="259.0" width="174.5" height="15" fill="#ed6a6a" rx="2" ry="2"/>
+<text x="271.4" y="270.0">jbyte_disjoint_arraycopy</text>
+</g>
+<g>
+<title>updateBytesCRC32 (4,230 samples, 7.78%)</title><rect x="443.0" y="259.0" width="91.7" height="15" fill="#fb7d7d" rx="2" ry="2"/>
+<text x="446.0" y="270.0">updateBytes..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/BlockManagerImpl.persistPutBlock (130 samples, 0.24%)</title><rect x="535.1" y="355.0" width="2.8" height="15" fill="#58e958" rx="2" ry="2"/>
+<text x="538.1" y="366.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/RDBStore.commitBatchOperation (80 samples, 0.15%)</title><rect x="535.2" y="339.0" width="1.7" height="15" fill="#5aeb5a" rx="2" ry="2"/>
+<text x="538.2" y="350.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/RDBBatchOperation.commit (80 samples, 0.15%)</title><rect x="535.2" y="323.0" width="1.7" height="15" fill="#68f968" rx="2" ry="2"/>
+<text x="538.2" y="334.0"></text>
+</g>
+<g>
+<title>org/rocksdb/RocksDB.write (80 samples, 0.15%)</title><rect x="535.2" y="307.0" width="1.7" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="538.2" y="318.0"></text>
+</g>
+<g>
+<title>org/rocksdb/RocksDB.write0 (80 samples, 0.15%)</title><rect x="535.2" y="291.0" width="1.7" height="15" fill="#52e352" rx="2" ry="2"/>
+<text x="538.2" y="302.0"></text>
+</g>
+<g>
+<title>Java_org_rocksdb_RocksDB_write0 (79 samples, 0.15%)</title><rect x="535.2" y="275.0" width="1.7" height="15" fill="#fd7f7f" rx="2" ry="2"/>
+<text x="538.2" y="286.0"></text>
+</g>
+<g>
+<title>rocksdb::DBImpl::Write(rocksdb::WriteOptions const&amp;, rocksdb::WriteBatch*) (78 samples, 0.14%)</title><rect x="535.2" y="259.0" width="1.7" height="15" fill="#d7d741" rx="2" ry="2"/>
+<text x="538.2" y="270.0"></text>
+</g>
+<g>
+<title>rocksdb::DBImpl::WriteImpl(rocksdb::WriteOptions const&amp;, rocksdb::WriteBatch*, rocksdb::WriteCallback*, unsigned long*, unsigned long, bool, unsigned long*, unsigned long, rocksdb::PreReleaseCallback*) (70 samples, 0.13%)</title><rect x="535.2" y="243.0" width="1.6" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="538.2" y="254.0"></text>
+</g>
+<g>
+<title>rocksdb::DBImpl::WriteToWAL(rocksdb::WriteThread::WriteGroup const&amp;, rocksdb::log::Writer*, unsigned long*, bool, bool, unsigned long) (16 samples, 0.03%)</title><rect x="535.5" y="227.0" width="0.4" height="15" fill="#cdcd3d" rx="2" ry="2"/>
+<text x="538.5" y="238.0"></text>
+</g>
+<g>
+<title>rocksdb::DBImpl::WriteToWAL(rocksdb::WriteBatch const&amp;, rocksdb::log::Writer*, unsigned long*, unsigned long*) (13 samples, 0.02%)</title><rect x="535.5" y="211.0" width="0.3" height="15" fill="#dbdb42" rx="2" ry="2"/>
+<text x="538.5" y="222.0"></text>
+</g>
+<g>
+<title>rocksdb::WriteBatchInternal::InsertInto(rocksdb::WriteThread::WriteGroup&amp;, unsigned long, rocksdb::ColumnFamilyMemTables*, rocksdb::FlushScheduler*, rocksdb::TrimHistoryScheduler*, bool, unsigned long, rocksdb::DB*, bool, bool, bool) (33 samples, 0.06%)</title><rect x="536.0" y="227.0" width="0.7" height="15" fill="#e2e244" rx="2" ry="2"/>
+<text x="539.0" y="238.0"></text>
+</g>
+<g>
+<title>rocksdb::WriteBatch::Iterate(rocksdb::WriteBatch::Handler*) const (33 samples, 0.06%)</title><rect x="536.0" y="211.0" width="0.7" height="15" fill="#d2d23f" rx="2" ry="2"/>
+<text x="539.0" y="222.0"></text>
+</g>
+<g>
+<title>rocksdb::WriteBatchInternal::Iterate(rocksdb::WriteBatch const*, rocksdb::WriteBatch::Handler*, unsigned long, unsigned long) (31 samples, 0.06%)</title><rect x="536.0" y="195.0" width="0.7" height="15" fill="#c9c93c" rx="2" ry="2"/>
+<text x="539.0" y="206.0"></text>
+</g>
+<g>
+<title>rocksdb::MemTableInserter::PutCF(unsigned int, rocksdb::Slice const&amp;, rocksdb::Slice const&amp;) (28 samples, 0.05%)</title><rect x="536.0" y="179.0" width="0.7" height="15" fill="#c8c83c" rx="2" ry="2"/>
+<text x="539.0" y="190.0"></text>
+</g>
+<g>
+<title>rocksdb::MemTableInserter::PutCFImpl(unsigned int, rocksdb::Slice const&amp;, rocksdb::Slice const&amp;, rocksdb::ValueType, rocksdb::ProtectionInfoKVOTS&lt;unsigned long&gt; const*) (27 samples, 0.05%)</title><rect x="536.1" y="163.0" width="0.6" height="15" fill="#d5d540" rx="2" ry="2"/>
+<text x="539.1" y="174.0"></text>
+</g>
+<g>
+<title>rocksdb::MemTable::Add(unsigned long, rocksdb::ValueType, rocksdb::Slice const&amp;, rocksdb::Slice const&amp;, rocksdb::ProtectionInfoKVOTS&lt;unsigned long&gt; const*, bool, rocksdb::MemTablePostProcessInfo*, void**) (17 samples, 0.03%)</title><rect x="536.1" y="147.0" width="0.4" height="15" fill="#c9c93c" rx="2" ry="2"/>
+<text x="539.1" y="158.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/metadata/DatanodeTable.putWithBatch (28 samples, 0.05%)</title><rect x="537.3" y="339.0" width="0.6" height="15" fill="#57e857" rx="2" ry="2"/>
+<text x="540.3" y="350.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/TypedTable.putWithBatch (28 samples, 0.05%)</title><rect x="537.3" y="323.0" width="0.6" height="15" fill="#6dfe6d" rx="2" ry="2"/>
+<text x="540.3" y="334.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/CodecRegistry.asRawData (12 samples, 0.02%)</title><rect x="537.3" y="307.0" width="0.3" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="540.3" y="318.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/RDBTable.putWithBatch (16 samples, 0.03%)</title><rect x="537.6" y="307.0" width="0.3" height="15" fill="#69fa69" rx="2" ry="2"/>
+<text x="540.6" y="318.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/RDBTable.putWithBatch (16 samples, 0.03%)</title><rect x="537.6" y="291.0" width="0.3" height="15" fill="#57e857" rx="2" ry="2"/>
+<text x="540.6" y="302.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/RDBBatchOperation.put (16 samples, 0.03%)</title><rect x="537.6" y="275.0" width="0.3" height="15" fill="#60f160" rx="2" ry="2"/>
+<text x="540.6" y="286.0"></text>
+</g>
+<g>
+<title>org/rocksdb/AbstractWriteBatch.put (16 samples, 0.03%)</title><rect x="537.6" y="259.0" width="0.3" height="15" fill="#5bec5b" rx="2" ry="2"/>
+<text x="540.6" y="270.0"></text>
+</g>
+<g>
+<title>org/rocksdb/WriteBatch.put (15 samples, 0.03%)</title><rect x="537.6" y="243.0" width="0.3" height="15" fill="#66f766" rx="2" ry="2"/>
+<text x="540.6" y="254.0"></text>
+</g>
+<g>
+<title>Java_org_rocksdb_WriteBatch_put__J_3BI_3BIJ (13 samples, 0.02%)</title><rect x="537.6" y="227.0" width="0.3" height="15" fill="#f06e6e" rx="2" ry="2"/>
+<text x="540.6" y="238.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.createContainer (20 samples, 0.04%)</title><rect x="537.9" y="355.0" width="0.5" height="15" fill="#64f564" rx="2" ry="2"/>
+<text x="540.9" y="366.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/KeyValueContainer.create (20 samples, 0.04%)</title><rect x="537.9" y="339.0" width="0.5" height="15" fill="#5ff05f" rx="2" ry="2"/>
+<text x="540.9" y="350.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/KeyValueContainerUtil.createContainerMetaData (19 samples, 0.03%)</title><rect x="538.0" y="323.0" width="0.4" height="15" fill="#51e251" rx="2" ry="2"/>
+<text x="541.0" y="334.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/metadata/DatanodeStoreSchemaTwoImpl.&lt;init&gt; (16 samples, 0.03%)</title><rect x="538.0" y="307.0" width="0.4" height="15" fill="#5dee5d" rx="2" ry="2"/>
+<text x="541.0" y="318.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/metadata/AbstractDatanodeStore.&lt;init&gt; (16 samples, 0.03%)</title><rect x="538.0" y="291.0" width="0.4" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="541.0" y="302.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/metadata/AbstractDatanodeStore.start (16 samples, 0.03%)</title><rect x="538.0" y="275.0" width="0.4" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="541.0" y="286.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/DBStoreBuilder.build (15 samples, 0.03%)</title><rect x="538.0" y="259.0" width="0.3" height="15" fill="#65f665" rx="2" ry="2"/>
+<text x="541.0" y="270.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/hdds/utils/db/RDBStore.&lt;init&gt; (15 samples, 0.03%)</title><rect x="538.0" y="243.0" width="0.3" height="15" fill="#58e958" rx="2" ry="2"/>
+<text x="541.0" y="254.0"></text>
+</g>
+<g>
+<title>org/rocksdb/RocksDB.open (15 samples, 0.03%)</title><rect x="538.0" y="227.0" width="0.3" height="15" fill="#66f766" rx="2" ry="2"/>
+<text x="541.0" y="238.0"></text>
+</g>
+<g>
+<title>org/rocksdb/RocksDB.open (15 samples, 0.03%)</title><rect x="538.0" y="211.0" width="0.3" height="15" fill="#63f463" rx="2" ry="2"/>
+<text x="541.0" y="222.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.generatedRandomData (18,395 samples, 33.82%)</title><rect x="538.4" y="355.0" width="399.0" height="15" fill="#5aeb5a" rx="2" ry="2"/>
+<text x="541.4" y="366.0">org/apache/hadoop/ozone/freon/containergenerator/Genera..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/freon/containergenerator/GeneratorDatanode.writeChunk (8,540 samples, 15.70%)</title><rect x="937.4" y="355.0" width="185.3" height="15" fill="#64f564" rx="2" ry="2"/>
+<text x="940.4" y="366.0">org/apache/hadoop/ozone/..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/ChunkManagerDispatcher.finishWriteChunks (97 samples, 0.18%)</title><rect x="937.4" y="339.0" width="2.1" height="15" fill="#54e554" rx="2" ry="2"/>
+<text x="940.4" y="350.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy.finishWriteChunks (97 samples, 0.18%)</title><rect x="937.4" y="323.0" width="2.1" height="15" fill="#5dee5d" rx="2" ry="2"/>
+<text x="940.4" y="334.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.verifyChunkFileExists (49 samples, 0.09%)</title><rect x="937.4" y="307.0" width="1.1" height="15" fill="#6afb6a" rx="2" ry="2"/>
+<text x="940.4" y="318.0"></text>
+</g>
+<g>
+<title>java/io/File.exists (49 samples, 0.09%)</title><rect x="937.4" y="291.0" width="1.1" height="15" fill="#68f968" rx="2" ry="2"/>
+<text x="940.4" y="302.0"></text>
+</g>
+<g>
+<title>java/io/UnixFileSystem.hasBooleanAttributes (49 samples, 0.09%)</title><rect x="937.4" y="275.0" width="1.1" height="15" fill="#59ea59" rx="2" ry="2"/>
+<text x="940.4" y="286.0"></text>
+</g>
+<g>
+<title>java/io/UnixFileSystem.getBooleanAttributes0 (48 samples, 0.09%)</title><rect x="937.5" y="259.0" width="1.0" height="15" fill="#56e756" rx="2" ry="2"/>
+<text x="940.5" y="270.0"></text>
+</g>
+<g>
+<title>Java_java_io_UnixFileSystem_getBooleanAttributes0 (32 samples, 0.06%)</title><rect x="937.5" y="243.0" width="0.7" height="15" fill="#fb7d7d" rx="2" ry="2"/>
+<text x="940.5" y="254.0"></text>
+</g>
+<g>
+<title>getStringBytes (24 samples, 0.04%)</title><rect x="937.5" y="227.0" width="0.6" height="15" fill="#eb6868" rx="2" ry="2"/>
+<text x="940.5" y="238.0"></text>
+</g>
+<g>
+<title>jni_CallObjectMethod (20 samples, 0.04%)</title><rect x="937.5" y="211.0" width="0.5" height="15" fill="#f57575" rx="2" ry="2"/>
+<text x="940.5" y="222.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles.close (37 samples, 0.07%)</title><rect x="938.5" y="307.0" width="0.8" height="15" fill="#6cfd6c" rx="2" ry="2"/>
+<text x="941.5" y="318.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$LocalManualCache.invalidate (37 samples, 0.07%)</title><rect x="938.5" y="291.0" width="0.8" height="15" fill="#61f261" rx="2" ry="2"/>
+<text x="941.5" y="302.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache.remove (37 samples, 0.07%)</title><rect x="938.5" y="275.0" width="0.8" height="15" fill="#63f463" rx="2" ry="2"/>
+<text x="941.5" y="286.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.remove (35 samples, 0.06%)</title><rect x="938.5" y="259.0" width="0.8" height="15" fill="#69fa69" rx="2" ry="2"/>
+<text x="941.5" y="270.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.postWriteCleanup (17 samples, 0.03%)</title><rect x="938.6" y="243.0" width="0.3" height="15" fill="#5dee5d" rx="2" ry="2"/>
+<text x="941.6" y="254.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.runUnlockedCleanup (17 samples, 0.03%)</title><rect x="938.6" y="227.0" width="0.3" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="941.6" y="238.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache.processPendingNotifications (17 samples, 0.03%)</title><rect x="938.6" y="211.0" width="0.3" height="15" fill="#5bec5b" rx="2" ry="2"/>
+<text x="941.6" y="222.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles$$Lambda$120.0x0000000800c96830.onRemoval (17 samples, 0.03%)</title><rect x="938.6" y="195.0" width="0.3" height="15" fill="#68f968" rx="2" ry="2"/>
+<text x="941.6" y="206.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles.lambda$static$0 (17 samples, 0.03%)</title><rect x="938.6" y="179.0" width="0.3" height="15" fill="#64f564" rx="2" ry="2"/>
+<text x="941.6" y="190.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles.close (17 samples, 0.03%)</title><rect x="938.6" y="163.0" width="0.3" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="941.6" y="174.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFile.close (17 samples, 0.03%)</title><rect x="938.6" y="147.0" width="0.3" height="15" fill="#5eef5e" rx="2" ry="2"/>
+<text x="941.6" y="158.0"></text>
+</g>
+<g>
+<title>java/io/RandomAccessFile.close (15 samples, 0.03%)</title><rect x="938.6" y="131.0" width="0.3" height="15" fill="#56e756" rx="2" ry="2"/>
+<text x="941.6" y="142.0"></text>
+</g>
+<g>
+<title>java/io/FileDescriptor.closeAll (15 samples, 0.03%)</title><rect x="938.6" y="115.0" width="0.3" height="15" fill="#6cfd6c" rx="2" ry="2"/>
+<text x="941.6" y="126.0"></text>
+</g>
+<g>
+<title>java/io/RandomAccessFile$1.close (15 samples, 0.03%)</title><rect x="938.6" y="99.0" width="0.3" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="941.6" y="110.0"></text>
+</g>
+<g>
+<title>java/io/FileDescriptor.close (15 samples, 0.03%)</title><rect x="938.6" y="83.0" width="0.3" height="15" fill="#54e554" rx="2" ry="2"/>
+<text x="941.6" y="94.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/interfaces/ChunkManager.writeChunk (8,442 samples, 15.52%)</title><rect x="939.5" y="339.0" width="183.2" height="15" fill="#6afb6a" rx="2" ry="2"/>
+<text x="942.5" y="350.0">org/apache/hadoop/ozone/..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/ChunkManagerDispatcher.writeChunk (8,442 samples, 15.52%)</title><rect x="939.5" y="323.0" width="183.2" height="15" fill="#63f463" rx="2" ry="2"/>
+<text x="942.5" y="334.0">org/apache/hadoop/ozone/..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy.writeChunk (8,434 samples, 15.51%)</title><rect x="939.7" y="307.0" width="183.0" height="15" fill="#5ced5c" rx="2" ry="2"/>
+<text x="942.7" y="318.0">org/apache/hadoop/ozone/..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.validateChunkForOverwrite (61 samples, 0.11%)</title><rect x="940.3" y="291.0" width="1.3" height="15" fill="#62f362" rx="2" ry="2"/>
+<text x="943.3" y="302.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.isOverWriteRequested (61 samples, 0.11%)</title><rect x="940.3" y="275.0" width="1.3" height="15" fill="#58e958" rx="2" ry="2"/>
+<text x="943.3" y="286.0"></text>
+</g>
+<g>
+<title>java/io/File.exists (58 samples, 0.11%)</title><rect x="940.3" y="259.0" width="1.3" height="15" fill="#67f867" rx="2" ry="2"/>
+<text x="943.3" y="270.0"></text>
+</g>
+<g>
+<title>java/io/UnixFileSystem.hasBooleanAttributes (58 samples, 0.11%)</title><rect x="940.3" y="243.0" width="1.3" height="15" fill="#59ea59" rx="2" ry="2"/>
+<text x="943.3" y="254.0"></text>
+</g>
+<g>
+<title>java/io/UnixFileSystem.getBooleanAttributes0 (58 samples, 0.11%)</title><rect x="940.3" y="227.0" width="1.3" height="15" fill="#5dee5d" rx="2" ry="2"/>
+<text x="943.3" y="238.0"></text>
+</g>
+<g>
+<title>Java_java_io_UnixFileSystem_getBooleanAttributes0 (40 samples, 0.07%)</title><rect x="940.4" y="211.0" width="0.8" height="15" fill="#e76363" rx="2" ry="2"/>
+<text x="943.4" y="222.0"></text>
+</g>
+<g>
+<title>getStringBytes (29 samples, 0.05%)</title><rect x="940.5" y="195.0" width="0.6" height="15" fill="#e66161" rx="2" ry="2"/>
+<text x="943.5" y="206.0"></text>
+</g>
+<g>
+<title>jni_CallObjectMethod (19 samples, 0.03%)</title><rect x="940.6" y="179.0" width="0.4" height="15" fill="#e96565" rx="2" ry="2"/>
+<text x="943.6" y="190.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.writeData (8,281 samples, 15.22%)</title><rect x="941.6" y="291.0" width="179.7" height="15" fill="#60f160" rx="2" ry="2"/>
+<text x="944.6" y="302.0">org/apache/hadoop/ozone..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.writeData (8,281 samples, 15.22%)</title><rect x="941.6" y="275.0" width="179.7" height="15" fill="#5ced5c" rx="2" ry="2"/>
+<text x="944.6" y="286.0">org/apache/hadoop/ozone..</text>
+</g>
+<g>
+<title>java/lang/Long.valueOf (12 samples, 0.02%)</title><rect x="941.6" y="259.0" width="0.3" height="15" fill="#55e655" rx="2" ry="2"/>
+<text x="944.6" y="270.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils$$Lambda$290.0x0000000800d2b738.applyAsLong (8,269 samples, 15.20%)</title><rect x="941.9" y="259.0" width="179.4" height="15" fill="#6bfc6b" rx="2" ry="2"/>
+<text x="944.9" y="270.0">org/apache/hadoop/ozone..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.lambda$writeData$1 (8,269 samples, 15.20%)</title><rect x="941.9" y="243.0" width="179.4" height="15" fill="#53e453" rx="2" ry="2"/>
+<text x="944.9" y="254.0">org/apache/hadoop/ozone..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/helpers/ChunkUtils.writeDataToChannel (8,269 samples, 15.20%)</title><rect x="941.9" y="227.0" width="179.4" height="15" fill="#53e453" rx="2" ry="2"/>
+<text x="944.9" y="238.0">org/apache/hadoop/ozone..</text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/common/ChunkBufferImplWithByteBuffer.writeTo (8,263 samples, 15.19%)</title><rect x="941.9" y="211.0" width="179.2" height="15" fill="#5eef5e" rx="2" ry="2"/>
+<text x="944.9" y="222.0">org/apache/hadoop/ozone..</text>
+</g>
+<g>
+<title>sun/nio/ch/FileChannelImpl.write (8,263 samples, 15.19%)</title><rect x="941.9" y="195.0" width="179.2" height="15" fill="#66f766" rx="2" ry="2"/>
+<text x="944.9" y="206.0">sun/nio/ch/FileChannelI..</text>
+</g>
+<g>
+<title>sun/nio/ch/IOUtil.write (8,261 samples, 15.19%)</title><rect x="941.9" y="179.0" width="179.2" height="15" fill="#6dfe6d" rx="2" ry="2"/>
+<text x="944.9" y="190.0">sun/nio/ch/IOUtil.write</text>
+</g>
+<g>
+<title>sun/nio/ch/IOUtil.writeFromNativeBuffer (8,254 samples, 15.17%)</title><rect x="942.0" y="163.0" width="179.0" height="15" fill="#6cfd6c" rx="2" ry="2"/>
+<text x="945.0" y="174.0">sun/nio/ch/IOUtil.write..</text>
+</g>
+<g>
+<title>sun/nio/ch/FileDispatcherImpl.write (8,254 samples, 15.17%)</title><rect x="942.0" y="147.0" width="179.0" height="15" fill="#64f564" rx="2" ry="2"/>
+<text x="945.0" y="158.0">sun/nio/ch/FileDispatch..</text>
+</g>
+<g>
+<title>jlong_disjoint_arraycopy (8,234 samples, 15.14%)</title><rect x="942.0" y="131.0" width="178.6" height="15" fill="#ec6969" rx="2" ry="2"/>
+<text x="945.0" y="142.0">jlong_disjoint_arraycopy</text>
+</g>
+<g>
+<title>sun/nio/ch/FileDispatcherImpl.write0 (20 samples, 0.04%)</title><rect x="1120.6" y="131.0" width="0.4" height="15" fill="#66f766" rx="2" ry="2"/>
+<text x="1123.6" y="142.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles.getChannel (50 samples, 0.09%)</title><rect x="1121.3" y="291.0" width="1.1" height="15" fill="#5bec5b" rx="2" ry="2"/>
+<text x="1124.3" y="302.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$LocalManualCache.get (50 samples, 0.09%)</title><rect x="1121.3" y="275.0" width="1.1" height="15" fill="#58e958" rx="2" ry="2"/>
+<text x="1124.3" y="286.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache.get (50 samples, 0.09%)</title><rect x="1121.3" y="259.0" width="1.1" height="15" fill="#56e756" rx="2" ry="2"/>
+<text x="1124.3" y="270.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.get (50 samples, 0.09%)</title><rect x="1121.3" y="243.0" width="1.1" height="15" fill="#61f261" rx="2" ry="2"/>
+<text x="1124.3" y="254.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.lockedGetOrLoad (45 samples, 0.08%)</title><rect x="1121.4" y="227.0" width="1.0" height="15" fill="#57e857" rx="2" ry="2"/>
+<text x="1124.4" y="238.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.loadSync (37 samples, 0.07%)</title><rect x="1121.4" y="211.0" width="0.8" height="15" fill="#54e554" rx="2" ry="2"/>
+<text x="1124.4" y="222.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$LoadingValueReference.loadFuture (25 samples, 0.05%)</title><rect x="1121.4" y="195.0" width="0.5" height="15" fill="#65f665" rx="2" ry="2"/>
+<text x="1124.4" y="206.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$LocalManualCache$1.load (25 samples, 0.05%)</title><rect x="1121.4" y="179.0" width="0.5" height="15" fill="#53e453" rx="2" ry="2"/>
+<text x="1124.4" y="190.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles$$Lambda$287.0x0000000800d28ea8.call (25 samples, 0.05%)</title><rect x="1121.4" y="163.0" width="0.5" height="15" fill="#67f867" rx="2" ry="2"/>
+<text x="1124.4" y="174.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles.lambda$getChannel$1 (25 samples, 0.05%)</title><rect x="1121.4" y="147.0" width="0.5" height="15" fill="#54e554" rx="2" ry="2"/>
+<text x="1124.4" y="158.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFiles.open (25 samples, 0.05%)</title><rect x="1121.4" y="131.0" width="0.5" height="15" fill="#66f766" rx="2" ry="2"/>
+<text x="1124.4" y="142.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFile.&lt;init&gt; (25 samples, 0.05%)</title><rect x="1121.4" y="115.0" width="0.5" height="15" fill="#52e352" rx="2" ry="2"/>
+<text x="1124.4" y="126.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy$OpenFile.&lt;init&gt; (25 samples, 0.05%)</title><rect x="1121.4" y="99.0" width="0.5" height="15" fill="#6cfd6c" rx="2" ry="2"/>
+<text x="1124.4" y="110.0"></text>
+</g>
+<g>
+<title>java/io/RandomAccessFile.&lt;init&gt; (25 samples, 0.05%)</title><rect x="1121.4" y="83.0" width="0.5" height="15" fill="#51e251" rx="2" ry="2"/>
+<text x="1124.4" y="94.0"></text>
+</g>
+<g>
+<title>java/io/RandomAccessFile.&lt;init&gt; (25 samples, 0.05%)</title><rect x="1121.4" y="67.0" width="0.5" height="15" fill="#5ff05f" rx="2" ry="2"/>
+<text x="1124.4" y="78.0"></text>
+</g>
+<g>
+<title>java/io/RandomAccessFile.open (22 samples, 0.04%)</title><rect x="1121.5" y="51.0" width="0.4" height="15" fill="#55e655" rx="2" ry="2"/>
+<text x="1124.5" y="62.0"></text>
+</g>
+<g>
+<title>java/io/RandomAccessFile.open0 (21 samples, 0.04%)</title><rect x="1121.5" y="35.0" width="0.4" height="15" fill="#57e857" rx="2" ry="2"/>
+<text x="1124.5" y="46.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.getAndRecordStats (12 samples, 0.02%)</title><rect x="1121.9" y="195.0" width="0.3" height="15" fill="#67f867" rx="2" ry="2"/>
+<text x="1124.9" y="206.0"></text>
+</g>
+<g>
+<title>com/google/common/cache/LocalCache$Segment.storeLoadedValue (12 samples, 0.02%)</title><rect x="1121.9" y="179.0" width="0.3" height="15" fill="#65f665" rx="2" ry="2"/>
+<text x="1124.9" y="190.0"></text>
+</g>
+<g>
+<title>org/apache/hadoop/ozone/container/keyvalue/impl/FilePerBlockStrategy.getChunkFile (12 samples, 0.02%)</title><rect x="1122.4" y="291.0" width="0.2" height="15" fill="#63f463" rx="2" ry="2"/>
+<text x="1125.4" y="302.0"></text>
+</g>
+<g>
+<title>start_thread (3,089 samples, 5.68%)</title><rect x="1122.8" y="547.0" width="67.0" height="15" fill="#fe8080" rx="2" ry="2"/>
+<text x="1125.8" y="558.0">start_t..</text>
+</g>
+<g>
+<title>thread_native_entry(Thread*) (3,089 samples, 5.68%)</title><rect x="1122.8" y="531.0" width="67.0" height="15" fill="#f47373" rx="2" ry="2"/>
+<text x="1125.8" y="542.0">thread_..</text>
+</g>
+<g>
+<title>Thread::call_run() (3,089 samples, 5.68%)</title><rect x="1122.8" y="515.0" width="67.0" height="15" fill="#dede43" rx="2" ry="2"/>
+<text x="1125.8" y="526.0">Thread:..</text>
+</g>
+<g>
+<title>VMThread::run() (3,084 samples, 5.67%)</title><rect x="1122.9" y="499.0" width="66.9" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="1125.9" y="510.0">VMThrea..</text>
+</g>
+<g>
+<title>VMThread::loop() (3,083 samples, 5.67%)</title><rect x="1122.9" y="483.0" width="66.9" height="15" fill="#cccc3d" rx="2" ry="2"/>
+<text x="1125.9" y="494.0">VMThrea..</text>
+</g>
+<g>
+<title>SafepointSynchronize::begin() (30 samples, 0.06%)</title><rect x="1122.9" y="467.0" width="0.7" height="15" fill="#d7d741" rx="2" ry="2"/>
+<text x="1125.9" y="478.0"></text>
+</g>
+<g>
+<title>SafepointSynchronize::do_cleanup_tasks() (20 samples, 0.04%)</title><rect x="1122.9" y="451.0" width="0.4" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="1125.9" y="462.0"></text>
+</g>
+<g>
+<title>Threads::possibly_parallel_threads_do(bool, ThreadClosure*) (20 samples, 0.04%)</title><rect x="1122.9" y="435.0" width="0.4" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="1125.9" y="446.0"></text>
+</g>
+<g>
+<title>JavaThread::nmethods_do(CodeBlobClosure*) (15 samples, 0.03%)</title><rect x="1122.9" y="419.0" width="0.3" height="15" fill="#cece3e" rx="2" ry="2"/>
+<text x="1125.9" y="430.0"></text>
+</g>
+<g>
+<title>frame::sender(RegisterMap*) const (14 samples, 0.03%)</title><rect x="1122.9" y="403.0" width="0.3" height="15" fill="#d5d540" rx="2" ry="2"/>
+<text x="1125.9" y="414.0"></text>
+</g>
+<g>
+<title>VMThread::evaluate_operation(VM_Operation*) [clone .constprop.80] (3,052 samples, 5.61%)</title><rect x="1123.6" y="467.0" width="66.2" height="15" fill="#e0e044" rx="2" ry="2"/>
+<text x="1126.6" y="478.0">VMThrea..</text>
+</g>
+<g>
+<title>VM_Operation::evaluate() (3,052 samples, 5.61%)</title><rect x="1123.6" y="451.0" width="66.2" height="15" fill="#d9d941" rx="2" ry="2"/>
+<text x="1126.6" y="462.0">VM_Oper..</text>
+</g>
+<g>
+<title>VM_GenCollectForAllocation::doit() (3,048 samples, 5.60%)</title><rect x="1123.6" y="435.0" width="66.2" height="15" fill="#dede43" rx="2" ry="2"/>
+<text x="1126.6" y="446.0">VM_GenC..</text>
+</g>
+<g>
+<title>.annobin__ZN16GenCollectedHeap25satisfy_failed_allocationEmb.start (3,048 samples, 5.60%)</title><rect x="1123.6" y="419.0" width="66.2" height="15" fill="#e25c5c" rx="2" ry="2"/>
+<text x="1126.6" y="430.0">.annobi..</text>
+</g>
+<g>
+<title>GenCollectedHeap::do_collection(bool, bool, unsigned long, bool, GenCollectedHeap::GenerationType) (3,048 samples, 5.60%)</title><rect x="1123.6" y="403.0" width="66.2" height="15" fill="#cccc3d" rx="2" ry="2"/>
+<text x="1126.6" y="414.0">GenColl..</text>
+</g>
+<g>
+<title>GenCollectedHeap::collect_generation(Generation*, bool, unsigned long, bool, bool, bool, bool) (3,045 samples, 5.60%)</title><rect x="1123.6" y="387.0" width="66.1" height="15" fill="#e5e545" rx="2" ry="2"/>
+<text x="1126.6" y="398.0">GenColl..</text>
+</g>
+<g>
+<title>DefNewGeneration::collect(bool, bool, unsigned long, bool) (2,405 samples, 4.42%)</title><rect x="1123.6" y="371.0" width="52.2" height="15" fill="#cece3e" rx="2" ry="2"/>
+<text x="1126.6" y="382.0">DefNe..</text>
+</g>
+<g>
+<title>DefNewGeneration::FastEvacuateFollowersClosure::do_void() (1,530 samples, 2.81%)</title><rect x="1123.7" y="355.0" width="33.2" height="15" fill="#e2e244" rx="2" ry="2"/>
+<text x="1126.7" y="366.0">De..</text>
+</g>
+<g>
+<title>void ContiguousSpace::oop_since_save_marks_iterate&lt;FastScanClosure&gt;(FastScanClosure*) (1,530 samples, 2.81%)</title><rect x="1123.7" y="339.0" width="33.2" height="15" fill="#cbcb3d" rx="2" ry="2"/>
+<text x="1126.7" y="350.0">vo..</text>
+</g>
+<g>
+<title>.annobin__ZN21OopOopIterateDispatchI15FastScanClosureE5Table15oop_oop_iterateI13InstanceKlassjEEvPS0_P7oopDescP5Klass.start (1,529 samples, 2.81%)</title><rect x="1123.7" y="323.0" width="33.1" height="15" fill="#fe8181" rx="2" ry="2"/>
+<text x="1126.7" y="334.0">.a..</text>
+</g>
+<g>
+<title>DefNewGeneration::copy_to_survivor_space(oopDesc*) (1,220 samples, 2.24%)</title><rect x="1123.8" y="307.0" width="26.5" height="15" fill="#c9c93c" rx="2" ry="2"/>
+<text x="1126.8" y="318.0">D..</text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (1,214 samples, 2.23%)</title><rect x="1123.9" y="291.0" width="26.4" height="15" fill="#fb7c7c" rx="2" ry="2"/>
+<text x="1126.9" y="302.0">_..</text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (301 samples, 0.55%)</title><rect x="1150.3" y="307.0" width="6.5" height="15" fill="#e35c5c" rx="2" ry="2"/>
+<text x="1153.3" y="318.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::young_process_roots(StrongRootsScope*, OopsInGenClosure*, OopsInGenClosure*, CLDClosure*) (863 samples, 1.59%)</title><rect x="1156.9" y="355.0" width="18.7" height="15" fill="#c8c83c" rx="2" ry="2"/>
+<text x="1159.9" y="366.0"></text>
+</g>
+<g>
+<title>CardGeneration::younger_refs_iterate(OopsInGenClosure*, unsigned int) (25 samples, 0.05%)</title><rect x="1156.9" y="339.0" width="0.5" height="15" fill="#e3e345" rx="2" ry="2"/>
+<text x="1159.9" y="350.0"></text>
+</g>
+<g>
+<title>CardTableRS::younger_refs_in_space_iterate(Space*, OopsInGenClosure*, unsigned int) (25 samples, 0.05%)</title><rect x="1156.9" y="323.0" width="0.5" height="15" fill="#d9d941" rx="2" ry="2"/>
+<text x="1159.9" y="334.0"></text>
+</g>
+<g>
+<title>ClearNoncleanCardWrapper::do_MemRegion(MemRegion) (25 samples, 0.05%)</title><rect x="1156.9" y="307.0" width="0.5" height="15" fill="#cdcd3d" rx="2" ry="2"/>
+<text x="1159.9" y="318.0"></text>
+</g>
+<g>
+<title>DirtyCardToOopClosure::do_MemRegion(MemRegion) (13 samples, 0.02%)</title><rect x="1157.1" y="291.0" width="0.3" height="15" fill="#cccc3d" rx="2" ry="2"/>
+<text x="1160.1" y="302.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::process_roots(StrongRootsScope*, GenCollectedHeap::ScanningOption, OopClosure*, CLDClosure*, CLDClosure*, CodeBlobToOopClosure*) (838 samples, 1.54%)</title><rect x="1157.4" y="339.0" width="18.2" height="15" fill="#d3d33f" rx="2" ry="2"/>
+<text x="1160.4" y="350.0"></text>
+</g>
+<g>
+<title>Threads::possibly_parallel_oops_do(bool, OopClosure*, CodeBlobClosure*) (838 samples, 1.54%)</title><rect x="1157.4" y="323.0" width="18.2" height="15" fill="#e3e345" rx="2" ry="2"/>
+<text x="1160.4" y="334.0"></text>
+</g>
+<g>
+<title>JavaThread::oops_do(OopClosure*, CodeBlobClosure*) (837 samples, 1.54%)</title><rect x="1157.4" y="307.0" width="18.2" height="15" fill="#e0e044" rx="2" ry="2"/>
+<text x="1160.4" y="318.0"></text>
+</g>
+<g>
+<title>FastScanClosure::do_oop(oopDesc**) (151 samples, 0.28%)</title><rect x="1157.5" y="291.0" width="3.3" height="15" fill="#d2d23f" rx="2" ry="2"/>
+<text x="1160.5" y="302.0"></text>
+</g>
+<g>
+<title>DefNewGeneration::copy_to_survivor_space(oopDesc*) (17 samples, 0.03%)</title><rect x="1157.5" y="275.0" width="0.4" height="15" fill="#d8d841" rx="2" ry="2"/>
+<text x="1160.5" y="286.0"></text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (17 samples, 0.03%)</title><rect x="1157.5" y="259.0" width="0.4" height="15" fill="#f27171" rx="2" ry="2"/>
+<text x="1160.5" y="270.0"></text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (133 samples, 0.24%)</title><rect x="1157.9" y="275.0" width="2.9" height="15" fill="#ee6c6c" rx="2" ry="2"/>
+<text x="1160.9" y="286.0"></text>
+</g>
+<g>
+<title>frame::oops_do_internal(OopClosure*, CodeBlobClosure*, RegisterMap*, bool) (650 samples, 1.19%)</title><rect x="1160.9" y="291.0" width="14.1" height="15" fill="#dcdc42" rx="2" ry="2"/>
+<text x="1163.9" y="302.0"></text>
+</g>
+<g>
+<title>OopMapSet::oops_do(frame const*, RegisterMap const*, OopClosure*) (650 samples, 1.19%)</title><rect x="1160.9" y="275.0" width="14.1" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="1163.9" y="286.0"></text>
+</g>
+<g>
+<title>FastScanClosure::do_oop(oopDesc**) (644 samples, 1.18%)</title><rect x="1161.0" y="259.0" width="13.9" height="15" fill="#d7d741" rx="2" ry="2"/>
+<text x="1164.0" y="270.0"></text>
+</g>
+<g>
+<title>DefNewGeneration::copy_to_survivor_space(oopDesc*) (185 samples, 0.34%)</title><rect x="1161.0" y="243.0" width="4.0" height="15" fill="#dede43" rx="2" ry="2"/>
+<text x="1164.0" y="254.0"></text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (182 samples, 0.33%)</title><rect x="1161.1" y="227.0" width="3.9" height="15" fill="#ea6666" rx="2" ry="2"/>
+<text x="1164.1" y="238.0"></text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (456 samples, 0.84%)</title><rect x="1165.0" y="243.0" width="9.9" height="15" fill="#fe8181" rx="2" ry="2"/>
+<text x="1168.0" y="254.0"></text>
+</g>
+<g>
+<title>frame::oops_interpreted_do(OopClosure*, RegisterMap const*, bool) (13 samples, 0.02%)</title><rect x="1175.0" y="291.0" width="0.3" height="15" fill="#d9d941" rx="2" ry="2"/>
+<text x="1178.0" y="302.0"></text>
+</g>
+<g>
+<title>TenuredGeneration::collect(bool, bool, unsigned long, bool) (639 samples, 1.17%)</title><rect x="1175.8" y="371.0" width="13.9" height="15" fill="#e2e244" rx="2" ry="2"/>
+<text x="1178.8" y="382.0"></text>
+</g>
+<g>
+<title>GenMarkSweep::invoke_at_safepoint(ReferenceProcessor*, bool) (639 samples, 1.17%)</title><rect x="1175.8" y="355.0" width="13.9" height="15" fill="#dede43" rx="2" ry="2"/>
+<text x="1178.8" y="366.0"></text>
+</g>
+<g>
+<title>GenMarkSweep::mark_sweep_phase1(bool) (101 samples, 0.19%)</title><rect x="1175.8" y="339.0" width="2.2" height="15" fill="#dada42" rx="2" ry="2"/>
+<text x="1178.8" y="350.0"></text>
+</g>
+<g>
+<title>CodeCache::do_unloading(BoolObjectClosure*, bool) (21 samples, 0.04%)</title><rect x="1175.9" y="323.0" width="0.4" height="15" fill="#c9c93c" rx="2" ry="2"/>
+<text x="1178.9" y="334.0"></text>
+</g>
+<g>
+<title>nmethod::do_unloading(bool) (21 samples, 0.04%)</title><rect x="1175.9" y="307.0" width="0.4" height="15" fill="#dede43" rx="2" ry="2"/>
+<text x="1178.9" y="318.0"></text>
+</g>
+<g>
+<title>.annobin__ZN14CompiledMethod21unload_nmethod_cachesEb.start (14 samples, 0.03%)</title><rect x="1175.9" y="291.0" width="0.3" height="15" fill="#f97b7b" rx="2" ry="2"/>
+<text x="1178.9" y="302.0"></text>
+</g>
+<g>
+<title>CompiledMethod::cleanup_inline_caches_impl(bool, bool) (14 samples, 0.03%)</title><rect x="1175.9" y="275.0" width="0.3" height="15" fill="#e3e345" rx="2" ry="2"/>
+<text x="1178.9" y="286.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::full_process_roots(StrongRootsScope*, bool, GenCollectedHeap::ScanningOption, bool, OopsInGenClosure*, CLDClosure*) (76 samples, 0.14%)</title><rect x="1176.3" y="323.0" width="1.7" height="15" fill="#e2e244" rx="2" ry="2"/>
+<text x="1179.3" y="334.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::process_roots(StrongRootsScope*, GenCollectedHeap::ScanningOption, OopClosure*, CLDClosure*, CLDClosure*, CodeBlobToOopClosure*) (76 samples, 0.14%)</title><rect x="1176.3" y="307.0" width="1.7" height="15" fill="#e0e044" rx="2" ry="2"/>
+<text x="1179.3" y="318.0"></text>
+</g>
+<g>
+<title>Threads::possibly_parallel_oops_do(bool, OopClosure*, CodeBlobClosure*) (76 samples, 0.14%)</title><rect x="1176.3" y="291.0" width="1.7" height="15" fill="#e5e545" rx="2" ry="2"/>
+<text x="1179.3" y="302.0"></text>
+</g>
+<g>
+<title>JavaThread::oops_do(OopClosure*, CodeBlobClosure*) (76 samples, 0.14%)</title><rect x="1176.3" y="275.0" width="1.7" height="15" fill="#dede43" rx="2" ry="2"/>
+<text x="1179.3" y="286.0"></text>
+</g>
+<g>
+<title>MarkSweep::follow_stack() (68 samples, 0.13%)</title><rect x="1176.4" y="259.0" width="1.5" height="15" fill="#e3e345" rx="2" ry="2"/>
+<text x="1179.4" y="270.0"></text>
+</g>
+<g>
+<title>.annobin__ZN21OopOopIterateDispatchI18MarkAndPushClosureE5Table15oop_oop_iterateI13InstanceKlassjEEvPS0_P7oopDescP5Klass.start (38 samples, 0.07%)</title><rect x="1176.5" y="243.0" width="0.9" height="15" fill="#fe8181" rx="2" ry="2"/>
+<text x="1179.5" y="254.0"></text>
+</g>
+<g>
+<title>GenMarkSweep::mark_sweep_phase2() (26 samples, 0.05%)</title><rect x="1178.0" y="339.0" width="0.6" height="15" fill="#dcdc42" rx="2" ry="2"/>
+<text x="1181.0" y="350.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::prepare_for_compaction() (26 samples, 0.05%)</title><rect x="1178.0" y="323.0" width="0.6" height="15" fill="#d6d640" rx="2" ry="2"/>
+<text x="1181.0" y="334.0"></text>
+</g>
+<g>
+<title>Generation::prepare_for_compaction(CompactPoint*) (26 samples, 0.05%)</title><rect x="1178.0" y="307.0" width="0.6" height="15" fill="#cccc3d" rx="2" ry="2"/>
+<text x="1181.0" y="318.0"></text>
+</g>
+<g>
+<title>ContiguousSpace::prepare_for_compaction(CompactPoint*) (25 samples, 0.05%)</title><rect x="1178.0" y="291.0" width="0.6" height="15" fill="#e0e044" rx="2" ry="2"/>
+<text x="1181.0" y="302.0"></text>
+</g>
+<g>
+<title>CompactibleSpace::forward(oopDesc*, unsigned long, CompactPoint*, HeapWordImpl**) (14 samples, 0.03%)</title><rect x="1178.2" y="275.0" width="0.3" height="15" fill="#e2e244" rx="2" ry="2"/>
+<text x="1181.2" y="286.0"></text>
+</g>
+<g>
+<title>GenMarkSweep::mark_sweep_phase3() (48 samples, 0.09%)</title><rect x="1178.6" y="339.0" width="1.0" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="1181.6" y="350.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::full_process_roots(StrongRootsScope*, bool, GenCollectedHeap::ScanningOption, bool, OopsInGenClosure*, CLDClosure*) (15 samples, 0.03%)</title><rect x="1178.6" y="323.0" width="0.3" height="15" fill="#dbdb42" rx="2" ry="2"/>
+<text x="1181.6" y="334.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::generation_iterate(GenCollectedHeap::GenClosure*, bool) (33 samples, 0.06%)</title><rect x="1178.9" y="323.0" width="0.7" height="15" fill="#cfcf3e" rx="2" ry="2"/>
+<text x="1181.9" y="334.0"></text>
+</g>
+<g>
+<title>Generation::adjust_pointers() (33 samples, 0.06%)</title><rect x="1178.9" y="307.0" width="0.7" height="15" fill="#dada42" rx="2" ry="2"/>
+<text x="1181.9" y="318.0"></text>
+</g>
+<g>
+<title>.annobin__ZN21OopOopIterateDispatchI20AdjustPointerClosureE5Table15oop_oop_iterateI13InstanceKlassjEEvPS0_P7oopDescP5Klass.start (15 samples, 0.03%)</title><rect x="1178.9" y="291.0" width="0.3" height="15" fill="#e76363" rx="2" ry="2"/>
+<text x="1181.9" y="302.0"></text>
+</g>
+<g>
+<title>CompactibleSpace::adjust_pointers() (13 samples, 0.02%)</title><rect x="1179.3" y="291.0" width="0.3" height="15" fill="#dddd43" rx="2" ry="2"/>
+<text x="1182.3" y="302.0"></text>
+</g>
+<g>
+<title>GenMarkSweep::mark_sweep_phase4() (460 samples, 0.85%)</title><rect x="1179.6" y="339.0" width="10.0" height="15" fill="#d1d13f" rx="2" ry="2"/>
+<text x="1182.6" y="350.0"></text>
+</g>
+<g>
+<title>.annobin__ZN10Generation7compactEv.start (93 samples, 0.17%)</title><rect x="1179.6" y="323.0" width="2.0" height="15" fill="#ea6767" rx="2" ry="2"/>
+<text x="1182.6" y="334.0"></text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (93 samples, 0.17%)</title><rect x="1179.6" y="307.0" width="2.0" height="15" fill="#e76363" rx="2" ry="2"/>
+<text x="1182.6" y="318.0"></text>
+</g>
+<g>
+<title>GenCollectedHeap::generation_iterate(GenCollectedHeap::GenClosure*, bool) (367 samples, 0.67%)</title><rect x="1181.6" y="323.0" width="8.0" height="15" fill="#caca3c" rx="2" ry="2"/>
+<text x="1184.6" y="334.0"></text>
+</g>
+<g>
+<title>.annobin__ZN10Generation7compactEv.start (367 samples, 0.67%)</title><rect x="1181.6" y="307.0" width="8.0" height="15" fill="#f37373" rx="2" ry="2"/>
+<text x="1184.6" y="318.0"></text>
+</g>
+<g>
+<title>__memcpy_avx_unaligned_erms (365 samples, 0.67%)</title><rect x="1181.6" y="291.0" width="8.0" height="15" fill="#e76262" rx="2" ry="2"/>
+<text x="1184.6" y="302.0"></text>
+</g>
+</g>
+</svg>

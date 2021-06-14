@@ -1,0 +1,87 @@
+source:
+  - url: git::https://github.com/flokkr/docker-ozone.git
+import:
+    - path: ozone
+transformations:
+  - type: ozone/image
+    image: localhost:32100/elek/ozone-dev:159fb248a
+  - type: PublishService
+  - type: placement
+  - type: hostpath
+    path: /data
+  - type: dataconfig
+  - type: add
+    trigger:
+      metadata:
+        name: ozone-config
+    path:
+      - data
+    value:
+      HADOOP_OPTS: -XX:ParallelGCThreads=8
+  - type: add
+    trigger:
+      metadata:
+        name: ozone-config
+    path:
+     - data
+    value:
+      SLEEP_AFTER_SECONDS: infinity
+  - type: remove
+    path:
+      - spec
+      - template
+      - spec
+      - initContainers
+  - type: replace
+    trigger:
+      metadata:
+        name: ozone-scm
+    path:
+      - spec
+      - template
+      - spec
+      - containers
+      - .*
+      - args
+    value:
+      - ozone
+      - freon
+      - cgscm
+      - -n
+      - "20480"
+  - type: replace
+    trigger:
+      metadata:
+        name: ozone-om
+    path:
+      - spec
+      - template
+      - spec
+      - containers
+      - .*
+      - args
+    value:
+      - ozone
+      - freon
+      - cgom
+      - -n
+      - "20480"
+  - type: replace
+    trigger:
+      metadata:
+        name: ozone-datanode
+    path:
+      - spec
+      - template
+      - spec
+      - containers
+      - .*
+      - args
+    value:
+      - ozone
+      - freon
+      - cgdn
+      - -n
+      - "20480"
+      - -t
+      - "48"
