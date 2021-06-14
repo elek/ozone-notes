@@ -1,0 +1,42 @@
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ozone-recon
+  labels:
+    app: ozone
+    component: recon
+spec:
+  selector:
+    matchLabels:
+      app: ozone
+      component: recon
+  serviceName: ozone-recon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ozone
+        component: recon
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9888"
+        prometheus.io/path: /prom
+    spec:
+      containers:
+      - name: recon
+        image: localhost:32100/elek/ozone-dev:7365f19ea
+        args:
+        - ozone
+        - recon
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        envFrom:
+        - configMapRef:
+            name: ozone-config
+      volumes:
+      - name: data
+        hostPath:
+          path: /data
+      initContainers: []
